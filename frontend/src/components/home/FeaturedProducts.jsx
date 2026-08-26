@@ -1,10 +1,341 @@
-import React from "react";
+import React, { useRef } from "react";
+
+const products = [
+  {
+    id: 1,
+    title: "Breath Freshener",
+    category: "Oral Hygiene",
+    image: "/home product/1.jpeg",
+    flavor: "Spearmint Flavor",
+  },
+  {
+    id: 2,
+    title: "Silenzz",
+    category: "Sleep & Relaxation",
+    image: "/home product/2.jpeg",
+    flavor: "Peppermint Flavor",
+  },
+  {
+    id: 3,
+    title: "Meltacid",
+    category: "Antacid & Digestion",
+    image: "/home product/3.jpeg",
+    flavor: "Spearmint Flavor",
+  },
+  {
+    id: 4,
+    title: "Quikoff",
+    category: "Herbal Cough & Throat",
+    image: "/home product/4.jpeg",
+    flavor: "Raspberry Flavor",
+  },
+  {
+    id: 5,
+    title: "Energizz",
+    category: "Energy & Focus",
+    image: "/home product/5.jpeg",
+    flavor: "Citrus Orange Flavor",
+  },
+  {
+    id: 6,
+    title: "ImmunoBoost",
+    category: "Immunity & Wellness",
+    image: "/home product/6.jpeg",
+    flavor: "Berry Blast Flavor",
+  },
+];
 
 const FeaturedProducts = () => {
+  const scrollRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = 320;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section className="featured-products-section">
-      <div className="container">
-        <h2>Featured Products</h2>
+    <section
+      style={{
+        padding: "100px 0 110px",
+        backgroundColor: "#ffffff",
+        fontFamily: "'Montserrat', sans-serif",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 30px" }}>
+
+        {/* =========================
+            HEADER SECTION
+        ========================== */}
+        <div style={{ maxWidth: "750px", marginBottom: "60px" }}>
+          <h2
+            style={{
+              fontSize: "clamp(34px, 4.2vw, 56px)",
+              fontWeight: 600,
+              color: "#1e293b",
+              lineHeight: 1.15,
+              letterSpacing: "-0.03em",
+              margin: 0,
+            }}
+          >
+            Explore Our Advanced{" "}
+            <span style={{ color: "#f3b63f" }}>Oral</span>
+
+            <span style={{ color: "#f3b63f" }}>Film Portfolio</span>
+          </h2>
+
+          <p
+            style={{
+              fontSize: "16px",
+              lineHeight: 1.65,
+              color: "#64748b",
+              marginTop: "20px",
+              fontWeight: 400,
+              maxWidth: "560px",
+            }}
+          >
+            Precision-engineered oral dissolving strips formulated for instant
+            sublingual absorption, maximum bioavailability, and water-free
+            convenience.
+          </p>
+        </div>
+
+        {/* =========================
+            PRODUCTS CAROUSEL ROW
+        ========================== */}
+        <div
+          ref={scrollRef}
+          style={{
+            display: "flex",
+            gap: "24px",
+            overflowX: "auto",
+            scrollSnapType: "x mandatory",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            paddingBottom: "20px",
+          }}
+          className="hide-scrollbar"
+        >
+          <style>{`
+            .hide-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+
+          {products.map((product) => (
+            <div
+              key={product.id}
+              style={{
+                flex: "0 0 285px",
+                scrollSnapAlign: "start",
+                backgroundColor: "#fbfbfc",
+                borderRadius: "20px",
+                padding: "24px 22px 22px",
+                border: "1px solid rgba(226, 232, 240, 0.9)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "410px",
+                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow = "0 14px 32px rgba(243, 182, 63, 0.12)";
+                e.currentTarget.style.borderColor = "rgba(243, 182, 63, 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.02)";
+                e.currentTarget.style.borderColor = "rgba(226, 232, 240, 0.9)";
+              }}
+            >
+              {/* Product Info Header */}
+              <div>
+                <h3
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: 700,
+                    color: "#1e293b",
+                    margin: 0,
+                    lineHeight: 1.25,
+                  }}
+                >
+                  {product.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "13px",
+                    color: "#64748b",
+                    margin: "6px 0 0",
+                    fontWeight: 500,
+                  }}
+                >
+                  {product.category}
+                </p>
+              </div>
+
+              {/* Product Image Box (Ready for your product image) */}
+              <div
+                style={{
+                  width: "100%",
+                  height: "220px",
+                  margin: "18px 0",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: "14px",
+                  backgroundColor: "#f1f5f9",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                ) : (
+                  <img
+                    src=""
+                    alt={product.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
+                )}
+              </div>
+
+              {/* Bottom Flavor Label */}
+              <div>
+                <p
+                  style={{
+                    fontSize: "13.5px",
+                    color: "#475569",
+                    fontWeight: 500,
+                    margin: 0,
+                  }}
+                >
+                  {product.flavor}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* =========================
+            CAROUSEL CONTROLS (Bottom Right)
+        ========================== */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            gap: "14px",
+            marginTop: "35px",
+          }}
+        >
+          {/* Left Arrow Button */}
+          <button
+            type="button"
+            onClick={() => handleScroll("left")}
+            aria-label="Previous products"
+            style={{
+              width: "46px",
+              height: "46px",
+              borderRadius: "50%",
+              backgroundColor: "#ffffff",
+              border: "1.5px solid #cbd5e1",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "#334155",
+              transition: "all 0.25s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#f3b63f";
+              e.currentTarget.style.backgroundColor = "#fefce8";
+              e.currentTarget.style.color = "#d97706";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "#cbd5e1";
+              e.currentTarget.style.backgroundColor = "#ffffff";
+              e.currentTarget.style.color = "#334155";
+            }}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            type="button"
+            onClick={() => handleScroll("right")}
+            aria-label="Next products"
+            style={{
+              width: "46px",
+              height: "46px",
+              borderRadius: "50%",
+              backgroundColor: "#ffffff",
+              border: "1.5px solid #cbd5e1",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              color: "#334155",
+              transition: "all 0.25s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#f3b63f";
+              e.currentTarget.style.backgroundColor = "#fefce8";
+              e.currentTarget.style.color = "#d97706";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "#cbd5e1";
+              e.currentTarget.style.backgroundColor = "#ffffff";
+              e.currentTarget.style.color = "#334155";
+            }}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+
       </div>
     </section>
   );

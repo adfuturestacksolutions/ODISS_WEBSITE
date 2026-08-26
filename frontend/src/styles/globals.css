@@ -74,7 +74,7 @@ li {
 
 html {
   scroll-behavior: smooth;
-  
+  overflow-x: clip;
   max-width: 100%;
 }
 
@@ -89,7 +89,7 @@ body,
 
 body {
   min-width: 320px;
- 
+  overflow-x: clip;
 
   background: var(--odiss-cream);
   color: var(--odiss-dark);

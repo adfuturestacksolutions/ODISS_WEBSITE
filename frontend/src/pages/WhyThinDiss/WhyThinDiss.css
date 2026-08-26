@@ -6,7 +6,7 @@
   --dark: #1F1F1F;
   --text: #4A4A4A;
   --muted: #888888;
-  --cream: #FAF9F6;
+  --cream: #ffffff;
   font-family: 'Montserrat', sans-serif;
   width: 100%;
   overflow-x: clip; /* Fixes sticky issues globally */

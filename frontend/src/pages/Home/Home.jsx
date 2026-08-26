@@ -10,8 +10,9 @@ const Home = () => {
     <main className="home-page">
       <Hero />
       <CompanyIntro />
-      <FeaturedProducts />
       <WhyOdissHome />
+      <FeaturedProducts />
+
       <CTASection />
     </main>
   );

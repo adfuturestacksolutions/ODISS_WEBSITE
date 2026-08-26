@@ -25,7 +25,7 @@ const Navbar = () => {
           (desktop nav vs. mobile hamburger toggle)
       ========================== */}
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .navbar-desktop-nav {
             display: none !important;
           }
@@ -33,7 +33,7 @@ const Navbar = () => {
             display: flex !important;
           }
         }
-        @media (min-width: 901px) {
+        @media (min-width: 961px) {
           .navbar-desktop-nav {
             display: flex !important;
           }
@@ -52,7 +52,7 @@ const Navbar = () => {
           top: 0,
           zIndex: 999,
           width: "100%",
-          backgroundColor: "rgba(255, 252, 246, 0.94)",
+          backgroundColor: "rgba(255, 255, 255, 0.95)",
           borderBottom: "1px solid rgba(36, 36, 36, 0.08)",
           backdropFilter: "blur(18px)",
           WebkitBackdropFilter: "blur(18px)",
@@ -125,7 +125,7 @@ const Navbar = () => {
                     alignItems: "center",
                     padding: "6px 0",
                     color: active ? "#d99b2f" : "#242424",
-                    fontSize: "15px",
+                    fontSize: "16.5px",
                     fontWeight: 500,
                     lineHeight: 1.4,
                     letterSpacing: "-0.01em",
@@ -208,7 +208,7 @@ const Navbar = () => {
               left: 0,
               right: 0,
               top: "75px",
-              backgroundColor: "#fffdf8",
+              backgroundColor: "#ffffff",
               borderBottom: "1px solid rgba(36, 36, 36, 0.1)",
               boxShadow: "0 12px 30px rgba(0, 0, 0, 0.08)",
               zIndex: 10,

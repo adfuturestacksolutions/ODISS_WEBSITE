@@ -10,7 +10,7 @@ const Hero = () => {
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        backgroundColor: "#fcf9f2",
+        backgroundColor: "#ffffff",
         padding: "40px 0 80px",
         fontFamily: "'Montserrat', sans-serif",
       }}
@@ -114,11 +114,11 @@ const Hero = () => {
             style={{
               position: "absolute",
               top: "380px",
-              left: "340px",
+              right: "20px",
               display: "flex",
               flexDirection: "column",
               gap: "28px",
-              maxWidth: "520px",
+              maxWidth: "500px",
             }}
           >
             <p
@@ -182,8 +182,8 @@ const Hero = () => {
         }}
       >
         {/* Fade edges into hero background */}
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "120px", background: "linear-gradient(to right, #fcf9f2, transparent)", zIndex: 2, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "120px", background: "linear-gradient(to left, #fcf9f2, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "120px", background: "linear-gradient(to right, #ffffff, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "120px", background: "linear-gradient(to left, #ffffff, transparent)", zIndex: 2, pointerEvents: "none" }} />
 
         {/* Scrolling Track — doubled for seamless loop */}
         <div
