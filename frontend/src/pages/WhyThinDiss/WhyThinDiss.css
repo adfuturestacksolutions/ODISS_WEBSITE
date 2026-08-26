@@ -7,9 +7,10 @@
   --text: #4A4A4A;
   --muted: #888888;
   --cream: #FAF9F6;
+  --cream-dark: #F0EBE1; /* Used for table highlight */
   font-family: 'Montserrat', sans-serif;
   width: 100%;
-  overflow-x: clip; /* Fixes sticky issues globally */
+  overflow-x: clip; 
   background: var(--cream);
   color: var(--text);
 }
@@ -38,21 +39,28 @@
 }
 
 /* =========================================================
-   IMMERSIVE HERO SECTION
+   COMBINED HERO & INNOVATION SECTION
 ========================================================= */
-.thindiss-hero-immersive {
+.thindiss-combined-hero {
   position: relative;
-  min-height: 85vh;
+  width: 100%;
+  background: #F4F6F6; /* Matches the bottom part */
+  padding-bottom: 100px;
+}
+
+/* Top Hero Part */
+.hero-top-half {
+  position: relative;
+  min-height: 60vh; /* Reduced height from 85vh */
   display: flex;
   align-items: center;
-  background: var(--cream);
   overflow: hidden;
 }
 
 .hero-immersive-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/hero-bg.png'); /* Adjust your image path here */
+  background-image: url('/hero-video.mp4'); /* Placeholder for the video background */
   background-size: cover;
   background-position: center left;
   z-index: 1;
@@ -63,12 +71,22 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    90deg, 
+    180deg, 
     rgba(250, 249, 246, 0) 0%, 
-    rgba(250, 249, 246, 0.4) 40%, 
-    rgba(250, 249, 246, 0.95) 75%, 
-    rgba(250, 249, 246, 1) 100%
+    rgba(250, 249, 246, 0.4) 60%, 
+    #F4F6F6 100% /* Blends smoothly into the cards section */
   );
+}
+@media (min-width: 981px) {
+  .hero-immersive-bg::after {
+    background: linear-gradient(
+      90deg, 
+      rgba(244, 246, 246, 0) 0%, 
+      rgba(244, 246, 246, 0.5) 40%, 
+      rgba(244, 246, 246, 0.95) 75%, 
+      #F4F6F6 100%
+    );
+  }
 }
 
 .hero-immersive-container {
@@ -78,7 +96,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: flex-end;
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .hero-content-right {
@@ -130,21 +148,19 @@
   transform: translateY(-2px);
 }
 
-/* =========================================================
-   INNOVATION SECTION (FIXED CARDS & INFINITE SCROLL)
-========================================================= */
-.innovation-section {
-  --cards-to-show: 4; /* Dynamic CSS variable for infinite translation */
-  padding: 100px 5%;
-  background: #F4F6F6; /* Made background slightly darker so white cards POP */
-  text-align: center;
-  overflow: hidden; 
+/* Bottom Innovation Part */
+.hero-bottom-innovation {
+  position: relative;
+  z-index: 10;
+  margin-top: -60px; /* Pulls the cards up to overlap the hero slightly */
+  padding: 0 5%;
 }
 
 .innovation-header h2 {
   font-size: 36px;
   color: var(--dark);
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .carousel-wrapper {
@@ -187,22 +203,22 @@
 }
 
 .innovation-card-wrapper {
-  /* This exactly distributes the cards based on screen size */
+  --cards-to-show: 4;
   flex: 0 0 calc(100% / var(--cards-to-show));
-  padding: 0 12px; /* Spacing between cards */
+  padding: 0 12px;
   box-sizing: border-box;
 }
 
-/* THE NEW CARD LOOK (Outer Box, Shadow, Border) */
 .innovation-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   padding: 45px 25px;
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.08); /* Outer Box Border */
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Beautiful drop shadow */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
 }
@@ -263,6 +279,7 @@
   border-radius: 4px;
 }
 
+
 /* =========================================================
    PROCESS SECTION (STICKY CROSSFADE)
 ========================================================= */
@@ -287,11 +304,20 @@
 
 .process-header {
   margin-bottom: 40px;
+  max-width: 900px;
 }
 
 .process-header h2 {
   font-size: 40px;
   color: var(--dark);
+  margin-bottom: 15px;
+}
+
+.process-intro-paragraph {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 700px;
 }
 
 .process-content-area {
@@ -335,7 +361,7 @@
 
 .process-text-area {
   position: relative;
-  height: 200px;
+  height: 180px;
 }
 
 .process-dynamic-text {
@@ -375,7 +401,7 @@
 
 .process-pagination {
   position: absolute;
-  bottom: -40px;
+  bottom: -30px;
   left: 0;
   display: flex;
   gap: 10px;
@@ -394,6 +420,119 @@
 }
 
 /* =========================================================
+   COMPARISON TABLE SECTION
+========================================================= */
+.comparison-section {
+  padding: 100px 5%;
+  background: #ffffff;
+}
+
+.comparison-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.comparison-container h2 {
+  font-size: 36px;
+  color: var(--dark);
+  margin-bottom: 50px;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+  border-radius: 12px;
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  background: #F8FBFF;
+}
+
+.comparison-table th, .comparison-table td {
+  padding: 24px 20px;
+  text-align: center;
+  border-bottom: 1px solid #EAEAEA;
+  font-size: 16px;
+  color: var(--dark);
+}
+
+.comparison-table th {
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.th-feature, .td-feature {
+  text-align: left !important;
+  font-weight: 600;
+  width: 25%;
+}
+
+/* Highlight the ThinDiss Column */
+.th-thindiss, .td-thindiss {
+  background: var(--cream-dark);
+}
+
+.th-thindiss {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.brand-name {
+  color: #2F9C95; /* Teal brand color like reference */
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand-sub {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.emoji-icon {
+  font-size: 24px;
+  display: block;
+  margin-top: 8px;
+}
+
+.icon-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #4A90E2;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.icon-cross {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #A0AAB2;
+  color: #A0AAB2;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+/* =========================================================
    PARTNER SECTION
 ========================================================= */
 .partner-section {
@@ -402,7 +541,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 8%;
   align-items: center;
-  background: #fff;
+  background: var(--cream);
 }
 
 .partner-content h2 {
@@ -445,27 +584,30 @@
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN (Sets Cards to show correctly)
+   RESPONSIVE DESIGN 
 ========================================================= */
 @media (max-width: 1200px) {
-  .innovation-section {
+  .innovation-card-wrapper {
     --cards-to-show: 3;
   }
 }
 
 @media (max-width: 980px) {
+  .hero-top-half {
+    min-height: 50vh;
+  }
   .hero-immersive-bg::after {
     background: linear-gradient(
       180deg, 
       rgba(250, 249, 246, 0) 0%, 
       rgba(250, 249, 246, 0.8) 40%, 
-      rgba(250, 249, 246, 1) 70%
+      #F4F6F6 100%
     );
   }
   .hero-immersive-container {
     justify-content: center;
     align-items: flex-end;
-    padding-top: 250px;
+    padding-top: 150px;
   }
   .hero-content-right {
     text-align: center;
@@ -475,13 +617,16 @@
     justify-content: center;
   }
   
-  .innovation-section {
+  .innovation-card-wrapper {
     --cards-to-show: 2;
   }
 }
 
 @media (max-width: 768px) {
-  .innovation-section {
+  .hero-top-half {
+    min-height: 60vh;
+  }
+  .innovation-card-wrapper {
     --cards-to-show: 1;
   }
 
@@ -503,6 +648,10 @@
   .process-pagination {
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .comparison-container h2 {
+    font-size: 28px;
   }
 
   .partner-section {
