@@ -1,0 +1,511 @@
+/* =========================================================
+   WHY THINDISS GLOBALS
+========================================================= */
+.why-thindiss-page {
+  --brand: #F4B83F;
+  --dark: #1F1F1F;
+  --text: #4A4A4A;
+  --muted: #888888;
+  --cream: #FAF9F6;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  overflow-x: clip; /* Fixes sticky issues globally */
+  background: var(--cream);
+  color: var(--text);
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.section-label > span:first-child,
+.section-label.centered > span:last-child {
+  width: 30px;
+  height: 2px;
+  background: var(--brand);
+}
+
+.section-label.centered {
+  justify-content: center;
+}
+
+/* =========================================================
+   IMMERSIVE HERO SECTION
+========================================================= */
+.thindiss-hero-immersive {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.hero-immersive-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/public/hero-bg.png'); /* Adjust your image path here */
+  background-size: cover;
+  background-position: center left;
+  z-index: 1;
+}
+
+.hero-immersive-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(250, 249, 246, 0) 0%, 
+    rgba(250, 249, 246, 0.4) 40%, 
+    rgba(250, 249, 246, 0.95) 75%, 
+    rgba(250, 249, 246, 1) 100%
+  );
+}
+
+.hero-immersive-container {
+  position: relative;
+  z-index: 2;
+  width: min(1240px, calc(100% - 80px));
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 80px 0;
+}
+
+.hero-content-right {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content-right h1 {
+  font-size: clamp(42px, 5vw, 64px);
+  color: var(--dark);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.hero-content-right h1 span {
+  color: var(--brand);
+}
+
+.hero-content-right p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.outline-button-pill {
+  width: fit-content;
+  padding: 14px 28px;
+  border: 1px solid var(--dark);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.outline-button-pill:hover {
+  background: var(--dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   INNOVATION SECTION (FIXED CARDS & INFINITE SCROLL)
+========================================================= */
+.innovation-section {
+  --cards-to-show: 4; /* Dynamic CSS variable for infinite translation */
+  padding: 100px 5%;
+  background: #F4F6F6; /* Made background slightly darker so white cards POP */
+  text-align: center;
+  overflow: hidden; 
+}
+
+.innovation-header h2 {
+  font-size: 36px;
+  color: var(--dark);
+  margin-bottom: 60px;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.carousel-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #D5D5D5;
+  background: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  color: var(--dark);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.carousel-arrow:hover {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  transform: scale(1.05);
+}
+
+.innovation-carousel {
+  flex-grow: 1;
+  overflow: hidden;
+  width: 100%;
+}
+
+.innovation-track {
+  display: flex;
+  width: 100%;
+}
+
+.innovation-card-wrapper {
+  /* This exactly distributes the cards based on screen size */
+  flex: 0 0 calc(100% / var(--cards-to-show));
+  padding: 0 12px; /* Spacing between cards */
+  box-sizing: border-box;
+}
+
+/* THE NEW CARD LOOK (Outer Box, Shadow, Border) */
+.innovation-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px 25px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08); /* Outer Box Border */
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* Beautiful drop shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.innovation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border-color: rgba(244, 184, 63, 0.4);
+}
+
+.innovation-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(244, 184, 63, 0.1);
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 24px;
+  transition: transform 0.3s;
+}
+
+.innovation-card:hover .innovation-icon {
+  transform: scale(1.1);
+}
+
+.innovation-card h3 {
+  font-size: 17px;
+  color: var(--dark);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.innovation-card p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.carousel-progress-bar {
+  width: min(300px, 80%);
+  height: 3px;
+  background: #E0E0E0;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 4px;
+}
+
+.carousel-progress-bar span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--brand);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   PROCESS SECTION (STICKY CROSSFADE)
+========================================================= */
+.process-section-wrapper {
+  position: relative;
+  height: 300vh;
+  background: var(--cream);
+}
+
+.process-sticky-container {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+.process-header {
+  margin-bottom: 40px;
+}
+
+.process-header h2 {
+  font-size: 40px;
+  color: var(--dark);
+}
+
+.process-content-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  align-items: center;
+}
+
+.process-visual-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.process-circle-frame {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px dashed #ccc;
+  padding: 10px;
+}
+
+.process-dynamic-img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.process-dynamic-img.active {
+  opacity: 1;
+}
+
+.process-text-area {
+  position: relative;
+  height: 200px;
+}
+
+.process-dynamic-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.process-dynamic-text.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.step-number {
+  font-size: 16px;
+  color: var(--brand);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.process-dynamic-text h3 {
+  font-size: 32px;
+  color: var(--dark);
+  margin-bottom: 15px;
+}
+
+.process-dynamic-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.process-pagination {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.process-pagination .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  transition: background 0.3s ease;
+}
+
+.process-pagination .dot.active {
+  background: var(--brand);
+}
+
+/* =========================================================
+   PARTNER SECTION
+========================================================= */
+.partner-section {
+  padding: 100px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  align-items: center;
+  background: #fff;
+}
+
+.partner-content h2 {
+  font-size: 36px;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.partner-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.brand-button {
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.brand-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(244, 184, 63, 0.3);
+}
+
+.partner-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN (Sets Cards to show correctly)
+========================================================= */
+@media (max-width: 1200px) {
+  .innovation-section {
+    --cards-to-show: 3;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-immersive-bg::after {
+    background: linear-gradient(
+      180deg, 
+      rgba(250, 249, 246, 0) 0%, 
+      rgba(250, 249, 246, 0.8) 40%, 
+      rgba(250, 249, 246, 1) 70%
+    );
+  }
+  .hero-immersive-container {
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 250px;
+  }
+  .hero-content-right {
+    text-align: center;
+    align-items: center;
+  }
+  .hero-content-right .section-label {
+    justify-content: center;
+  }
+  
+  .innovation-section {
+    --cards-to-show: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .innovation-section {
+    --cards-to-show: 1;
+  }
+
+  .process-section-wrapper {
+    height: 250vh;
+  }
+  .process-content-area {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .process-circle-frame {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 30px;
+  }
+  .process-dynamic-text {
+    text-align: center;
+  }
+  .process-pagination {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .partner-section {
+    grid-template-columns: 1fr;
+  }
+}

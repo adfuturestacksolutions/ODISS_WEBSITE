@@ -137,7 +137,7 @@ ol {
 .app {
   min-height: 100vh;
 
-  overflow: hidden;
+  overflow: clip;
 
   background: var(--odiss-cream);
 }
@@ -1380,9 +1380,3 @@ ol {
   display: block;
 }
 
-.footer-agency span {
-  font-size: 11px;
-  font-weight: 500;
-  color: #ffffff;
-  white-space: nowrap;
-}
