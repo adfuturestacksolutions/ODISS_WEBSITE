@@ -1,17 +1,18 @@
 import React from "react";
+import Hero from "../../components/home/Hero";
+import CompanyIntro from "../../components/home/CompanyIntro";
+import FeaturedProducts from "../../components/home/FeaturedProducts";
+import WhyOdissHome from "../../components/home/WhyOdissHome";
+import CTASection from "../../components/home/CTASection";
 
 const Home = () => {
   return (
-    <main className="page-placeholder">
-
-      <span>ODISS</span>
-
-      <h1>
-        Better ideas.
-        <br />
-        Better solutions.
-      </h1>
-
+    <main className="home-page">
+      <Hero />
+      <CompanyIntro />
+      <FeaturedProducts />
+      <WhyOdissHome />
+      <CTASection />
     </main>
   );
 };
