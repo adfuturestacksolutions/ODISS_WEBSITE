@@ -118,24 +118,6 @@ function GetConnected() {
             Let&apos;s start a{" "}
             <span>conversation.</span>
           </h1>
-
-          <p>
-            Share your requirements with us and our team
-            <br className="desktop-break" />
-            will connect with you shortly.
-          </p>
-
-          <div className="universal-email">
-            <span className="email-icon">
-              <svg viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="m4 7 8 6 8-6" />
-              </svg>
-            </span>
-
-            <span>Universal Contact Email:</span>
-            <a href="mailto:info@odiss.in">info@odiss.in</a>
-          </div>
         </div>
       </section>
 
