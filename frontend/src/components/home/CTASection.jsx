@@ -49,19 +49,19 @@ const CTASection = () => {
   return (
     <section
       style={{
-        padding: "75px 0 85px",
+        padding: "45px 0 50px",
         backgroundColor: "#ffffff",
         fontFamily: "'Montserrat', sans-serif",
         borderTop: "1px solid rgba(36, 36, 36, 0.06)"
       }}
     >
-      <div style={{ maxWidth: "980px", margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: "860px", margin: "0 auto", padding: "0 20px" }}>
 
         {/* Section Header */}
-        <div style={{ textAlign: "center", marginBottom: "45px" }}>
+        <div style={{ textAlign: "center", marginBottom: "28px" }}>
           <h2
             style={{
-              fontSize: "clamp(30px, 3.4vw, 42px)",
+              fontSize: "clamp(24px, 2.6vw, 32px)",
               fontWeight: 700,
               color: "#1e293b",
               margin: 0,
@@ -71,13 +71,13 @@ const CTASection = () => {
           >
             Frequently Asked <span style={{ color: "#f3b63f" }}>Questions</span>
           </h2>
-          <p style={{ fontSize: "16px", color: "#64748b", maxWidth: "600px", margin: "12px auto 0", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "14px", color: "#64748b", maxWidth: "560px", margin: "6px auto 0", lineHeight: 1.5 }}>
             Quick answers to common questions about ODISS and ThinDiss™ oral strip technology.
           </p>
         </div>
 
         {/* FAQ Accordion List */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           {faqData.map((item, index) => {
             const isOpen = openIndex === index;
             return (
@@ -85,9 +85,9 @@ const CTASection = () => {
                 key={index}
                 style={{
                   backgroundColor: "#ffffff",
-                  borderRadius: "14px",
+                  borderRadius: "10px",
                   border: isOpen ? "1.5px solid #f3b63f" : "1px solid rgba(226, 232, 240, 0.9)",
-                  boxShadow: isOpen ? "0 8px 24px rgba(243, 182, 63, 0.12)" : "0 2px 8px rgba(0, 0, 0, 0.02)",
+                  boxShadow: isOpen ? "0 6px 18px rgba(243, 182, 63, 0.1)" : "0 2px 6px rgba(0, 0, 0, 0.02)",
                   transition: "all 0.25s ease",
                   overflow: "hidden",
                 }}
@@ -100,23 +100,23 @@ const CTASection = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "18px 24px",
+                    padding: "13px 18px",
                     background: "transparent",
                     border: "none",
                     cursor: "pointer",
                     textAlign: "left",
-                    gap: "20px",
+                    gap: "16px",
                   }}
                 >
-                  <h3 style={{ fontSize: "19px", fontWeight: 700, color: "#1e293b", margin: 0, lineHeight: 1.35, flex: 1 }}>
+                  <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#1e293b", margin: 0, lineHeight: 1.35, flex: 1 }}>
                     {item.question}
                   </h3>
 
                   {/* Toggle Arrow */}
                   <div
                     style={{
-                      width: "36px",
-                      height: "36px",
+                      width: "30px",
+                      height: "30px",
                       borderRadius: "50%",
                       background: isOpen ? "#f3b63f" : "#f8fafc",
                       display: "flex",
@@ -128,7 +128,7 @@ const CTASection = () => {
                       transition: "transform 0.25s ease, background 0.25s ease",
                     }}
                   >
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </div>
@@ -138,23 +138,23 @@ const CTASection = () => {
                 {isOpen && (
                   <div
                     style={{
-                      padding: "0 24px 24px",
+                      padding: "0 18px 16px",
                       borderTop: "1px solid #f8fafc",
                       display: "grid",
                       gridTemplateColumns: "1.4fr 1fr",
-                      gap: "24px",
+                      gap: "16px",
                       alignItems: "center"
                     }}
                   >
                     {/* Simplified Answer */}
                     <div>
-                      <p style={{ fontSize: "17px", color: "#334155", lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
+                      <p style={{ fontSize: "14.5px", color: "#334155", lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                         {item.answer}
                       </p>
                     </div>
 
                     {/* Image */}
-                    <div style={{ borderRadius: "12px", overflow: "hidden", height: "135px", boxShadow: "0 4px 14px rgba(0,0,0,0.06)", border: "1px solid #f1f5f9" }}>
+                    <div style={{ borderRadius: "10px", overflow: "hidden", height: "100px", boxShadow: "0 3px 10px rgba(0,0,0,0.05)", border: "1px solid #f1f5f9" }}>
                       <img
                         src={item.image}
                         alt={item.alt}
