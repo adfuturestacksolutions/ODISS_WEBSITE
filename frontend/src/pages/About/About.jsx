@@ -185,49 +185,48 @@ const About = () => {
         </div>
       </section>
 
-      {/* 5. PILLARS OF EXCELLENCE (New Extra Content) */}
-      <section className="about-section pillars-section">
+      {/* 5. SCIENTIFIC FOUNDATION (Bento Box Layout) */}
+      <section className="about-section bento-section">
         <div className="about-container">
-          <div className="pillars-header dissolve-in">
-            <span className="section-label">Our Standards</span>
-            <h2>Pillars of Excellence</h2>
-            <p>The core principles that drive our innovation and manufacturing processes.</p>
+          <div className="bento-header dissolve-in">
+            <span className="section-label">Our Core Focus</span>
+            <h2>Scientific Foundation</h2>
+            <p>The principles that drive our innovation and manufacturing.</p>
           </div>
           
-          <div className="pillars-feature-layout">
-            <div className="pillar-feature-block dissolve-in stagger-1">
-              <div className="pillar-feature-image">
+          <div className="bento-grid">
+            <div className="bento-card large-card dissolve-in stagger-1">
+              <div className="bento-image">
                 <img src="/new_pillar_precision_1787832855884.jpg" alt="Precision Formulation" />
-                <div className="image-overlay"></div>
               </div>
-              <div className="pillar-feature-content">
-                <span className="pillar-subtitle">01 / Formulation</span>
+              <div className="bento-content">
+                <span className="bento-category">Formulation</span>
                 <h3>Precision Formulation</h3>
                 <p>Advanced R&D capabilities ensuring exact dosing, optimal bioavailability, and exceptional stability across all environments.</p>
               </div>
             </div>
             
-            <div className="pillar-feature-block reverse dissolve-in stagger-2">
-              <div className="pillar-feature-image">
-                <img src="/new_pillar_quality_1787833011092.jpg" alt="Uncompromising Quality" />
-                <div className="image-overlay"></div>
+            <div className="bento-column-right">
+              <div className="bento-card small-card dissolve-in stagger-2">
+                <div className="bento-image">
+                  <img src="/about_hero_dynamic.jpg" alt="Uncompromising Quality" />
+                </div>
+                <div className="bento-content">
+                  <span className="bento-category">Standard</span>
+                  <h3>Uncompromising Quality</h3>
+                  <p>Operating under strict global manufacturing standards to deliver flawless, safe, and highly effective products every time.</p>
+                </div>
               </div>
-              <div className="pillar-feature-content">
-                <span className="pillar-subtitle">02 / Standard</span>
-                <h3>Uncompromising Quality</h3>
-                <p>Operating under strict global manufacturing standards to deliver flawless, safe, and highly effective products every single time.</p>
-              </div>
-            </div>
-            
-            <div className="pillar-feature-block dissolve-in stagger-3">
-              <div className="pillar-feature-image">
-                <img src="/new_pillar_patient_1787833063887.jpg" alt="Patient-Centricity" />
-                <div className="image-overlay"></div>
-              </div>
-              <div className="pillar-feature-content">
-                <span className="pillar-subtitle">03 / Experience</span>
-                <h3>Patient-Centricity</h3>
-                <p>Designing convenient, effortless formats that prioritize end-user compliance, comfort, and everyday lifestyle needs.</p>
+              
+              <div className="bento-card small-card dissolve-in stagger-3">
+                <div className="bento-image">
+                  <img src="/new_pillar_patient_1787833063887.jpg" alt="Patient-Centricity" />
+                </div>
+                <div className="bento-content">
+                  <span className="bento-category">Experience</span>
+                  <h3>Patient-Centricity</h3>
+                  <p>Designing convenient formats that prioritize end-user compliance and everyday lifestyle needs.</p>
+                </div>
               </div>
             </div>
           </div>
