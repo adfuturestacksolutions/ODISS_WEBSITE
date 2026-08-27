@@ -6,7 +6,7 @@ const CompanyIntro = () => {
       className="intro-section"
       style={{
         position: "relative",
-        padding: "90px 24px 100px",
+        padding: "clamp(50px, 6.5vw, 90px) clamp(16px, 3.5vw, 24px) clamp(55px, 7vw, 100px)",
         backgroundColor: "#ffffff",
         fontFamily: "'Montserrat', sans-serif",
         color: "#1e293b",
@@ -17,22 +17,22 @@ const CompanyIntro = () => {
       <style>{`
         .intro-main-grid {
           display: grid;
-          grid-template-columns: 1fr 1.35fr;
-          gap: clamp(36px, 4.5vw, 64px);
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+          gap: clamp(28px, 4vw, 60px);
           align-items: center;
         }
         @media (max-width: 992px) {
           .intro-section {
-            padding: 60px 20px 70px !important;
+            padding: 50px 18px 60px !important;
           }
           .intro-main-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 36px !important;
           }
         }
         @media (max-width: 600px) {
           .intro-section {
-            padding: 45px 16px 55px !important;
+            padding: 40px 14px 50px !important;
           }
         }
       `}</style>

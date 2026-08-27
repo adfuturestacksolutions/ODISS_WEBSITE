@@ -20,10 +20,10 @@ const Hero = () => {
       <style>{`
         .hero-main-grid {
           display: grid;
-          grid-template-columns: 0.85fr 1.4fr;
-          gap: 20px;
-          align-items: flex-start;
-          width: min(1400px, calc(100% - 80px));
+          grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
+          gap: clamp(20px, 3vw, 40px);
+          align-items: center;
+          width: min(1400px, calc(100% - clamp(24px, 5vw, 80px)));
           margin: 0 auto;
           position: relative;
           z-index: 2;
@@ -31,18 +31,21 @@ const Hero = () => {
         .hero-left-col {
           display: flex;
           flex-direction: column;
-          padding-top: 75px;
+          padding-top: clamp(10px, 3vw, 45px);
         }
         .hero-right-col {
           position: relative;
-          min-height: 600px;
+          min-height: clamp(500px, 44vw, 610px);
+          width: 100%;
         }
         .hero-video-el {
           position: absolute;
-          top: -25px;
-          left: 50px;
-          width: 740px;
-          height: 390px;
+          top: clamp(-20px, -2vw, -10px);
+          left: clamp(0px, 3vw, 40px);
+          width: clamp(400px, 47vw, 740px);
+          max-width: 100%;
+          height: auto;
+          max-height: clamp(250px, 26vw, 390px);
           object-fit: contain;
           mix-blend-mode: multiply;
           filter: contrast(1.02) brightness(1.02);
@@ -52,12 +55,12 @@ const Hero = () => {
         }
         .hero-desc-box {
           position: absolute;
-          top: 380px;
-          right: 20px;
+          top: clamp(260px, 26vw, 375px);
+          right: clamp(0px, 2vw, 20px);
           display: flex;
           flex-direction: column;
-          gap: 28px;
-          max-width: 500px;
+          gap: clamp(16px, 1.8vw, 28px);
+          max-width: min(100%, 500px);
         }
 
         /* Responsive Breakpoints */
@@ -69,7 +72,7 @@ const Hero = () => {
           .hero-main-grid {
             grid-template-columns: 1fr !important;
             gap: 28px !important;
-            width: calc(100% - 36px) !important;
+            width: calc(100% - clamp(20px, 4vw, 36px)) !important;
           }
           .hero-left-col {
             padding-top: 15px !important;
@@ -97,7 +100,7 @@ const Hero = () => {
             top: 0 !important;
             right: 0 !important;
             max-width: 600px !important;
-            margin-top: 20px !important;
+            margin-top: 16px !important;
             text-align: center;
             align-items: center;
           }
@@ -105,11 +108,11 @@ const Hero = () => {
 
         @media (max-width: 600px) {
           .hero-main-grid {
-            width: calc(100% - 28px) !important;
-            gap: 20px !important;
+            width: calc(100% - 24px) !important;
+            gap: 18px !important;
           }
           .hero-desc-box {
-            gap: 20px !important;
+            gap: 18px !important;
           }
         }
       `}</style>
@@ -159,7 +162,7 @@ const Hero = () => {
         <div className="hero-left-col reveal-left">
           <h1
             style={{
-              fontSize: "clamp(34px, 4.4vw, 62px)",
+              fontSize: "clamp(30px, 3.8vw, 60px)",
               fontWeight: 700,
               color: "#2d2d2d",
               lineHeight: 1.2,
@@ -199,8 +202,8 @@ const Hero = () => {
             className="anim-float"
             style={{
               position: "absolute",
-              top: "370px",
-              left: "100px",
+              top: "clamp(260px, 26vw, 370px)",
+              left: "clamp(20px, 6vw, 100px)",
               width: "22px",
               height: "22px",
               borderRadius: "50%",
@@ -224,7 +227,7 @@ const Hero = () => {
           <div className="hero-desc-box reveal-up stagger-2">
             <p
               style={{
-                fontSize: "16.5px",
+                fontSize: "clamp(14.5px, 1.1vw, 16.5px)",
                 lineHeight: "1.65",
                 color: "#334155",
                 fontWeight: 400,
@@ -250,10 +253,10 @@ const Hero = () => {
                   display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "15px 34px",
+                  padding: "clamp(12px, 1.2vw, 15px) clamp(24px, 2.5vw, 34px)",
                   background: "linear-gradient(135deg, #f3b63f 0%, #e5a93c 100%)",
                   color: "#1c1917",
-                  fontSize: "16px",
+                  fontSize: "clamp(14px, 1.05vw, 16px)",
                   fontWeight: 700,
                   borderRadius: "8px",
                   textDecoration: "none",

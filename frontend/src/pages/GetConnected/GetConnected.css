@@ -100,14 +100,16 @@
   box-shadow: 0 12px 28px rgba(243, 182, 63, 0.45);
 }
 
+@media (max-width: 1100px) {
+  .locations-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
 @media (max-width: 992px) {
   .get-connected-hero {
     padding: 60px 20px 45px;
-  }
-
-  .locations-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
   }
 
   .contact-main-grid {
@@ -116,6 +118,13 @@
   }
 
   .contact-form-card {
-    padding: 30px 22px !important;
+    padding: clamp(24px, 4vw, 40px) clamp(16px, 3vw, 30px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .locations-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
 }

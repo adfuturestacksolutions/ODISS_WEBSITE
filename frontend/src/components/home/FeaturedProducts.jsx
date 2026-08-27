@@ -70,20 +70,20 @@ const FeaturedProducts = () => {
     >
       <style>{`
         .featured-products-container {
-          max-width: 1340px;
+          max-width: 1380px;
           margin: 0 auto;
-          padding: 0 30px;
+          padding: 0 clamp(16px, 3.5vw, 36px);
         }
         @media (max-width: 768px) {
           .featured-products-section {
-            padding: 55px 0 65px !important;
+            padding: 50px 0 60px !important;
           }
           .featured-products-container {
             padding: 0 16px !important;
           }
           .product-card-item {
-            flex: 0 0 255px !important;
-            padding: 18px 16px 18px !important;
+            flex: 0 0 260px !important;
+            padding: 20px 16px 18px !important;
             min-height: 380px !important;
           }
         }

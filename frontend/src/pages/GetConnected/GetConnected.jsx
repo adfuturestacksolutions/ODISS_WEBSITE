@@ -100,8 +100,8 @@ const GetConnected = () => {
             className="contact-main-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1.15fr",
-              gap: "60px",
+              gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.15fr)",
+              gap: "clamp(24px, 4vw, 60px)",
               alignItems: "flex-start",
             }}
           >

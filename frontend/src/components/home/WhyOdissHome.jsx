@@ -6,11 +6,11 @@ const WhyOdissHome = () => {
       className="why-odiss-section"
       style={{
         position: "relative",
-        minHeight: "85vh",
+        minHeight: "clamp(550px, 75vh, 850px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "100px 24px",
+        padding: "clamp(60px, 7.5vw, 100px) clamp(16px, 3.5vw, 24px)",
         overflow: "hidden",
         fontFamily: "'Montserrat', sans-serif",
       }}
@@ -18,14 +18,14 @@ const WhyOdissHome = () => {
       <style>{`
         @media (max-width: 768px) {
           .why-odiss-section {
-            padding: 60px 16px 70px !important;
+            padding: 50px 16px 60px !important;
             min-height: auto !important;
           }
           .why-pillars-container {
-            gap: 36px !important;
+            gap: 32px !important;
           }
           .why-pillar-row {
-            gap: 28px !important;
+            gap: 24px !important;
           }
           .why-pillar-item {
             flex: 1 1 100% !important;

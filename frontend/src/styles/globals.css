@@ -32,7 +32,8 @@
   --font-main: "Montserrat", sans-serif;
 
   /* Layout */
-  --container: 1240px;
+  --container: min(1380px, calc(100% - clamp(24px, 5vw, 80px)));
+  --container-narrow: min(1080px, calc(100% - clamp(24px, 4vw, 64px)));
 
   /* Animation */
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);

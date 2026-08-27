@@ -62,7 +62,7 @@ const Navbar = () => {
         <div
           className="navbar-inner-width"
           style={{
-            width: "min(1400px, calc(100% - 90px))",
+            width: "min(1400px, calc(100% - clamp(24px, 5vw, 80px)))",
             height: "75px",
             margin: "0 auto",
             display: "flex",
@@ -79,7 +79,7 @@ const Navbar = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              width: "120px",
+              width: "clamp(100px, 9vw, 120px)",
               flexShrink: 0,
               textDecoration: "none",
             }}
@@ -109,7 +109,7 @@ const Navbar = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "46px",
+              gap: "clamp(18px, 2.6vw, 44px)",
             }}
           >
             {navItems.map((item) => {
@@ -125,7 +125,7 @@ const Navbar = () => {
                     alignItems: "center",
                     padding: "6px 0",
                     color: active ? "#d99b2f" : "#242424",
-                    fontSize: "16.5px",
+                    fontSize: "clamp(14px, 1.05vw, 16.5px)",
                     fontWeight: 500,
                     lineHeight: 1.4,
                     letterSpacing: "-0.01em",

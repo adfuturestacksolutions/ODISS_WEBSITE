@@ -17,9 +17,9 @@ const Footer = () => {
         style={{
           position: "relative",
           zIndex: 2,
-          width: "min(1280px, calc(100% - 90px))",
+          width: "min(1280px, calc(100% - clamp(24px, 5vw, 80px)))",
           margin: "0 auto",
-          padding: "65px 0 35px",
+          padding: "clamp(45px, 6vw, 65px) 0 35px",
         }}
       >
         {/* =========================
@@ -31,16 +31,16 @@ const Footer = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            paddingBottom: "40px",
-            marginBottom: "55px",
+            paddingBottom: "clamp(24px, 3.5vw, 40px)",
+            marginBottom: "clamp(35px, 4.5vw, 55px)",
             borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
             flexWrap: "wrap",
-            gap: "32px",
+            gap: "24px",
           }}
         >
           <h3
             style={{
-              fontSize: "clamp(30px, 2.6vw, 40px)",
+              fontSize: "clamp(24px, 2.6vw, 40px)",
               fontWeight: 600,
               color: "#ffffff",
               margin: 0,
@@ -55,7 +55,7 @@ const Footer = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "42px",
+              gap: "clamp(16px, 2.5vw, 42px)",
               flexWrap: "wrap",
             }}
           >
