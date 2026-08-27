@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getProductImageUrl } from "../../utils/imageUtils";
 
 /**
  * ProductDetailModal - International Standard Product Specification Modal
  * Displays complete formulation details, ingredients, benefits & manufacturing capabilities.
  */
-const ProductDetailModal = ({ product, onClose }) => {
+const ProductDetailModal = ({ product, useTransparentImage = false, onClose }) => {
   if (!product) return null;
 
-  const mainImage = product.images?.[0]?.url;
+  const imageUrl = getProductImageUrl(product, useTransparentImage);
+  const fallbackUrl = product.images?.[0]?.url;
   const categoryName =
     product.categorySlug === "adults-range"
       ? "Adults Range"
@@ -39,11 +41,16 @@ const ProductDetailModal = ({ product, onClose }) => {
         <div className="product-modal-content-grid">
           {/* Left Media Image Container */}
           <div className="product-modal-media">
-            {mainImage ? (
+            {imageUrl ? (
               <img
-                src={mainImage}
+                src={imageUrl}
                 alt={product.name}
                 className="product-modal-img"
+                onError={(e) => {
+                  if (fallbackUrl && e.currentTarget.src !== fallbackUrl) {
+                    e.currentTarget.src = fallbackUrl;
+                  }
+                }}
               />
             ) : (
               <div className="product-modal-placeholder">

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { getAllProducts } from "../../services/productService";
 import ProductFilters from "./ProductFilters";
 import ProductTopBar from "./ProductTopBar";
 import ProductGrid from "./ProductGrid";
 import ProductPagination from "./ProductPagination";
-import ProductDetailModal from "./ProductDetailModal";
 
 /**
  * ProductShowcaseSection - Left Sidebar Product Showcase & Filtering System
@@ -13,6 +12,7 @@ import ProductDetailModal from "./ProductDetailModal";
  */
 const ProductShowcaseSection = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   // Initialize activeCategory from URL parameter if present
   const categoryParam = searchParams.get("category") || "all";
@@ -229,6 +229,31 @@ const ProductShowcaseSection = () => {
           </p>
         </div>
 
+        {/* Responsive Category Pills Bar */}
+        <div className="product-category-pills-bar">
+          {[
+            { id: "all", label: "All Formulations" },
+            { id: "adults-range", label: "Adults Range" },
+            { id: "womens-range", label: "Women's Range" },
+            { id: "kids-range", label: "Kids Range" },
+            { id: "vitals-range", label: "Vitals Range" },
+          ].map((cat) => (
+            <button
+              key={cat.id}
+              type="button"
+              className={`product-category-pill-btn ${activeCategory === cat.id ? "active" : ""}`}
+              onClick={() => handleCategoryChange(cat.id)}
+            >
+              <span>{cat.label}</span>
+              {categoryCounts[cat.id] !== undefined && (
+                <span className="product-category-pill-count">
+                  {categoryCounts[cat.id]}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+
         {/* 2-Column Split Layout: Left Sidebar + Right Showcase Area */}
         <div className="product-layout-split">
           {/* Left Sidebar Filter */}
@@ -275,7 +300,8 @@ const ProductShowcaseSection = () => {
             {/* Product Cards Grid (Paginated) */}
             <ProductGrid
               products={paginatedProducts}
-              onSelectProduct={(product) => setSelectedProduct(product)}
+              useTransparentImage={true}
+              onSelectProduct={(product) => navigate(`/product/${product.slug}`)}
               onResetFilters={handleResetFilters}
             />
 
@@ -290,14 +316,6 @@ const ProductShowcaseSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Specification Detail Modal */}
-      {selectedProduct && (
-        <ProductDetailModal
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
-      )}
     </section>
   );
 };

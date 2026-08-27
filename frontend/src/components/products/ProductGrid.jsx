@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
  * ProductGrid - Responsive Product Grid Component
  * Displays product cards with staggered animations or empty search state.
  */
-const ProductGrid = ({ products, onSelectProduct, onResetFilters }) => {
+const ProductGrid = ({ products, useTransparentImage = false, onSelectProduct, onResetFilters }) => {
   if (!products || products.length === 0) {
     return (
       <div className="product-empty-state">
@@ -47,6 +47,7 @@ const ProductGrid = ({ products, onSelectProduct, onResetFilters }) => {
           key={product._id || product.slug}
           product={product}
           index={idx}
+          useTransparentImage={useTransparentImage}
           onSelectProduct={onSelectProduct}
         />
       ))}

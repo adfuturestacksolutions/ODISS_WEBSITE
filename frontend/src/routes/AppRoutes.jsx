@@ -8,6 +8,8 @@ import Products from "../pages/Products/Products";
 import CategoryPage from "../pages/Category/CategoryPage";
 import GetConnected from "../pages/GetConnected/GetConnected";
 
+import ProductDetail from "../pages/Products/ProductDetail";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -23,6 +25,16 @@ const AppRoutes = () => {
       <Route
         path="/products"
         element={<Products />}
+      />
+
+      <Route
+        path="/product/:slug"
+        element={<ProductDetail />}
+      />
+
+      <Route
+        path="/products/:slug"
+        element={<ProductDetail />}
       />
 
       <Route

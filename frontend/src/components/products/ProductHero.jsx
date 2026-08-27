@@ -48,6 +48,7 @@ const ProductHero = () => {
           onLoadedData={() => setIsVideoLoaded(true)}
           aria-label="ODISS Product Video Banner"
         />
+        <div className="product-hero-overlay" />
       </div>
     </section>
   );
