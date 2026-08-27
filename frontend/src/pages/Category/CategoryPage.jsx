@@ -3,7 +3,6 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { getCategoryBySlug, getAllCategories } from "../../services/categoryService";
 import { getProductsByCategory } from "../../services/productService";
 import ProductCard from "../../components/products/ProductCard";
-import ProductDetailModal from "../../components/products/ProductDetailModal";
 import adultsHeroVideo from "../../assets/products/Hero/Adults Banner.mp4";
 import "../../styles/category.css";
 
@@ -179,6 +178,16 @@ const CategoryPage = () => {
             </p>
           </div>
 
+          {/* Grid Toolbar / Counter */}
+          <div className="category-grid-toolbar">
+            <div className="category-grid-count">
+              <span>Formulation Portfolio</span>
+              <span className="category-grid-count-badge">
+                {products.length} {products.length === 1 ? "Formulation" : "Formulations"}
+              </span>
+            </div>
+          </div>
+
           {/* Borderless Product Cards Grid */}
           <div className="category-product-grid">
             {products.map((product, idx) => (
@@ -186,7 +195,8 @@ const CategoryPage = () => {
                 key={product._id || product.slug}
                 product={product}
                 index={idx}
-                onSelectProduct={(prod) => setSelectedProduct(prod)}
+                useTransparentImage={true}
+                onSelectProduct={(prod) => navigate(`/product/${prod.slug}`)}
               />
             ))}
           </div>
@@ -201,14 +211,6 @@ const CategoryPage = () => {
           )}
         </div>
       </section>
-
-      {/* Product Specification Detail Modal */}
-      {selectedProduct && (
-        <ProductDetailModal
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
-      )}
     </div>
   );
 };

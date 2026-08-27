@@ -202,6 +202,19 @@ const ProductFilters = ({
           </div>
         </div>
 
+        {/* Mobile Apply Filters CTA */}
+        {isMobileOpen && (
+          <div className="product-sidebar-mobile-apply">
+            <button
+              type="button"
+              className="product-sidebar-apply-btn"
+              onClick={onMobileClose}
+            >
+              Apply & Show Results
+            </button>
+          </div>
+        )}
+
         {/* Reset Filters CTA */}
         {hasActiveFilters && (
           <div className="product-sidebar-footer">

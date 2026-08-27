@@ -972,41 +972,6 @@ const products = [
     publishedAt: "2026-08-18T15:52:45.126Z"
   },
   {
-    _id: "6a8421587ab5284c0db7cc45",
-    slug: "sildamelt-50mg",
-    name: "SILDAMELT 50mg",
-    productType: "Sildenafil Oral Strips",
-    categorySlug: "adults-range",
-    category: "6a8418187ab5284c0db7cb72",
-    shortDescription: "Sildenafil oral strips with 50 mg strength.",
-    description: "SILDAMELT sildenafil oral strips containing 50 mg sildenafil.",
-    benefits: [],
-    dosage: { value: 50, unit: "mg" },
-    flavors: ["Peppermint"],
-    servingSize: "1 Strip",
-    servingsPerPack: "15 Strips",
-    packSize: "Box",
-    images: [
-      {
-        url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1787068645/odiss_products/qvf7jgla44azeevd79nm.png",
-        publicId: "odiss_products/qvf7jgla44azeevd79nm",
-        alt: "SILDAMELT 50mg Sildenafil Oral Strips",
-        type: "main"
-      }
-    ],
-    ingredients: [{ name: "Sildenafil", description: "" }],
-    isFeatured: false,
-    status: "published",
-    manufacturing: { privateLabel: true, customFormulation: true },
-    seo: {
-      metaTitle: "SILDAMELT 50mg Sildenafil Oral Strips | ODIS",
-      metaDescription: "Explore SILDAMELT 50mg sildenafil oral strips with peppermint flavour."
-    },
-    createdAt: "2026-08-18T09:09:43.541Z",
-    updatedAt: "2026-08-19T08:52:55.102Z",
-    publishedAt: "2026-08-18T15:57:29.602Z"
-  },
-  {
     _id: "6a8421587ab5284c0db7cc44",
     slug: "cobamelt-1500mcg",
     name: "COBAMELT 1500mcg",
@@ -1040,41 +1005,6 @@ const products = [
     createdAt: "2026-08-18T09:09:43.541Z",
     updatedAt: "2026-08-19T08:52:55.102Z",
     publishedAt: "2026-08-18T15:54:56.757Z"
-  },
-  {
-    _id: "6a8421587ab5284c0db7cc4b",
-    slug: "redal-20mg",
-    name: "REDAL 20mg",
-    productType: "Tadalafil Oral Strips",
-    categorySlug: "adults-range",
-    category: "6a8418187ab5284c0db7cb72",
-    shortDescription: "Tadalafil oral strips with 20 mg strength.",
-    description: "REDAL tadalafil oral strips containing 20 mg tadalafil.",
-    benefits: [],
-    dosage: { value: 20, unit: "mg" },
-    flavors: ["Peppermint"],
-    servingSize: "1 Strip",
-    servingsPerPack: "15 Strips",
-    packSize: "Box",
-    images: [
-      {
-        url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1787068750/odiss_products/redal_20mg.png",
-        publicId: "odiss_products/redal_20mg",
-        alt: "REDAL 20mg Tadalafil Oral Strips",
-        type: "main"
-      }
-    ],
-    ingredients: [{ name: "Tadalafil", description: "" }],
-    isFeatured: false,
-    status: "published",
-    manufacturing: { privateLabel: true, customFormulation: true },
-    seo: {
-      metaTitle: "REDAL 20mg Tadalafil Oral Strips | ODIS",
-      metaDescription: "Explore REDAL 20mg tadalafil oral strips with peppermint flavour."
-    },
-    createdAt: "2026-08-18T09:09:43.541Z",
-    updatedAt: "2026-08-19T08:52:55.102Z",
-    publishedAt: "2026-08-18T15:59:10.000Z"
   }
 ];
 
