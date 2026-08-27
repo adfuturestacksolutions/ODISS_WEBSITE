@@ -4,15 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import WhyThinDiss from "../pages/WhyThinDiss/WhyThinDiss";
-
-const Products = () => {
-  return (
-    <main className="page-placeholder">
-      <span>Products</span>
-      <h1>Explore our products.</h1>
-    </main>
-  );
-};
+import Products from "../pages/Products/Products";
+import CategoryPage from "../pages/Category/CategoryPage";
 
 const GetConnected = () => {
   return (
@@ -38,6 +31,11 @@ const AppRoutes = () => {
       <Route
         path="/products"
         element={<Products />}
+      />
+
+      <Route
+        path="/category/:slug"
+        element={<CategoryPage />}
       />
 
       <Route

@@ -1,0 +1,336 @@
+/* =========================================================
+   ODISS — CATEGORY SHOWCASE PAGE STYLES (REFERENCE HERO LAYOUT)
+========================================================= */
+
+.category-page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--odiss-cream, #f7f4ec);
+}
+
+/* 1. Full-Width Category Hero Banner */
+.category-hero-banner {
+  width: 100%;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  box-shadow: inset 0 -12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Adults Range Video Hero — Full Video Visible, No Crop */
+.category-hero-banner.has-video {
+  width: 100%;
+  min-height: 0;
+  background: #8a73b5;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: block;
+  line-height: 0;
+}
+
+.category-hero-video-wrapper {
+  /* Clip all encoded black border edges on every side */
+  margin: -2px -2px -2px -2px;
+  /* Compensate width for the left+right negative margins */
+  width: calc(100% + 4px);
+  aspect-ratio: 2500 / 500;
+  background: #8a73b5;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+}
+
+.category-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.category-hero-video.loaded {
+  opacity: 1;
+}
+
+.category-hero-container {
+  position: relative;
+  z-index: 3;
+  max-width: 1280px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  align-items: center;
+  gap: 36px;
+}
+
+/* Left Pedestal Podium Product Display */
+.category-hero-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.category-hero-podium {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.category-hero-podium-img {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.28));
+  z-index: 2;
+  transform: translateY(-20px);
+  transition: transform 0.4s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
+}
+
+.category-hero-podium:hover .category-hero-podium-img {
+  transform: translateY(-26px) scale(1.04);
+}
+
+.category-hero-pedestal-stand {
+  position: absolute;
+  bottom: 10px;
+  width: 190px;
+  height: 75px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.35) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 95px 95px 20px 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+}
+
+/* Center Category Title */
+.category-hero-center {
+  text-align: center;
+  padding: 0 12px;
+}
+
+.category-hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  margin: 0;
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  white-space: pre-line;
+}
+
+/* Right Lifestyle Model Visual */
+.category-hero-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.category-hero-lifestyle-img {
+  max-height: 250px;
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.22));
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.category-hero-right:hover .category-hero-lifestyle-img {
+  transform: scale(1.03);
+}
+
+/* 2. Category Switcher Tabs Bar */
+.category-tabs-bar {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(36, 36, 36, 0.08);
+  padding: 16px 24px;
+}
+
+.category-tabs-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.category-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--odiss-muted, #707070);
+  font-weight: 500;
+}
+
+.category-breadcrumb a {
+  color: var(--odiss-dark, #242424);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.category-breadcrumb a:hover {
+  color: var(--odiss-gold-dark, #d99b2f);
+}
+
+.category-breadcrumb .sep {
+  opacity: 0.4;
+}
+
+.category-breadcrumb .current {
+  color: var(--odiss-gold-dark, #d99b2f);
+  font-weight: 700;
+}
+
+.category-pills-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.category-pill-btn {
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--odiss-dark, #242424);
+  background: var(--odiss-cream, #f7f4ec);
+  border: 1px solid rgba(36, 36, 36, 0.08);
+  border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.category-pill-btn:hover {
+  background: #ffffff;
+  border-color: var(--odiss-gold-dark, #d99b2f);
+  color: var(--odiss-gold-dark, #d99b2f);
+}
+
+.category-pill-btn.active {
+  background: var(--odiss-dark, #242424);
+  color: #ffffff;
+  border-color: var(--odiss-dark, #242424);
+}
+
+/* 3. Category Products Content Section */
+.category-content-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+.category-content-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 50px auto;
+}
+
+.category-content-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--odiss-gold-dark, #d99b2f);
+  margin-bottom: 8px;
+}
+
+.category-content-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--odiss-dark, #242424);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.category-content-desc {
+  font-size: 15px;
+  color: var(--odiss-muted, #707070);
+  line-height: 1.6;
+}
+
+/* Products Grid */
+.category-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.category-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.category-empty-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 22px;
+  background: var(--odiss-gold-dark, #d99b2f);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .category-hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .category-hero-left,
+  .category-hero-right {
+    justify-content: center;
+  }
+
+  .category-hero-title {
+    font-size: 42px;
+  }
+
+  .category-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .category-hero-banner {
+    padding: 36px 16px;
+  }
+
+  .category-hero-title {
+    font-size: 32px;
+  }
+
+  .category-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-tabs-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
