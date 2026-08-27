@@ -67,6 +67,7 @@ const WhyOdissHome = () => {
       >
         {/* Main Title in Serif */}
         <h2
+          className="reveal-up"
           style={{
             fontSize: "clamp(30px, 4.4vw, 64px)",
             color: "#ffffff",
@@ -106,7 +107,7 @@ const WhyOdissHome = () => {
           >
             {/* Pillar 1: DIRECT BIO-UPTAKE */}
             <div
-              className="why-pillar-item"
+              className="why-pillar-item reveal-card anim-card-hover stagger-1"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -165,7 +166,7 @@ const WhyOdissHome = () => {
 
             {/* Pillar 2: WATER-FREE WELLNESS */}
             <div
-              className="why-pillar-item"
+              className="why-pillar-item reveal-card anim-card-hover stagger-2"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -231,7 +232,7 @@ const WhyOdissHome = () => {
             }}
           >
             <div
-              className="why-pillar-item"
+              className="why-pillar-item reveal-card anim-card-hover stagger-3"
               style={{
                 display: "flex",
                 alignItems: "center",

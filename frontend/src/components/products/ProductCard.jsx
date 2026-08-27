@@ -11,7 +11,7 @@ const ProductCard = ({ product, index = 0, onSelectProduct }) => {
 
   return (
     <div
-      className="product-card"
+      className={`product-card reveal-card anim-card-hover stagger-${(index % 8) + 1}`}
       style={{ "--card-index": index }}
       onClick={() => onSelectProduct && onSelectProduct(product)}
     >

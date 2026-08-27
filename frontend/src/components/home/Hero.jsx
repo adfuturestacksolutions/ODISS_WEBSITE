@@ -156,7 +156,7 @@ const Hero = () => {
 
       <div className="hero-main-grid">
         {/* Left Column: Stacked Display Headline */}
-        <div className="hero-left-col">
+        <div className="hero-left-col reveal-left">
           <h1
             style={{
               fontSize: "clamp(34px, 4.4vw, 62px)",
@@ -181,6 +181,7 @@ const Hero = () => {
         <div className="hero-right-col">
           {/* Creative Floating Warm Gold Glass Orb — Top Right */}
           <div
+            className="anim-float"
             style={{
               position: "absolute",
               top: "15px",
@@ -190,12 +191,12 @@ const Hero = () => {
               borderRadius: "50%",
               background: "radial-gradient(circle at 35% 35%, rgba(255, 247, 237, 0.98), rgba(253, 224, 71, 0.6) 60%, rgba(243, 182, 63, 0.5))",
               boxShadow: "0 8px 22px rgba(243, 182, 63, 0.35), inset -2px -2px 6px rgba(255, 255, 255, 0.9)",
-              animation: "floatSlow 4s ease-in-out infinite alternate",
             }}
           />
 
           {/* Creative Small Gold Accent Orb — Mid Left */}
           <div
+            className="anim-float"
             style={{
               position: "absolute",
               top: "370px",
@@ -205,6 +206,7 @@ const Hero = () => {
               borderRadius: "50%",
               background: "radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.98), rgba(251, 191, 36, 0.65) 60%, rgba(217, 155, 47, 0.5))",
               boxShadow: "0 4px 12px rgba(243, 182, 63, 0.3), inset -1px -1px 4px rgba(255, 255, 255, 0.9)",
+              animationDelay: "1.5s",
             }}
           />
 
@@ -215,11 +217,11 @@ const Hero = () => {
             loop
             muted
             playsInline
-            className="hero-video-el"
+            className="hero-video-el reveal-right stagger-1"
           />
 
           {/* Text Paragraph & Warm Gold CTA Button */}
-          <div className="hero-desc-box">
+          <div className="hero-desc-box reveal-up stagger-2">
             <p
               style={{
                 fontSize: "16.5px",
@@ -243,6 +245,7 @@ const Hero = () => {
             <div>
               <Link
                 to="/products"
+                className="anim-card-hover"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -255,7 +258,6 @@ const Hero = () => {
                   borderRadius: "8px",
                   textDecoration: "none",
                   boxShadow: "0 8px 24px rgba(243, 182, 63, 0.35)",
-                  transition: "all 0.25s ease",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -268,6 +270,7 @@ const Hero = () => {
 
       {/* ── Scrolling Ticker Strip at Hero Bottom ── */}
       <div
+        className="reveal-up stagger-3"
         style={{
           position: "absolute",
           bottom: "8px",

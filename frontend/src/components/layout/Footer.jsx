@@ -26,6 +26,7 @@ const Footer = () => {
             SOCIAL MEDIA BAR
         ========================== */}
         <div
+          className="reveal-up"
           style={{
             display: "flex",
             alignItems: "center",
@@ -50,6 +51,7 @@ const Footer = () => {
           </h3>
 
           <div
+            className="reveal-stagger"
             style={{
               display: "flex",
               alignItems: "center",
@@ -248,6 +250,7 @@ const Footer = () => {
 
         {/* Top CTA Section */}
         <div
+          className="reveal-up"
           style={{
             display: "flex",
             alignItems: "flex-start",
@@ -257,7 +260,7 @@ const Footer = () => {
             flexWrap: "wrap",
           }}
         >
-          <div style={{ maxWidth: "460px" }}>
+          <div className="reveal-left" style={{ maxWidth: "460px" }}>
             <div
               style={{
                 display: "flex",
@@ -294,6 +297,7 @@ const Footer = () => {
           </div>
 
           <div
+            className="reveal-right"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -316,6 +320,7 @@ const Footer = () => {
             </p>
             <Link
               to="/get-connected"
+              className="anim-card-hover"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -328,7 +333,6 @@ const Footer = () => {
                 fontWeight: 700,
                 borderRadius: "6px",
                 boxShadow: "0 4px 14px rgba(0, 0, 0, 0.25)",
-                transition: "all 0.25s ease",
                 textDecoration: "none",
               }}
             >
@@ -339,6 +343,7 @@ const Footer = () => {
 
         {/* Middle Navigation Section */}
         <div
+          className="reveal-up"
           style={{
             display: "flex",
             alignItems: "flex-start",
@@ -348,7 +353,7 @@ const Footer = () => {
             flexWrap: "wrap",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="reveal-left" style={{ display: "flex", flexDirection: "column" }}>
             <Link to="/" aria-label="ThinDiss Home" style={{ textDecoration: "none", color: "#ffffff" }}>
               <div style={{ display: "flex", alignItems: "flex-start", gap: "6px", lineHeight: 1 }}>
                 <span

@@ -54,7 +54,7 @@ const CompanyIntro = () => {
       <div style={{ maxWidth: "1280px", margin: "0 auto", width: "100%", position: "relative", zIndex: 2 }}>
 
         {/* Section Header */}
-        <div style={{ textAlign: "center", maxWidth: "860px", margin: "0 auto 55px" }}>
+        <div className="reveal-up" style={{ textAlign: "center", maxWidth: "860px", margin: "0 auto 55px" }}>
           <h2
             style={{
               fontSize: "clamp(30px, 4vw, 50px)",
@@ -77,7 +77,7 @@ const CompanyIntro = () => {
           {/* =====================================================
               LEFT COLUMN: BRAND-TAILORED THINDISS COPY
           ===================================================== */}
-          <div style={{ paddingRight: "0px" }}>
+          <div className="reveal-left" style={{ paddingRight: "0px" }}>
             <h3
               style={{
                 fontSize: "clamp(24px, 2.5vw, 30px)",
@@ -93,8 +93,8 @@ const CompanyIntro = () => {
             </h3>
 
             {/* Brand Key Highlights */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "22px", marginTop: "24px" }}>
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+            <div className="reveal-stagger" style={{ display: "flex", flexDirection: "column", gap: "22px", marginTop: "24px" }}>
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
                 <div
                   style={{
                     width: "32px",
@@ -123,7 +123,7 @@ const CompanyIntro = () => {
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
                 <div
                   style={{
                     width: "32px",
@@ -152,7 +152,7 @@ const CompanyIntro = () => {
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
                 <div
                   style={{
                     width: "32px",
@@ -187,6 +187,7 @@ const CompanyIntro = () => {
               RIGHT COLUMN: EXACT BIOAVAILABILITY CURVE GRAPH
           ===================================================== */}
           <div
+            className="reveal-right reveal-card anim-card-hover"
             style={{
               position: "relative",
               width: "100%",

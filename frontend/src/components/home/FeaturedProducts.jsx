@@ -94,6 +94,7 @@ const FeaturedProducts = () => {
             HEADER SECTION WITH SWIPER ARROWS (ABOVE PRODUCTS)
         ========================== */}
         <div
+          className="reveal-up"
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -247,7 +248,7 @@ const FeaturedProducts = () => {
             msOverflowStyle: "none",
             paddingBottom: "10px",
           }}
-          className="hide-scrollbar"
+          className="hide-scrollbar reveal-stagger"
         >
           <style>{`
             .hide-scrollbar::-webkit-scrollbar {
@@ -255,10 +256,10 @@ const FeaturedProducts = () => {
             }
           `}</style>
 
-          {products.map((product) => (
+          {products.map((product, idx) => (
             <div
               key={product.id}
-              className="product-card-item"
+              className={`product-card-item reveal-card anim-card-hover stagger-${(idx % 6) + 1}`}
               style={{
                 flex: "0 0 285px",
                 scrollSnapAlign: "start",

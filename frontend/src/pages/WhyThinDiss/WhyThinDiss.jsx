@@ -290,7 +290,7 @@ const WhyThinDiss = () => {
         </div>
 
         <div className="hero-immersive-container">
-          <div className="hero-content-right">
+          <div className="hero-content-right reveal-up">
             <div className="section-label">
               <span />
               <span>WHY THINDISS</span>
@@ -308,7 +308,7 @@ const WhyThinDiss = () => {
               superior consumer experience.
             </p>
 
-            <button className="outline-button-pill">
+            <button className="outline-button-pill anim-card-hover">
               Discover ThinDiss <span>↗</span>
             </button>
           </div>
@@ -319,7 +319,7 @@ const WhyThinDiss = () => {
           INNOVATION CAROUSEL SECTION (MATCHING REFERENCE)
       ===================================================== */}
       <section className="innovation-section">
-        <div className="innovation-header">
+        <div className="innovation-header reveal-up">
           <div className="section-label centered">
             <span />
             <span>ENGINEERED FOR EXCELLENCE</span>
@@ -334,9 +334,9 @@ const WhyThinDiss = () => {
             ref={carouselRef}
             onScroll={handleCarouselScroll}
           >
-            <div className="innovation-track">
+            <div className="innovation-track reveal-stagger">
               {innovationCards.map((card, index) => (
-                <div className="innovation-card-wrapper" key={index}>
+                <div className={`innovation-card-wrapper reveal-card anim-card-hover stagger-${(index % 6) + 1}`} key={index}>
                   <article className="innovation-card">
                     <div className="innovation-card-content">
                       <h3 className="innovation-card-title">{card.title}</h3>
@@ -353,7 +353,7 @@ const WhyThinDiss = () => {
         </div>
 
         {/* Bottom Controls: Progress bar on left, Arrows on right */}
-        <div className="innovation-controls-row">
+        <div className="innovation-controls-row reveal-up">
           <div className="carousel-progress-bar">
             <span style={{ width: `${Math.max(12, scrollProgress)}%` }}></span>
           </div>
@@ -375,7 +375,7 @@ const WhyThinDiss = () => {
       <section className="process-section-wrapper" ref={scrollContainerRef}>
         <div className="process-sticky-container">
 
-          <div className="process-header">
+          <div className="process-header reveal-up">
             <div className="section-label">
               <span />
               <span>HOW IT WORKS</span>
@@ -388,7 +388,7 @@ const WhyThinDiss = () => {
 
           <div className="process-content-area">
 
-            <div className="process-visual-area">
+            <div className="process-visual-area reveal-left">
               <div className="process-circle-frame">
                 {processSteps.map((step, index) => (
                   <img
@@ -401,7 +401,7 @@ const WhyThinDiss = () => {
               </div>
             </div>
 
-            <div className="process-text-area">
+            <div className="process-text-area reveal-right">
               {processSteps.map((step, index) => (
                 <div
                   key={`text-${index}`}
@@ -429,13 +429,13 @@ const WhyThinDiss = () => {
       ===================================================== */}
       <section className="why-adopt-section">
         <div className="why-adopt-container">
-          <div className="why-adopt-header">
+          <div className="why-adopt-header reveal-up">
             <h2>Why should you adopt this technology?</h2>
           </div>
 
           <div className="why-adopt-grid">
             {/* Left Column: Accordion */}
-            <div className="why-adopt-accordion">
+            <div className="why-adopt-accordion reveal-left">
               {adoptItems.map((item, idx) => {
                 const isOpen = openAdoptIndex === idx;
                 return (
@@ -463,7 +463,7 @@ const WhyThinDiss = () => {
             </div>
 
             {/* Right Column: Dynamic Graphic */}
-            <div className="why-adopt-visual">
+            <div className="why-adopt-visual reveal-right">
               <div className="why-adopt-img-frame">
                 {adoptItems.map((item, idx) => {
                   const isActive = (openAdoptIndex === -1 ? 0 : openAdoptIndex) === idx;
@@ -486,10 +486,10 @@ const WhyThinDiss = () => {
           COMPARISON TABLE SECTION
       ===================================================== */}
       <section className="comparison-section">
-        <div className="comparison-container">
+        <div className="comparison-container reveal-up">
           <h2>OTFs are 10x times better than any other alternative in the market</h2>
 
-          <div className="table-responsive-wrapper">
+          <div className="table-responsive-wrapper reveal-card">
             <table className="comparison-table">
               <thead>
                 <tr>
@@ -551,7 +551,7 @@ const WhyThinDiss = () => {
           PARTNER SECTION
       ===================================================== */}
       <section className="partner-section">
-        <div className="partner-content">
+        <div className="partner-content reveal-left">
           <div className="section-label">
             <span />
             <span>PARTNER WITH US</span>
@@ -568,12 +568,12 @@ const WhyThinDiss = () => {
           <p>
             By partnering with us, you gain access to <strong>cutting-edge drug delivery technologies</strong> and advanced formulations. Together, we can deliver high-quality products that enhance well-being globally.
           </p>
-          <button className="brand-button">
+          <button className="brand-button anim-card-hover">
             Let's Collaborate <span>↗</span>
           </button>
         </div>
 
-        <div className="partner-image">
+        <div className="partner-image reveal-right">
           <img
             src="/5.png"
             alt="Business collaboration handshake"

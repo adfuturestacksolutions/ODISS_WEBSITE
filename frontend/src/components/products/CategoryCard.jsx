@@ -14,7 +14,7 @@ const CategoryCard = ({ category }) => {
   };
 
   return (
-    <div className="category-card" onClick={handleCardClick}>
+    <div className="category-card reveal-card anim-card-hover" onClick={handleCardClick}>
       {/* Background/Image Container */}
       <div className="category-card-media">
         <img

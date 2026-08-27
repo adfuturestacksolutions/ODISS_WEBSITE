@@ -106,7 +106,7 @@ const GetConnected = () => {
             }}
           >
             {/* Left Info Column */}
-            <div>
+            <div className="reveal-left">
               <div
                 style={{
                   display: "inline-block",
@@ -178,7 +178,7 @@ const GetConnected = () => {
               </div>
 
               {/* Trust Points */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div className="reveal-stagger" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 {[
                   {
                     title: "Guaranteed 24-Hour Response",
@@ -193,7 +193,7 @@ const GetConnected = () => {
                     desc: "GMP, FDA-aligned, and international regulatory support.",
                   },
                 ].map((point, idx) => (
-                  <div key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+                  <div key={idx} className={`reveal-up stagger-${idx + 1}`} style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
                     <div
                       style={{
                         width: "28px",
@@ -226,7 +226,7 @@ const GetConnected = () => {
             </div>
 
             {/* Right Form Card */}
-            <div className="contact-form-card">
+            <div className="contact-form-card reveal-right reveal-card anim-card-hover">
               {submitted ? (
                 <div
                   style={{
@@ -384,7 +384,7 @@ const GetConnected = () => {
         }}
       >
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "45px" }}>
+          <div className="reveal-up" style={{ textAlign: "center", marginBottom: "45px" }}>
             <h2
               style={{
                 fontSize: "clamp(26px, 3.2vw, 38px)",
@@ -402,15 +402,15 @@ const GetConnected = () => {
           </div>
 
           <div
-            className="locations-grid"
+            className="locations-grid reveal-stagger"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
               gap: "28px",
             }}
           >
-            {locations.map((loc) => (
-              <div key={loc.id} className="location-card">
+            {locations.map((loc, idx) => (
+              <div key={loc.id} className={`location-card reveal-card anim-card-hover stagger-${idx + 1}`}>
                 <div>
                   {/* Top Badge */}
                   <div className="location-badge">

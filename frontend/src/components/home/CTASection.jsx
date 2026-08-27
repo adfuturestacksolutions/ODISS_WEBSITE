@@ -82,7 +82,7 @@ const CTASection = () => {
       <div style={{ maxWidth: "920px", margin: "0 auto", padding: "0 20px" }}>
 
         {/* Section Header */}
-        <div style={{ textAlign: "center", marginBottom: "32px" }}>
+        <div className="reveal-up" style={{ textAlign: "center", marginBottom: "32px" }}>
           <h2
             style={{
               fontSize: "clamp(26px, 3.2vw, 42px)",
@@ -101,12 +101,13 @@ const CTASection = () => {
         </div>
 
         {/* FAQ Accordion List */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        <div className="reveal-stagger" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           {faqData.map((item, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
+                className={`reveal-card stagger-${(index % 6) + 1}`}
                 style={{
                   backgroundColor: "#ffffff",
                   borderRadius: "14px",
