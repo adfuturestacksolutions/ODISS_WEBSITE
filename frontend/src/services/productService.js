@@ -33,7 +33,20 @@ export const getProductsByCategory = (categorySlug) => {
  * Get a single product by its slug.
  */
 export const getProductBySlug = (slug) => {
-  return products.find((prod) => prod.slug === slug) || null;
+  if (!slug) return null;
+  const s = slug.toLowerCase().trim();
+  const exact = products.find((prod) => prod.slug.toLowerCase() === s);
+  if (exact) return exact;
+
+  // Partial or name match fallback
+  const found = products.find(
+    (prod) =>
+      prod.slug.toLowerCase().includes(s) ||
+      s.includes(prod.slug.toLowerCase()) ||
+      prod.name.toLowerCase().includes(s) ||
+      s.includes(prod.name.toLowerCase())
+  );
+  return found || products[0] || null;
 };
 
 /**
