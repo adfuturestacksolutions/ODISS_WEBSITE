@@ -48,6 +48,7 @@ const CTASection = () => {
 
   return (
     <section
+      className="faq-section"
       style={{
         padding: "55px 0 60px",
         backgroundColor: "#ffffff",
@@ -55,13 +56,36 @@ const CTASection = () => {
         borderTop: "1px solid rgba(36, 36, 36, 0.06)"
       }}
     >
+      <style>{`
+        .faq-answer-grid {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr;
+          gap: 20px;
+          align-items: center;
+          padding: 0 22px 20px;
+          border-top: 1px solid #f8fafc;
+        }
+        @media (max-width: 640px) {
+          .faq-section {
+            padding: 45px 0 50px !important;
+          }
+          .faq-answer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+            padding: 0 16px 18px !important;
+          }
+          .faq-answer-img {
+            height: 140px !important;
+          }
+        }
+      `}</style>
       <div style={{ maxWidth: "920px", margin: "0 auto", padding: "0 20px" }}>
 
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(30px, 3.2vw, 42px)",
+              fontSize: "clamp(26px, 3.2vw, 42px)",
               fontWeight: 700,
               color: "#1e293b",
               margin: 0,
@@ -71,7 +95,7 @@ const CTASection = () => {
           >
             Frequently Asked <span style={{ color: "#f3b63f" }}>Questions</span>
           </h2>
-          <p style={{ fontSize: "16px", color: "#64748b", maxWidth: "620px", margin: "8px auto 0", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "15px", color: "#64748b", maxWidth: "620px", margin: "8px auto 0", lineHeight: 1.6 }}>
             Quick answers to common questions about ODISS and ThinDiss™ oral strip technology.
           </p>
         </div>
@@ -100,23 +124,23 @@ const CTASection = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "16px 22px",
+                    padding: "16px 20px",
                     background: "transparent",
                     border: "none",
                     cursor: "pointer",
                     textAlign: "left",
-                    gap: "18px",
+                    gap: "14px",
                   }}
                 >
-                  <h3 style={{ fontSize: "18.5px", fontWeight: 700, color: "#0f172a", margin: 0, lineHeight: 1.35, flex: 1 }}>
+                  <h3 style={{ fontSize: "17px", fontWeight: 700, color: "#0f172a", margin: 0, lineHeight: 1.35, flex: 1 }}>
                     {item.question}
                   </h3>
 
                   {/* Toggle Arrow */}
                   <div
                     style={{
-                      width: "34px",
-                      height: "34px",
+                      width: "32px",
+                      height: "32px",
                       borderRadius: "50%",
                       background: isOpen ? "#f3b63f" : "#f8fafc",
                       display: "flex",
@@ -136,25 +160,16 @@ const CTASection = () => {
 
                 {/* Collapsible Answer & Real Image */}
                 {isOpen && (
-                  <div
-                    style={{
-                      padding: "0 22px 20px",
-                      borderTop: "1px solid #f8fafc",
-                      display: "grid",
-                      gridTemplateColumns: "1.4fr 1fr",
-                      gap: "20px",
-                      alignItems: "center"
-                    }}
-                  >
+                  <div className="faq-answer-grid">
                     {/* Simplified Answer */}
                     <div>
-                      <p style={{ fontSize: "16px", color: "#334155", lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
+                      <p style={{ fontSize: "15px", color: "#334155", lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
                         {item.answer}
                       </p>
                     </div>
 
                     {/* Image */}
-                    <div style={{ borderRadius: "12px", overflow: "hidden", height: "115px", boxShadow: "0 4px 12px rgba(0,0,0,0.06)", border: "1px solid #f1f5f9" }}>
+                    <div className="faq-answer-img" style={{ borderRadius: "12px", overflow: "hidden", height: "115px", boxShadow: "0 4px 12px rgba(0,0,0,0.06)", border: "1px solid #f1f5f9" }}>
                       <img
                         src={item.image}
                         alt={item.alt}

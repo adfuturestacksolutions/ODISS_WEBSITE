@@ -4,37 +4,163 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section
+      className="hero-section"
       style={{
         position: "relative",
         minHeight: "calc(100vh - 75px)",
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        backgroundColor: "#ffffff",
-        padding: "40px 0 80px",
+        background: "radial-gradient(ellipse 100% 90% at 50% 30%, rgba(243, 182, 63, 0.13) 0%, rgba(254, 243, 199, 0.08) 50%, #ffffff 85%)",
+        padding: "40px 0 110px",
         fontFamily: "'Montserrat', sans-serif",
       }}
     >
+      {/* Responsive Stylesheet */}
+      <style>{`
+        .hero-main-grid {
+          display: grid;
+          grid-template-columns: 0.85fr 1.4fr;
+          gap: 20px;
+          align-items: flex-start;
+          width: min(1400px, calc(100% - 80px));
+          margin: 0 auto;
+          position: relative;
+          z-index: 2;
+        }
+        .hero-left-col {
+          display: flex;
+          flex-direction: column;
+          padding-top: 75px;
+        }
+        .hero-right-col {
+          position: relative;
+          min-height: 600px;
+        }
+        .hero-video-el {
+          position: absolute;
+          top: -25px;
+          left: 50px;
+          width: 740px;
+          height: 390px;
+          object-fit: contain;
+          mix-blend-mode: multiply;
+          filter: contrast(1.02) brightness(1.02);
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
+        .hero-desc-box {
+          position: absolute;
+          top: 380px;
+          right: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+          max-width: 500px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+          .hero-section {
+            padding: 30px 0 100px !important;
+            min-height: auto !important;
+          }
+          .hero-main-grid {
+            grid-template-columns: 1fr !important;
+            gap: 28px !important;
+            width: calc(100% - 36px) !important;
+          }
+          .hero-left-col {
+            padding-top: 15px !important;
+            text-align: center;
+            align-items: center;
+          }
+          .hero-right-col {
+            min-height: auto !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hero-video-el {
+            position: relative !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            max-width: 580px !important;
+            height: auto !important;
+            max-height: 340px !important;
+            margin: 0 auto !important;
+          }
+          .hero-desc-box {
+            position: relative !important;
+            top: 0 !important;
+            right: 0 !important;
+            max-width: 600px !important;
+            margin-top: 20px !important;
+            text-align: center;
+            align-items: center;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .hero-main-grid {
+            width: calc(100% - 28px) !important;
+            gap: 20px !important;
+          }
+          .hero-desc-box {
+            gap: 20px !important;
+          }
+        }
+      `}</style>
+
+      {/* Full-Cover Gold Ambient Radial Layers */}
       <div
-        className="hero-grid"
         style={{
-          position: "relative",
-          zIndex: 2,
-          width: "min(1400px, calc(100% - 90px))",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "0.85fr 1.4fr",
-          gap: "20px",
-          alignItems: "flex-start",
+          position: "absolute",
+          top: "0",
+          left: "0",
+          right: "0",
+          bottom: "0",
+          background: "radial-gradient(circle at 50% 25%, rgba(243, 182, 63, 0.12) 0%, rgba(243, 182, 63, 0.04) 45%, transparent 75%)",
+          pointerEvents: "none",
+          zIndex: 1,
         }}
-      >
-        {/* Left Column: Stacked Display Headline + Gold Badge */}
-        <div style={{ display: "flex", flexDirection: "column", paddingTop: "75px" }}>
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "10%",
+          left: "20%",
+          width: "600px",
+          height: "600px",
+          background: "radial-gradient(circle, rgba(243, 182, 63, 0.09) 0%, transparent 70%)",
+          filter: "blur(40px)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "20%",
+          right: "15%",
+          width: "700px",
+          height: "700px",
+          background: "radial-gradient(circle, rgba(243, 182, 63, 0.1) 0%, transparent 70%)",
+          filter: "blur(50px)",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+
+      <div className="hero-main-grid">
+        {/* Left Column: Stacked Display Headline */}
+        <div className="hero-left-col">
           <h1
             style={{
-              fontSize: "clamp(40px, 4.4vw, 62px)",
+              fontSize: "clamp(34px, 4.4vw, 62px)",
               fontWeight: 700,
-
               color: "#2d2d2d",
               lineHeight: 1.2,
               letterSpacing: "-0.03em",
@@ -51,13 +177,8 @@ const Hero = () => {
           </h1>
         </div>
 
-        {/* Right Column: Floating Orbs + Video Blended directly into Screen + Description & Gold CTA */}
-        <div
-          style={{
-            position: "relative",
-            minHeight: "600px",
-          }}
-        >
+        {/* Right Column: Floating Orbs + Video Blended + Description & Gold CTA */}
+        <div className="hero-right-col">
           {/* Creative Floating Warm Gold Glass Orb — Top Right */}
           <div
             style={{
@@ -94,33 +215,11 @@ const Hero = () => {
             loop
             muted
             playsInline
-            style={{
-              position: "absolute",
-              top: "-25px",
-              left: "50px",
-              width: "740px",
-              height: "390px",
-              objectFit: "contain",
-              mixBlendMode: "multiply",
-              filter: "contrast(1.02) brightness(1.02)",
-              border: "none",
-              outline: "none",
-              boxShadow: "none",
-            }}
+            className="hero-video-el"
           />
 
-          {/* Text Paragraph & Warm Gold CTA Button, offset lower-right */}
-          <div
-            style={{
-              position: "absolute",
-              top: "380px",
-              right: "20px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "28px",
-              maxWidth: "500px",
-            }}
-          >
+          {/* Text Paragraph & Warm Gold CTA Button */}
+          <div className="hero-desc-box">
             <p
               style={{
                 fontSize: "16.5px",
@@ -167,25 +266,25 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* ── Scrolling Ticker Strip at Hero Bottom (Transparent Background + Larger Text & Emojis) ── */}
+      {/* ── Scrolling Ticker Strip at Hero Bottom ── */}
       <div
         style={{
           position: "absolute",
           bottom: "8px",
           left: 0,
           right: 0,
-          height: "100px",
+          height: "90px",
           background: "transparent",
           display: "flex",
           alignItems: "center",
           overflow: "hidden",
         }}
       >
-        {/* Fade edges into hero background */}
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "120px", background: "linear-gradient(to right, #ffffff, transparent)", zIndex: 2, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "120px", background: "linear-gradient(to left, #ffffff, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        {/* Fade edges */}
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "80px", background: "linear-gradient(to right, rgba(255,255,255,0.9), transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "80px", background: "linear-gradient(to left, rgba(255,255,255,0.9), transparent)", zIndex: 2, pointerEvents: "none" }} />
 
-        {/* Scrolling Track — doubled for seamless loop */}
+        {/* Scrolling Track */}
         <div
           style={{
             display: "flex",
@@ -203,129 +302,52 @@ const Hero = () => {
               {
                 label: "No Water",
                 svg: (
-                  <svg width="56" height="56" viewBox="0 0 44 44" fill="none">
-                    {/* Outer Dashed Circle */}
+                  <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
                     <circle cx="22" cy="22" r="20" stroke={goldLight} strokeWidth="1.3" strokeDasharray="3 3.5" opacity="0.9" />
-                    {/* Drop */}
                     <path d="M22 11 C22 11 15.5 19.5 15.5 24 C15.5 27.5 18.4 30.5 22 30.5 C25.6 30.5 28.5 27.5 28.5 24 C28.5 19.5 22 11 22 11 Z" stroke={gold} strokeWidth="1.6" fill="none" strokeLinejoin="round" />
-                    {/* Prohibition Slash */}
                     <line x1="12" y1="32" x2="32" y2="12" stroke={gold} strokeWidth="1.8" strokeLinecap="round" />
                   </svg>
                 ),
               },
               {
-                label: "No Pain",
+                label: "Zero Sugar",
                 svg: (
-                  <svg width="56" height="56" viewBox="0 0 44 44" fill="none">
+                  <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
                     <circle cx="22" cy="22" r="20" stroke={goldLight} strokeWidth="1.3" strokeDasharray="3 3.5" opacity="0.9" />
-                    {/* Neck / Jaw Contour */}
-                    <path d="M16 14 C16 18 19 20 22 20 C25 20 28 18 28 14" stroke={gold} strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                    <path d="M17.5 20 L17.5 29 M26.5 20 L26.5 29" stroke={gold} strokeWidth="1.5" strokeLinecap="round" fill="none" />
-                    <path d="M19.5 17 Q22 18.5 24.5 17" stroke={gold} strokeWidth="1.3" strokeLinecap="round" fill="none" />
-                    {/* Prohibition Slash */}
-                    <line x1="12" y1="32" x2="32" y2="12" stroke={gold} strokeWidth="1.8" strokeLinecap="round" />
+                    <circle cx="22" cy="22" r="9" stroke={gold} strokeWidth="1.6" strokeDasharray="4 3" />
                   </svg>
                 ),
               },
               {
-                label: "No Chewing",
+                label: "Fast Absorption",
                 svg: (
-                  <svg width="56" height="56" viewBox="0 0 44 44" fill="none">
+                  <svg width="46" height="46" viewBox="0 0 44 44" fill="none">
                     <circle cx="22" cy="22" r="20" stroke={goldLight} strokeWidth="1.3" strokeDasharray="3 3.5" opacity="0.9" />
-                    {/* Lips / Teeth contour */}
-                    <path d="M15 21 C15 21 18.5 25 22 25 C25.5 25 29 21 29 21" stroke={gold} strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                    <path d="M16 19 C16 19 19 16.5 22 16.5 C25 16.5 28 19 28 19" stroke={gold} strokeWidth="1.5" strokeLinecap="round" fill="none" />
-                    {/* Prohibition Slash */}
-                    <line x1="12" y1="32" x2="32" y2="12" stroke={gold} strokeWidth="1.8" strokeLinecap="round" />
-                  </svg>
-                ),
-              },
-              {
-                label: "No Swallowing",
-                svg: (
-                  <svg width="56" height="56" viewBox="0 0 44 44" fill="none">
-                    <circle cx="22" cy="22" r="20" stroke={goldLight} strokeWidth="1.3" strokeDasharray="3 3.5" opacity="0.9" />
-                    {/* Throat + Particle */}
-                    <path d="M18 13 L18 29 M26 13 L26 29" stroke={gold} strokeWidth="1.5" strokeLinecap="round" fill="none" />
-                    <circle cx="22" cy="21" r="2.5" stroke={gold} strokeWidth="1.4" fill="none" />
-                    {/* Prohibition Slash */}
-                    <line x1="12" y1="32" x2="32" y2="12" stroke={gold} strokeWidth="1.8" strokeLinecap="round" />
-                  </svg>
-                ),
-              },
-              {
-                label: "No Sugars",
-                svg: (
-                  <svg width="56" height="56" viewBox="0 0 44 44" fill="none">
-                    <circle cx="22" cy="22" r="20" stroke={goldLight} strokeWidth="1.3" strokeDasharray="3 3.5" opacity="0.9" />
-                    {/* Sugar Cubes */}
-                    <path d="M16 20 L22 17 L28 20 L22 23 Z" stroke={gold} strokeWidth="1.3" fill="none" strokeLinejoin="round" />
-                    <path d="M16 20 L16 25 L22 28 L22 23 M28 20 L28 25 L22 28" stroke={gold} strokeWidth="1.3" fill="none" strokeLinejoin="round" />
-                    {/* Sparkles */}
-                    <circle cx="15" cy="14" r="0.8" fill={gold} />
-                    <circle cx="29" cy="16" r="0.8" fill={gold} />
-                    {/* Prohibition Slash */}
-                    <line x1="12" y1="32" x2="32" y2="12" stroke={gold} strokeWidth="1.8" strokeLinecap="round" />
-                  </svg>
-                ),
-              },
-              {
-                label: "Instant Dissolve",
-                svg: (
-                  <svg width="56" height="56" viewBox="0 0 44 44" fill="none">
-                    <circle cx="22" cy="22" r="20" stroke={goldLight} strokeWidth="1.3" strokeDasharray="3 3.5" opacity="0.9" />
-                    {/* Dissolving Strip Wave */}
-                    <path d="M14 20 Q18 15 22 20 T30 20" stroke={gold} strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                    <path d="M15 24 Q19 28 22 24 T29 24" stroke={gold} strokeWidth="1.2" strokeLinecap="round" opacity="0.7" fill="none" />
-                    <circle cx="16" cy="16" r="1" fill={gold} />
-                    <circle cx="28" cy="17" r="1" fill={gold} />
-                  </svg>
-                ),
-              },
-              {
-                label: "100% Drug-Free",
-                svg: (
-                  <svg width="56" height="56" viewBox="0 0 44 44" fill="none">
-                    <circle cx="22" cy="22" r="20" stroke={goldLight} strokeWidth="1.3" strokeDasharray="3 3.5" opacity="0.9" />
-                    {/* Natural Leaf */}
-                    <path d="M15 28 C15 28 16 18 26 15 C26 15 25 25 15 28 Z" stroke={gold} strokeWidth="1.5" strokeLinejoin="round" fill="none" />
-                    <path d="M17 26 Q21 22 24 18" stroke={gold} strokeWidth="1.2" strokeLinecap="round" fill="none" />
+                    <path d="M22 13 L25 21 L33 22 L27 28 L28 36 L22 32 L16 36 L17 28 L11 22 L19 21 Z" stroke={gold} strokeWidth="1.4" fill="none" />
                   </svg>
                 ),
               },
             ];
 
-            const renderList = [...items, ...items];
+            const allItems = [...items, ...items, ...items];
 
-            return renderList.map((item, i) => (
+            return allItems.map((item, idx) => (
               <div
-                key={i}
+                key={idx}
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "14px",
-                  padding: "0 70px",
-                  flexShrink: 0,
+                  gap: "12px",
+                  padding: "6px 28px",
                 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  {item.svg}
-                </div>
+                <div style={{ flexShrink: 0 }}>{item.svg}</div>
                 <span
                   style={{
-                    fontSize: "17px",
-                    fontWeight: 500,
-                    color: "#242424",
-                    fontFamily: "'Montserrat', sans-serif",
-                    letterSpacing: "-0.015em",
-                    whiteSpace: "nowrap",
+                    fontSize: "14.5px",
+                    fontWeight: 700,
+                    color: "#1e293b",
+                    letterSpacing: "-0.01em",
                   }}
                 >
                   {item.label}
@@ -335,8 +357,7 @@ const Hero = () => {
           })()}
         </div>
       </div>
-    </section >
-
+    </section>
   );
 };
 

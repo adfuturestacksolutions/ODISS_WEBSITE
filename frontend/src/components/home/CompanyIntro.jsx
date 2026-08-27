@@ -3,6 +3,7 @@ import React from "react";
 const CompanyIntro = () => {
   return (
     <section
+      className="intro-section"
       style={{
         position: "relative",
         padding: "90px 24px 100px",
@@ -13,6 +14,29 @@ const CompanyIntro = () => {
         borderTop: "1px solid rgba(226, 232, 240, 0.8)",
       }}
     >
+      <style>{`
+        .intro-main-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.35fr;
+          gap: clamp(36px, 4.5vw, 64px);
+          align-items: center;
+        }
+        @media (max-width: 992px) {
+          .intro-section {
+            padding: 60px 20px 70px !important;
+          }
+          .intro-main-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .intro-section {
+            padding: 45px 16px 55px !important;
+          }
+        }
+      `}</style>
+
       {/* Background Gold Ambient Radial */}
       <div
         style={{
@@ -33,7 +57,7 @@ const CompanyIntro = () => {
         <div style={{ textAlign: "center", maxWidth: "860px", margin: "0 auto 55px" }}>
           <h2
             style={{
-              fontSize: "clamp(32px, 4vw, 50px)",
+              fontSize: "clamp(30px, 4vw, 50px)",
               fontWeight: 600,
               color: "#1e293b",
               margin: "0 0 16px",
@@ -49,18 +73,11 @@ const CompanyIntro = () => {
         </div>
 
         {/* 2-COLUMN LAYOUT: Left Content + Right Reference Graph */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.35fr",
-            gap: "clamp(36px, 4.5vw, 64px)",
-            alignItems: "center",
-          }}
-        >
+        <div className="intro-main-grid">
           {/* =====================================================
               LEFT COLUMN: BRAND-TAILORED THINDISS COPY
           ===================================================== */}
-          <div style={{ paddingRight: "10px" }}>
+          <div style={{ paddingRight: "0px" }}>
             <h3
               style={{
                 fontSize: "clamp(24px, 2.5vw, 30px)",

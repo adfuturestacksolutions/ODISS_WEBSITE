@@ -60,6 +60,7 @@ const FeaturedProducts = () => {
 
   return (
     <section
+      className="featured-products-section"
       style={{
         padding: "90px 0 100px",
         backgroundColor: "#ffffff",
@@ -67,7 +68,27 @@ const FeaturedProducts = () => {
         overflow: "hidden",
       }}
     >
-      <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 30px" }}>
+      <style>{`
+        .featured-products-container {
+          max-width: 1340px;
+          margin: 0 auto;
+          padding: 0 30px;
+        }
+        @media (max-width: 768px) {
+          .featured-products-section {
+            padding: 55px 0 65px !important;
+          }
+          .featured-products-container {
+            padding: 0 16px !important;
+          }
+          .product-card-item {
+            flex: 0 0 255px !important;
+            padding: 18px 16px 18px !important;
+            min-height: 380px !important;
+          }
+        }
+      `}</style>
+      <div className="featured-products-container">
 
         {/* =========================
             HEADER SECTION WITH SWIPER ARROWS (ABOVE PRODUCTS)
@@ -77,8 +98,8 @@ const FeaturedProducts = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
-            marginBottom: "40px",
-            gap: "24px",
+            marginBottom: "36px",
+            gap: "20px",
             flexWrap: "wrap",
           }}
         >
@@ -237,6 +258,7 @@ const FeaturedProducts = () => {
           {products.map((product) => (
             <div
               key={product.id}
+              className="product-card-item"
               style={{
                 flex: "0 0 285px",
                 scrollSnapAlign: "start",

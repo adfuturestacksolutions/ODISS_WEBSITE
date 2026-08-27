@@ -6,15 +6,7 @@ import About from "../pages/About/About";
 import WhyThinDiss from "../pages/WhyThinDiss/WhyThinDiss";
 import Products from "../pages/Products/Products";
 import CategoryPage from "../pages/Category/CategoryPage";
-
-const GetConnected = () => {
-  return (
-    <main className="page-placeholder">
-      <span>Get Connected</span>
-      <h1>Let&apos;s start a conversation.</h1>
-    </main>
-  );
-};
+import GetConnected from "../pages/GetConnected/GetConnected";
 
 const AppRoutes = () => {
   return (

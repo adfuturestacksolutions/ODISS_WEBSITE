@@ -3,6 +3,7 @@ import React from "react";
 const WhyOdissHome = () => {
   return (
     <section
+      className="why-odiss-section"
       style={{
         position: "relative",
         minHeight: "85vh",
@@ -14,6 +15,30 @@ const WhyOdissHome = () => {
         fontFamily: "'Montserrat', sans-serif",
       }}
     >
+      <style>{`
+        @media (max-width: 768px) {
+          .why-odiss-section {
+            padding: 60px 16px 70px !important;
+            min-height: auto !important;
+          }
+          .why-pillars-container {
+            gap: 36px !important;
+          }
+          .why-pillar-row {
+            gap: 28px !important;
+          }
+          .why-pillar-item {
+            flex: 1 1 100% !important;
+            max-width: 100% !important;
+          }
+          .why-pillar-badge {
+            width: 52px !important;
+            height: 52px !important;
+            font-size: 15px !important;
+          }
+        }
+      `}</style>
+
       {/* Background Image with Cinematic Overlay */}
       <div
         style={{
@@ -43,13 +68,13 @@ const WhyOdissHome = () => {
         {/* Main Title in Serif */}
         <h2
           style={{
-            fontSize: "clamp(36px, 4.6vw, 64px)",
+            fontSize: "clamp(30px, 4.4vw, 64px)",
             color: "#ffffff",
             fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
             fontWeight: 500,
             lineHeight: 1.18,
             letterSpacing: "-0.02em",
-            margin: "0 0 70px",
+            margin: "0 0 clamp(36px, 5vw, 70px)",
             textShadow: "0 4px 20px rgba(0,0,0,0.5)",
           }}
         >
@@ -59,6 +84,7 @@ const WhyOdissHome = () => {
 
         {/* Pillars Grid Container */}
         <div
+          className="why-pillars-container"
           style={{
             width: "100%",
             maxWidth: "1050px",
@@ -69,6 +95,7 @@ const WhyOdissHome = () => {
         >
           {/* Top Row: Pillar 1 (Left) & Pillar 2 (Right) */}
           <div
+            className="why-pillar-row"
             style={{
               display: "flex",
               justifyContent: "space-between",
@@ -79,6 +106,7 @@ const WhyOdissHome = () => {
           >
             {/* Pillar 1: DIRECT BIO-UPTAKE */}
             <div
+              className="why-pillar-item"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -89,6 +117,7 @@ const WhyOdissHome = () => {
               }}
             >
               <div
+                className="why-pillar-badge"
                 style={{
                   width: "64px",
                   height: "64px",
@@ -136,6 +165,7 @@ const WhyOdissHome = () => {
 
             {/* Pillar 2: WATER-FREE WELLNESS */}
             <div
+              className="why-pillar-item"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -146,6 +176,7 @@ const WhyOdissHome = () => {
               }}
             >
               <div
+                className="why-pillar-badge"
                 style={{
                   width: "64px",
                   height: "64px",
@@ -200,15 +231,18 @@ const WhyOdissHome = () => {
             }}
           >
             <div
+              className="why-pillar-item"
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "18px",
                 textAlign: "left",
                 maxWidth: "480px",
+                flex: "1 1 380px",
               }}
             >
               <div
+                className="why-pillar-badge"
                 style={{
                   width: "64px",
                   height: "64px",
