@@ -29,7 +29,7 @@ const Hero = () => {
         }}
       >
         {/* Left Column: Stacked Display Headline + Gold Badge */}
-        <div style={{ display: "flex", flexDirection: "column", paddingTop: "0px" }}>
+        <div style={{ display: "flex", flexDirection: "column", paddingTop: "75px" }}>
           <h1
             style={{
               fontSize: "clamp(40px, 4.4vw, 62px)",
@@ -171,7 +171,7 @@ const Hero = () => {
       <div
         style={{
           position: "absolute",
-          bottom: "16px",
+          bottom: "8px",
           left: 0,
           right: 0,
           height: "100px",

@@ -4,611 +4,383 @@ const CompanyIntro = () => {
   return (
     <section
       style={{
-        padding: "85px 24px 95px",
+        position: "relative",
+        padding: "90px 24px 100px",
         backgroundColor: "#ffffff",
         fontFamily: "'Montserrat', sans-serif",
+        color: "#1e293b",
         overflow: "hidden",
         borderTop: "1px solid rgba(226, 232, 240, 0.8)",
       }}
     >
-      <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
-        
-        {/* =====================================================
-            1. SECTION HEADER (THE ODISS DIFFERENCE)
-        ===================================================== */}
-        <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 55px" }}>
-          
-          {/* Label with lines on both sides */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "14px",
-              color: "#d97706",
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              marginBottom: "16px",
-            }}
-          >
-            <span style={{ width: "36px", height: "1px", backgroundColor: "#fde68a", display: "inline-block" }} />
-            THE ODISS DIFFERENCE
-            <span style={{ width: "36px", height: "1px", backgroundColor: "#fde68a", display: "inline-block" }} />
-          </div>
+      {/* Background Gold Ambient Radial */}
+      <div
+        style={{
+          position: "absolute",
+          top: "0%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "1000px",
+          height: "400px",
+          background: "radial-gradient(ellipse at 50% 0%, rgba(243, 182, 63, 0.07) 0%, rgba(255, 255, 255, 0) 75%)",
+          pointerEvents: "none",
+        }}
+      />
 
-          {/* Main Title: Nutrition, reimagined. */}
+      <div style={{ maxWidth: "1280px", margin: "0 auto", width: "100%", position: "relative", zIndex: 2 }}>
+
+        {/* Section Header */}
+        <div style={{ textAlign: "center", maxWidth: "860px", margin: "0 auto 55px" }}>
           <h2
             style={{
-              fontSize: "clamp(34px, 4vw, 54px)",
-              fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
-              fontWeight: 700,
+              fontSize: "clamp(32px, 4vw, 50px)",
+              fontWeight: 600,
               color: "#1e293b",
-              margin: "0 0 18px",
+              margin: "0 0 16px",
               lineHeight: 1.15,
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.03em",
             }}
           >
-            Nutrition,{" "}
-            <span style={{ color: "#d97706", fontStyle: "normal" }}>
-              reimagined.
+            Rethinking How Your Body{" "}
+            <span style={{ color: "#f3b63f" }}>
+              Absorbs Nutrients.
             </span>
           </h2>
-
-          {/* Subtitle */}
-          <p
-            style={{
-              fontSize: "16px",
-              lineHeight: 1.65,
-              color: "#64748b",
-              margin: 0,
-              maxWidth: "720px",
-              marginInline: "auto",
-            }}
-          >
-            ThinDiss™ strips deliver advanced nutrition through a revolutionary format designed for superior absorption, zero sugar and precise delivery.
-          </p>
         </div>
 
-
-        {/* =====================================================
-            2. HERO VISUAL AREA (GOLDEN STRIP + ANNOTATIONS)
-        ===================================================== */}
+        {/* 2-COLUMN LAYOUT: Left Content + Right Reference Graph */}
         <div
           style={{
-            position: "relative",
-            minHeight: "380px",
             display: "grid",
-            gridTemplateColumns: "1fr 1.3fr 1fr",
-            gap: "20px",
+            gridTemplateColumns: "1fr 1.35fr",
+            gap: "clamp(36px, 4.5vw, 64px)",
             alignItems: "center",
-            marginBottom: "60px",
           }}
         >
-          {/* Glowing Wave SVG Background */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              zIndex: 1,
-              pointerEvents: "none",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <svg
-              width="100%"
-              height="300"
-              viewBox="0 0 1000 300"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ opacity: 0.85 }}
+          {/* =====================================================
+              LEFT COLUMN: BRAND-TAILORED THINDISS COPY
+          ===================================================== */}
+          <div style={{ paddingRight: "10px" }}>
+            <h3
+              style={{
+                fontSize: "clamp(24px, 2.5vw, 30px)",
+                fontWeight: 700,
+                color: "#0f172a",
+                lineHeight: 1.35,
+                margin: "0 0 24px",
+                letterSpacing: "-0.025em",
+              }}
             >
-              <path
-                d="M 0 150 C 250 80, 400 220, 600 130 C 780 50, 880 200, 1000 120"
-                stroke="url(#goldWaveGradient)"
-                strokeWidth="45"
-                strokeLinecap="round"
-                style={{ filter: "blur(20px)", opacity: 0.6 }}
-              />
-              <path
-                d="M 0 150 C 250 80, 400 220, 600 130 C 780 50, 880 200, 1000 120"
-                stroke="url(#goldWaveGradient)"
-                strokeWidth="12"
-                strokeLinecap="round"
-              />
-              <defs>
-                <linearGradient id="goldWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#fef3c7" stopOpacity="0.2" />
-                  <stop offset="35%" stopColor="#f3b63f" stopOpacity="0.8" />
-                  <stop offset="65%" stopColor="#d97706" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="#fde68a" stopOpacity="0.3" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+              Why swallow pills when your body can absorb{" "}
+              <span style={{ color: "#f3b63f" }}>95%+ nutrients instantly?</span>
+            </h3>
 
-          {/* Left Annotation Box: ThinDiss™ Strips */}
-          <div
-            style={{
-              zIndex: 2,
-              backgroundColor: "rgba(255, 255, 255, 0.95)",
-              backdropFilter: "blur(10px)",
-              border: "1.5px solid #fde68a",
-              borderRadius: "18px",
-              padding: "24px 22px",
-              boxShadow: "0 12px 32px rgba(243, 182, 63, 0.14)",
-              maxWidth: "280px",
-              justifySelf: "center",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "flex-start", gap: "14px", marginBottom: "12px" }}>
-              <div
-                style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  backgroundColor: "#fffdf0",
-                  border: "1px solid #fde68a",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#d97706",
-                  flexShrink: 0,
-                }}
-              >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2v6m0 0l-3-3m3 3l3-3" />
-                  <path d="M4 14h16M4 18h16" />
-                </svg>
+            {/* Brand Key Highlights */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "22px", marginTop: "24px" }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(243, 182, 63, 0.2)",
+                    color: "#f3b63f",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "16px",
+                    fontWeight: 800,
+                    flexShrink: 0,
+                    marginTop: "2px",
+                  }}
+                >
+                  ✓
+                </div>
+                <div>
+                  <strong style={{ fontSize: "17px", fontWeight: 700, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                    Overcome Pill Aversion Effortlessly
+                  </strong>
+                  <span style={{ fontSize: "15px", color: "#475569", lineHeight: 1.6, fontWeight: 400 }}>
+                    Over 45% of consumers struggle with swallowing traditional capsules. ThinDiss™ strips melt in under 10 seconds with zero friction or water required.
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 style={{ fontSize: "16px", fontWeight: 800, color: "#d97706", margin: "0 0 2px" }}>
-                  ThinDiss™ Strips
-                </h4>
-                <span style={{ fontSize: "13px", color: "#64748b", fontWeight: 600 }}>
-                  Fast absorption
-                </span>
+
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(243, 182, 63, 0.2)",
+                    color: "#f3b63f",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "16px",
+                    fontWeight: 800,
+                    flexShrink: 0,
+                    marginTop: "2px",
+                  }}
+                >
+                  ✓
+                </div>
+                <div>
+                  <strong style={{ fontSize: "17px", fontWeight: 700, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                    Bypass Stomach Acid &amp; Fillers
+                  </strong>
+                  <span style={{ fontSize: "15px", color: "#475569", lineHeight: 1.6, fontWeight: 400 }}>
+                    Traditional pills lose up to 80% of active ingredients to digestive breakdown. ThinDiss™ sublingual technology absorbs directly into the bloodstream.
+                  </span>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(243, 182, 63, 0.2)",
+                    color: "#f3b63f",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "16px",
+                    fontWeight: 800,
+                    flexShrink: 0,
+                    marginTop: "2px",
+                  }}
+                >
+                  ✓
+                </div>
+                <div>
+                  <strong style={{ fontSize: "17px", fontWeight: 700, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                    100% Sugar-Free &amp; Pure Formulation
+                  </strong>
+                  <span style={{ fontSize: "15px", color: "#475569", lineHeight: 1.6, fontWeight: 400 }}>
+                    Unlike sticky gummies packed with added sugars, ODISS delivers clean, active nutrition precision-engineered for modern active lifestyles.
+                  </span>
+                </div>
               </div>
             </div>
-
-            <div style={{ paddingLeft: "4px", fontSize: "13px", color: "#475569", lineHeight: 1.6 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                <span style={{ color: "#d97706", fontWeight: 700 }}>•</span> High bioavailability
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "#d97706", fontWeight: 700 }}>•</span> Maximum impact
-              </div>
-            </div>
           </div>
 
-          {/* Center Floating Golden Strip Image */}
+          {/* =====================================================
+              RIGHT COLUMN: EXACT BIOAVAILABILITY CURVE GRAPH
+          ===================================================== */}
           <div
             style={{
-              zIndex: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
               position: "relative",
+              width: "100%",
+              minHeight: "360px",
+              borderRadius: "24px",
+              background: "linear-gradient(180deg, #ffffff 0%, rgba(254, 247, 230, 0.5) 60%, rgba(253, 238, 196, 0.45) 100%)",
+              border: "1px solid rgba(243, 182, 63, 0.18)",
+              boxShadow: "0 10px 30px rgba(243, 182, 63, 0.05), 0 2px 10px rgba(0,0,0,0.02)",
+              padding: "20px 10px 15px",
+              overflow: "hidden",
             }}
           >
-            <div
-              style={{
-                position: "relative",
-                width: "100%",
-                maxWidth: "340px",
-                transform: "rotate(-8deg)",
-                transition: "transform 0.4s ease",
-              }}
+            {/* Subtle animations */}
+            <style>{`
+              @keyframes floatStrip {
+                0%, 100% { transform: translateY(0px) rotate(-4deg); }
+                50% { transform: translateY(-5px) rotate(-2deg); }
+              }
+              @keyframes pulseHalo {
+                0%, 100% { opacity: 0.7; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.08); }
+              }
+            `}</style>
+
+            <svg
+              viewBox="0 0 620 340"
+              style={{ width: "100%", height: "auto", display: "block", overflow: "visible" }}
             >
-              <img
-                src="/golden_strip.jpg"
-                alt="ODISS Golden Oral Dissolve Film Strip"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "20px",
-                  boxShadow: "0 20px 50px rgba(217, 119, 6, 0.25), 0 0 30px rgba(243, 182, 63, 0.3)",
-                  display: "block",
-                }}
+              <defs>
+                {/* Horizontal Gridline pattern or lines */}
+                <linearGradient id="curveGoldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#f8d672" />
+                  <stop offset="35%" stopColor="#f3b63f" />
+                  <stop offset="65%" stopColor="#f6c75c" />
+                  <stop offset="100%" stopColor="#f8d87a" />
+                </linearGradient>
+
+                {/* Drop shadow filter for icons */}
+                <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="3" stdDeviation="3" floodOpacity="0.15" floodColor="#94a3b8" />
+                </filter>
+                <filter id="stripShadow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="4" floodOpacity="0.25" floodColor="#f3b63f" />
+                </filter>
+              </defs>
+
+              {/* Faint Horizontal Background Gridlines */}
+              <line x1="10" y1="40" x2="610" y2="40" stroke="#edf2f7" strokeWidth="1.2" />
+              <line x1="10" y1="105" x2="610" y2="105" stroke="#edf2f7" strokeWidth="1.2" />
+              <line x1="10" y1="170" x2="610" y2="170" stroke="#edf2f7" strokeWidth="1.2" />
+              <line x1="10" y1="235" x2="610" y2="235" stroke="#edf2f7" strokeWidth="1.2" />
+              <line x1="10" y1="295" x2="610" y2="295" stroke="#edf2f7" strokeWidth="1.2" />
+
+              {/* MAIN GOLD WAVE CURVE */}
+              <path
+                d="M 0,65 C 40,50 65,52 105,62 C 145,72 205,95 270,195 C 315,265 350,265 390,260 C 430,255 455,230 495,230 C 535,230 580,230 620,230"
+                fill="none"
+                stroke="url(#curveGoldGradient)"
+                strokeWidth="5.5"
+                strokeLinecap="round"
               />
-            </div>
-          </div>
 
-          {/* Right Annotation Column (3 Feature Items) */}
-          <div
-            style={{
-              zIndex: 2,
-              display: "flex",
-              flexDirection: "column",
-              gap: "22px",
-              maxWidth: "300px",
-              justifySelf: "center",
-            }}
-          >
-            {/* Feature 1: Zero Added Sugar */}
-            <div style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
-              <div
-                style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "50%",
-                  backgroundColor: "#fffdf0",
-                  border: "1px solid #fde68a",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#d97706",
-                  flexShrink: 0,
-                  boxShadow: "0 4px 12px rgba(243, 182, 63, 0.1)",
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                  <line x1="12" y1="22.08" x2="12" y2="12" />
-                </svg>
-              </div>
-              <div>
-                <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#d97706", margin: "0 0 2px" }}>
-                  Zero Added Sugar
-                </h4>
-                <p style={{ fontSize: "13px", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
-                  Clean nutrition without compromises
-                </p>
-              </div>
-            </div>
+              {/* =========================================
+                  NODE 1: INTRAVENOUS (Top Left)
+              ========================================= */}
+              <g transform="translate(68, 55)">
+                {/* Text Above */}
+                <text x="0" y="-36" textAnchor="middle" fill="#475569" fontSize="13" fontWeight="600" fontFamily="'Montserrat', sans-serif">
+                  Intravenous
+                </text>
+                <text x="0" y="-19" textAnchor="middle" fill="#0f2942" fontSize="14" fontWeight="800" fontFamily="'Montserrat', sans-serif">
+                  Very High
+                </text>
 
-            {/* Feature 2: Precise Dosage */}
-            <div style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
-              <div
-                style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "50%",
-                  backgroundColor: "#fffdf0",
-                  border: "1px solid #fde68a",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#d97706",
-                  flexShrink: 0,
-                  boxShadow: "0 4px 12px rgba(243, 182, 63, 0.1)",
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="6" />
-                  <circle cx="12" cy="12" r="2" />
-                </svg>
-              </div>
-              <div>
-                <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#d97706", margin: "0 0 2px" }}>
-                  Precise Dosage
-                </h4>
-                <p style={{ fontSize: "13px", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
-                  Consistent nutrition in every strip
-                </p>
-              </div>
-            </div>
+                {/* Soft yellow halo */}
+                <circle cx="0" cy="0" r="22" fill="#fff9db" opacity="0.9" />
+                <circle cx="0" cy="0" r="18" fill="#ffffff" filter="url(#nodeShadow)" stroke="#fef08a" strokeWidth="1.5" />
 
-            {/* Feature 3: Effortless Use */}
-            <div style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
-              <div
-                style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "50%",
-                  backgroundColor: "#fffdf0",
-                  border: "1px solid #fde68a",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#d97706",
-                  flexShrink: 0,
-                  boxShadow: "0 4px 12px rgba(243, 182, 63, 0.1)",
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                </svg>
-              </div>
-              <div>
-                <h4 style={{ fontSize: "15px", fontWeight: 700, color: "#d97706", margin: "0 0 2px" }}>
-                  Effortless Use
-                </h4>
-                <p style={{ fontSize: "13px", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
-                  No water. No swallowing. Just place and melt.
-                </p>
-              </div>
-            </div>
+                {/* Syringe Icon */}
+                <g transform="translate(-10, -10) scale(0.85)">
+                  {/* Needle */}
+                  <line x1="3" y1="21" x2="8" y2="16" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
+                  {/* Barrel */}
+                  <rect x="7" y="6" width="6" height="11" rx="1" transform="rotate(-45 10 11.5)" fill="#38bdf8" opacity="0.8" stroke="#0284c7" strokeWidth="1" />
+                  {/* Plunger */}
+                  <line x1="14" y1="10" x2="19" y2="5" stroke="#64748b" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="16" y1="2" x2="22" y2="8" stroke="#64748b" strokeWidth="2" strokeLinecap="round" />
+                </g>
+              </g>
 
-          </div>
-        </div>
+              {/* =========================================
+                  NODE 2: THINDISS™ STRIPS (Upper Curve)
+              ========================================= */}
+              <g transform="translate(160, 75)">
+                {/* ThinDiss Strip Floating Graphic */}
+                <g style={{ animation: "floatStrip 3.5s ease-in-out infinite", transformOrigin: "0px 0px" }}>
+                  {/* Glowing backdrop */}
+                  <rect x="-18" y="-18" width="36" height="36" rx="10" fill="#fef08a" opacity="0.5" filter="url(#stripShadow)" />
 
+                  {/* Realistic Teal/Gold Curved Strip */}
+                  <path
+                    d="M -14,-8 C -4,-14 6,-6 15,-10 C 15,-10 12,8 10,14 C 2,10 -6,16 -12,10 Z"
+                    fill="url(#stripShader)"
+                    stroke="#0d9488"
+                    strokeWidth="0.8"
+                    filter="url(#stripShadow)"
+                  />
+                  <defs>
+                    <linearGradient id="stripShader" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#2dd4bf" />
+                      <stop offset="50%" stopColor="#14b8a6" />
+                      <stop offset="100%" stopColor="#0f766e" />
+                    </linearGradient>
+                  </defs>
+                </g>
 
-        {/* =====================================================
-            3. TRADITIONAL FORMATS COMPARISON CARD
-        ===================================================== */}
-        <div
-          style={{
-            backgroundColor: "#ffffff",
-            border: "1px solid #e2e8f0",
-            borderRadius: "22px",
-            padding: "32px 36px",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
-            marginBottom: "36px",
-            display: "grid",
-            gridTemplateColumns: "1fr 3fr",
-            gap: "36px",
-            alignItems: "center",
-          }}
-        >
-          {/* Left Column Header */}
-          <div style={{ paddingRight: "24px", borderRight: "1px solid #f1f5f9" }}>
-            <h3 style={{ fontSize: "20px", fontWeight: 800, color: "#1e293b", margin: "0 0 6px", lineHeight: 1.25 }}>
-              Traditional formats.
-            </h3>
-            <h3 style={{ fontSize: "20px", fontWeight: 800, color: "#1e293b", margin: "0 0 12px", lineHeight: 1.25 }}>
-              Outdated outcomes.
-            </h3>
-            <p style={{ fontSize: "13.5px", color: "#64748b", margin: 0, lineHeight: 1.5 }}>
-              Most traditional formats come with limitations that reduce nutrient impact.
-            </p>
-          </div>
+                {/* Text Label to the Right */}
+                <text x="24" y="-7" fill="#003b73" fontSize="15" fontWeight="800" fontFamily="'Montserrat', sans-serif" letterSpacing="-0.01em">
+                  ThinDiss™ Strips
+                </text>
+                <text x="24" y="11" fill="#0284c7" fontSize="14" fontWeight="800" fontFamily="'Montserrat', sans-serif">
+                  High
+                </text>
+              </g>
 
-          {/* Right 3-Column Grid for Formats */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "24px",
-            }}
-          >
-            {/* Format 1: Gummies */}
-            <div style={{ textAlign: "left" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
-                <span style={{ fontSize: "28px" }}>🍓</span>
-                <h4 style={{ fontSize: "16px", fontWeight: 800, color: "#1e293b", margin: 0 }}>
-                  Gummies
-                </h4>
-              </div>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "13px", color: "#64748b" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#ef4444", fontWeight: 800, fontSize: "14px" }}>⊗</span>
-                  Low bioavailability
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#ef4444", fontWeight: 800, fontSize: "14px" }}>⊗</span>
-                  High sugar content
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#ef4444", fontWeight: 800, fontSize: "14px" }}>⊗</span>
-                  Sticky &amp; inconvenient
-                </div>
-              </div>
-            </div>
-
-            {/* Format 2: Capsules */}
-            <div style={{ textAlign: "left" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
-                <span style={{ fontSize: "28px" }}>💊</span>
-                <h4 style={{ fontSize: "16px", fontWeight: 800, color: "#1e293b", margin: 0 }}>
-                  Capsules
-                </h4>
-              </div>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "13px", color: "#64748b" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#d97706", fontWeight: 800, fontSize: "14px" }}>⊖</span>
-                  Moderate absorption
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#d97706", fontWeight: 800, fontSize: "14px" }}>⊖</span>
-                  Often needs fillers
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#d97706", fontWeight: 800, fontSize: "14px" }}>⊖</span>
-                  Can be hard to swallow
-                </div>
-              </div>
-            </div>
-
-            {/* Format 3: Tablets */}
-            <div style={{ textAlign: "left" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
-                <span style={{ fontSize: "28px" }}>⚪</span>
-                <h4 style={{ fontSize: "16px", fontWeight: 800, color: "#1e293b", margin: 0 }}>
+              {/* =========================================
+                  NODE 3: TABLETS (Bottom Dip)
+              ========================================= */}
+              <g transform="translate(365, 260)">
+                {/* Text Above */}
+                <text x="0" y="-36" textAnchor="middle" fill="#475569" fontSize="13" fontWeight="600" fontFamily="'Montserrat', sans-serif">
                   Tablets
-                </h4>
-              </div>
+                </text>
+                <text x="0" y="-19" textAnchor="middle" fill="#0f2942" fontSize="14" fontWeight="800" fontFamily="'Montserrat', sans-serif">
+                  Very Low
+                </text>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "13px", color: "#64748b" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#d97706", fontWeight: 800, fontSize: "14px" }}>⊖</span>
-                  Slower dissolution
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#d97706", fontWeight: 800, fontSize: "14px" }}>⊖</span>
-                  Lower nutrient uptake
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span style={{ color: "#d97706", fontWeight: 800, fontSize: "14px" }}>⊖</span>
-                  Needs water to consume
-                </div>
-              </div>
-            </div>
+                {/* Soft yellow halo */}
+                <circle cx="0" cy="0" r="22" fill="#fff9db" opacity="0.9" />
 
-          </div>
-        </div>
+                {/* White 3D Tablet */}
+                <circle cx="0" cy="0" r="14" fill="#ffffff" filter="url(#nodeShadow)" stroke="#e2e8f0" strokeWidth="1.2" />
+                <line x1="-9" y1="0" x2="9" y2="0" stroke="#cbd5e1" strokeWidth="1.2" strokeLinecap="round" />
+                <ellipse cx="-4" cy="-4" rx="4" ry="2" fill="#ffffff" opacity="0.8" />
+              </g>
 
+              {/* =========================================
+                  NODE 4: CAPSULES (Right Ascent)
+              ========================================= */}
+              <g transform="translate(480, 230)">
+                {/* Text Above */}
+                <text x="0" y="-36" textAnchor="middle" fill="#475569" fontSize="13" fontWeight="600" fontFamily="'Montserrat', sans-serif">
+                  Capsules
+                </text>
+                <text x="0" y="-19" textAnchor="middle" fill="#0f2942" fontSize="14" fontWeight="800" fontFamily="'Montserrat', sans-serif">
+                  Low
+                </text>
 
-        {/* =====================================================
-            4. BOTTOM 4-PILLAR FEATURE CARDS ROW
-        ===================================================== */}
-        <div
-          style={{
-            backgroundColor: "#ffffff",
-            border: "1px solid #e2e8f0",
-            borderRadius: "22px",
-            padding: "30px 24px",
-            boxShadow: "0 6px 20px rgba(0, 0, 0, 0.02)",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "20px",
-          }}
-        >
-          {/* Card 1: High Absorption */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              textAlign: "center",
-              padding: "0 12px",
-              borderRight: "1px solid #f1f5f9",
-            }}
-          >
-            <div
-              style={{
-                width: "52px",
-                height: "52px",
-                borderRadius: "50%",
-                backgroundColor: "#fffdf0",
-                border: "1px solid #fde68a",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#d97706",
-                marginBottom: "16px",
-              }}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v6m0 0l-3-3m3 3l3-3" />
-                <path d="M4 14h16M4 18h16" />
-              </svg>
-            </div>
-            <h4 style={{ fontSize: "13.5px", fontWeight: 800, color: "#1e293b", margin: "0 0 6px", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-              HIGH ABSORPTION
-            </h4>
-            <p style={{ fontSize: "13px", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
-              Engineered for rapid delivery and maximum uptake.
-            </p>
-          </div>
+                {/* Soft yellow halo */}
+                <circle cx="0" cy="0" r="22" fill="#fff9db" opacity="0.9" />
 
-          {/* Card 2: Clean Nutrition */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              textAlign: "center",
-              padding: "0 12px",
-              borderRight: "1px solid #f1f5f9",
-            }}
-          >
-            <div
-              style={{
-                width: "52px",
-                height: "52px",
-                borderRadius: "50%",
-                backgroundColor: "#fffdf0",
-                border: "1px solid #fde68a",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#d97706",
-                marginBottom: "16px",
-              }}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9a9 9 0 0 1-10 9z" />
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-              </svg>
-            </div>
-            <h4 style={{ fontSize: "13.5px", fontWeight: 800, color: "#1e293b", margin: "0 0 6px", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-              CLEAN NUTRITION
-            </h4>
-            <p style={{ fontSize: "13px", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
-              No added sugar, no unnecessary additives.
-            </p>
-          </div>
+                {/* Two-tone 3D Capsule */}
+                <g transform="translate(0, 0) rotate(15)">
+                  {/* Shadow base */}
+                  <rect x="-6" y="-14" width="12" height="28" rx="6" fill="#ffffff" filter="url(#nodeShadow)" />
+                  {/* Top Red Half */}
+                  <path d="M -6,0 L -6,-8 C -6,-11.3 -3.3,-14 0,-14 C 3.3,-14 6,-11.3 6,-8 L 6,0 Z" fill="#ef4444" />
+                  {/* Bottom Clear / Golden Pellet Half */}
+                  <path d="M -6,0 L -6,8 C -6,11.3 -3.3,14 0,14 C 3.3,14 6,8 6,8 L 6,0 Z" fill="#f8fafc" stroke="#e2e8f0" strokeWidth="0.8" />
+                  {/* Specular highlights */}
+                  <path d="M -3,-11 Q 0,-13 3,-11" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.7" />
+                  <circle cx="-1" cy="4" r="1" fill="#ef4444" opacity="0.6" />
+                  <circle cx="2" cy="7" r="1.2" fill="#f59e0b" opacity="0.7" />
+                </g>
+              </g>
 
-          {/* Card 3: Precise & Consistent */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              textAlign: "center",
-              padding: "0 12px",
-              borderRight: "1px solid #f1f5f9",
-            }}
-          >
-            <div
-              style={{
-                width: "52px",
-                height: "52px",
-                borderRadius: "50%",
-                backgroundColor: "#fffdf0",
-                border: "1px solid #fde68a",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#d97706",
-                marginBottom: "16px",
-              }}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="6" />
-                <circle cx="12" cy="12" r="2" />
-              </svg>
-            </div>
-            <h4 style={{ fontSize: "13.5px", fontWeight: 800, color: "#1e293b", margin: "0 0 6px", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-              PRECISE &amp; CONSISTENT
-            </h4>
-            <p style={{ fontSize: "13px", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
-              Every strip delivers the exact dose, every time.
-            </p>
-          </div>
+              {/* =========================================
+                  NODE 5: GUMMIES (Far Right)
+              ========================================= */}
+              <g transform="translate(565, 230)">
+                {/* Text Above */}
+                <text x="0" y="-36" textAnchor="middle" fill="#475569" fontSize="13" fontWeight="600" fontFamily="'Montserrat', sans-serif">
+                  Gummies
+                </text>
+                <text x="0" y="-19" textAnchor="middle" fill="#0f2942" fontSize="14" fontWeight="800" fontFamily="'Montserrat', sans-serif">
+                  Low
+                </text>
 
-          {/* Card 4: Easy & Modern */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              textAlign: "center",
-              padding: "0 12px",
-            }}
-          >
-            <div
-              style={{
-                width: "52px",
-                height: "52px",
-                borderRadius: "50%",
-                backgroundColor: "#fffdf0",
-                border: "1px solid #fde68a",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#d97706",
-                marginBottom: "16px",
-              }}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
-              </svg>
-            </div>
-            <h4 style={{ fontSize: "13.5px", fontWeight: 800, color: "#1e293b", margin: "0 0 6px", letterSpacing: "0.04em", textTransform: "uppercase" }}>
-              EASY &amp; MODERN
-            </h4>
-            <p style={{ fontSize: "13px", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
-              Portable, mess-free and designed for today's lifestyle.
-            </p>
+                {/* Soft yellow halo */}
+                <circle cx="0" cy="0" r="22" fill="#fff9db" opacity="0.9" />
+
+                {/* Red Gumdrop / Gummy Candy */}
+                <g transform="translate(0, 0)">
+                  <path
+                    d="M -11,8 C -12,12 -8,14 0,14 C 8,14 12,12 11,8 C 10,2 7,-8 0,-9 C -7,-8 -10,2 -11,8 Z"
+                    fill="url(#gummyGradient)"
+                    filter="url(#nodeShadow)"
+                  />
+                  {/* Sugar sparkles / highlight */}
+                  <ellipse cx="-2" cy="-4" rx="4" ry="2" fill="#ffffff" opacity="0.4" />
+                  <defs>
+                    <linearGradient id="gummyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#f43f5e" />
+                      <stop offset="70%" stopColor="#e11d48" />
+                      <stop offset="100%" stopColor="#be123c" />
+                    </linearGradient>
+                  </defs>
+                </g>
+              </g>
+
+            </svg>
           </div>
 
         </div>
@@ -619,5 +391,3 @@ const CompanyIntro = () => {
 };
 
 export default CompanyIntro;
-
-

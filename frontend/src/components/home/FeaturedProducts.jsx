@@ -61,7 +61,7 @@ const FeaturedProducts = () => {
   return (
     <section
       style={{
-        padding: "100px 0 110px",
+        padding: "90px 0 100px",
         backgroundColor: "#ffffff",
         fontFamily: "'Montserrat', sans-serif",
         overflow: "hidden",
@@ -70,39 +70,146 @@ const FeaturedProducts = () => {
       <div style={{ maxWidth: "1340px", margin: "0 auto", padding: "0 30px" }}>
 
         {/* =========================
-            HEADER SECTION
+            HEADER SECTION WITH SWIPER ARROWS (ABOVE PRODUCTS)
         ========================== */}
-        <div style={{ maxWidth: "750px", marginBottom: "60px" }}>
-          <h2
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            marginBottom: "40px",
+            gap: "24px",
+            flexWrap: "wrap",
+          }}
+        >
+          <div style={{ maxWidth: "750px" }}>
+            <h2
+              style={{
+                fontSize: "clamp(34px, 4.2vw, 56px)",
+                fontWeight: 600,
+                color: "#1e293b",
+                lineHeight: 1.15,
+                letterSpacing: "-0.03em",
+                margin: 0,
+              }}
+            >
+              Explore Our Advanced{" "}
+              <span style={{ color: "#f3b63f" }}>Oral Film Portfolio</span>
+            </h2>
+
+            <p
+              style={{
+                fontSize: "16px",
+                lineHeight: 1.65,
+                color: "#64748b",
+                marginTop: "16px",
+                fontWeight: 400,
+                maxWidth: "560px",
+                margin: "16px 0 0",
+              }}
+            >
+              Precision-engineered oral dissolving strips formulated for instant
+              sublingual absorption, maximum bioavailability, and water-free
+              convenience.
+            </p>
+          </div>
+
+          {/* Swiper Arrow Controls Above Products */}
+          <div
             style={{
-              fontSize: "clamp(34px, 4.2vw, 56px)",
-              fontWeight: 600,
-              color: "#1e293b",
-              lineHeight: 1.15,
-              letterSpacing: "-0.03em",
-              margin: 0,
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              flexShrink: 0,
+              paddingBottom: "4px",
             }}
           >
-            Explore Our Advanced{" "}
-            <span style={{ color: "#f3b63f" }}>Oral</span>
+            {/* Left Arrow Button */}
+            <button
+              type="button"
+              onClick={() => handleScroll("left")}
+              aria-label="Previous products"
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                backgroundColor: "#ffffff",
+                border: "1.5px solid #cbd5e1",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                color: "#334155",
+                transition: "all 0.25s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#f3b63f";
+                e.currentTarget.style.backgroundColor = "#fefce8";
+                e.currentTarget.style.color = "#f3b63f";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#cbd5e1";
+                e.currentTarget.style.backgroundColor = "#ffffff";
+                e.currentTarget.style.color = "#334155";
+              }}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
 
-            <span style={{ color: "#f3b63f" }}>Film Portfolio</span>
-          </h2>
-
-          <p
-            style={{
-              fontSize: "16px",
-              lineHeight: 1.65,
-              color: "#64748b",
-              marginTop: "20px",
-              fontWeight: 400,
-              maxWidth: "560px",
-            }}
-          >
-            Precision-engineered oral dissolving strips formulated for instant
-            sublingual absorption, maximum bioavailability, and water-free
-            convenience.
-          </p>
+            {/* Right Arrow Button */}
+            <button
+              type="button"
+              onClick={() => handleScroll("right")}
+              aria-label="Next products"
+              style={{
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                backgroundColor: "#ffffff",
+                border: "1.5px solid #cbd5e1",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                color: "#334155",
+                transition: "all 0.25s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#f3b63f";
+                e.currentTarget.style.backgroundColor = "#fefce8";
+                e.currentTarget.style.color = "#f3b63f";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#cbd5e1";
+                e.currentTarget.style.backgroundColor = "#ffffff";
+                e.currentTarget.style.color = "#334155";
+              }}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* =========================
@@ -117,7 +224,7 @@ const FeaturedProducts = () => {
             scrollSnapType: "x mandatory",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            paddingBottom: "20px",
+            paddingBottom: "10px",
           }}
           className="hide-scrollbar"
         >
@@ -180,7 +287,7 @@ const FeaturedProducts = () => {
                 </p>
               </div>
 
-              {/* Product Image Box (Ready for your product image) */}
+              {/* Product Image Box */}
               <div
                 style={{
                   width: "100%",
@@ -237,108 +344,10 @@ const FeaturedProducts = () => {
           ))}
         </div>
 
-        {/* =========================
-            CAROUSEL CONTROLS (Bottom Right)
-        ========================== */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            gap: "14px",
-            marginTop: "35px",
-          }}
-        >
-          {/* Left Arrow Button */}
-          <button
-            type="button"
-            onClick={() => handleScroll("left")}
-            aria-label="Previous products"
-            style={{
-              width: "46px",
-              height: "46px",
-              borderRadius: "50%",
-              backgroundColor: "#ffffff",
-              border: "1.5px solid #cbd5e1",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              color: "#334155",
-              transition: "all 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#f3b63f";
-              e.currentTarget.style.backgroundColor = "#fefce8";
-              e.currentTarget.style.color = "#d97706";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "#cbd5e1";
-              e.currentTarget.style.backgroundColor = "#ffffff";
-              e.currentTarget.style.color = "#334155";
-            }}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            type="button"
-            onClick={() => handleScroll("right")}
-            aria-label="Next products"
-            style={{
-              width: "46px",
-              height: "46px",
-              borderRadius: "50%",
-              backgroundColor: "#ffffff",
-              border: "1.5px solid #cbd5e1",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              color: "#334155",
-              transition: "all 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#f3b63f";
-              e.currentTarget.style.backgroundColor = "#fefce8";
-              e.currentTarget.style.color = "#d97706";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "#cbd5e1";
-              e.currentTarget.style.backgroundColor = "#ffffff";
-              e.currentTarget.style.color = "#334155";
-            }}
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-        </div>
-
       </div>
     </section>
   );
 };
 
 export default FeaturedProducts;
+
