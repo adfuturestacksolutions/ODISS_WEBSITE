@@ -147,26 +147,33 @@ const processSteps = [
     number: "01",
     title: "Place",
     description: "Place the strip comfortably on your tongue and let the delivery process begin. Unlike traditional pills or capsules that require water and can be difficult to swallow, our oral strips are designed for ultimate convenience. Simply take one out of its compact packaging and rest it on your tongue anytime, anywhere without any hassle.",
-    image: "/1.png",
+    video: "/video1.mp4",
   },
   {
     number: "02",
     title: "Dissolve",
     description: "The thin format begins dissolving quickly, creating a simple and convenient experience. Within seconds, our proprietary formulation breaks down seamlessly upon contact with your saliva. There is no gritty residue or unpleasant aftertaste, just a smooth, instant transition that prepares the active ingredients for action.",
-    image: "/2.png",
+    video: "/video2.mp4",
   },
   {
     number: "03",
     title: "Absorb",
     description: "The active ingredients are delivered directly into your system through advanced oral delivery. By bypassing the harsh acidic environment of the stomach and digestive tract, this sublingual absorption method ensures that a significantly higher percentage of the nutrients enters your bloodstream instantly, maximizing bioavailability.",
-    image: "/3.png",
+    video: "/3.mp4",
   },
   {
     number: "04",
     title: "Feel",
     description: "Experience a simple, modern delivery format designed around everyday convenience. Because of the rapid absorption rate, you will feel the desired effects much faster compared to conventional methods. ThinDiss™ provides a discreet, highly effective, and travel-friendly way to seamlessly manage your daily wellness routine.",
-    image: "/4.png",
+    video: "/4.mp4",
   },
+];
+
+const processBgColors = [
+  "#FFE0B2", // Orange (inspired by D-THINK)
+  "#FFCDD2", // Pink/Red (inspired by FERROSTRIPS)
+  "#E1BEE7", // Purple (inspired by CARDIOSTRIPS)
+  "#B2DFDB", // Teal (inspired by COBAMELT)
 ];
 
 /* =========================================================
@@ -180,7 +187,6 @@ const comparisonData = [
   { feature: "Precise Dosage", thindiss: true, gummies: false, capsules: false, tablets: false },
   { feature: "Quick Action", thindiss: true, gummies: false, capsules: false, tablets: false },
 ];
-
 
 const WhyThinDiss = () => {
   /* -------------------------------------------------------
@@ -284,7 +290,7 @@ const WhyThinDiss = () => {
       <section className="thindiss-hero-immersive">
         <div className="hero-immersive-bg">
           <video autoPlay loop muted playsInline className="hero-bg-video">
-            <source src="/hero-video1.mp4" type="video/mp4" />
+            <source src="/hero-video2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -372,7 +378,14 @@ const WhyThinDiss = () => {
       {/* =====================================================
           HOW IT WORKS (STICKY SECTION)
       ===================================================== */}
-      <section className="process-section-wrapper" ref={scrollContainerRef}>
+      <section
+        className="process-section-wrapper"
+        ref={scrollContainerRef}
+        style={{
+          backgroundColor: processBgColors[activeStep] || "var(--cream)",
+          transition: "background-color 0.6s ease"
+        }}
+      >
         <div className="process-sticky-container">
 
           <div className="process-header reveal-up">
@@ -391,10 +404,13 @@ const WhyThinDiss = () => {
             <div className="process-visual-area reveal-left">
               <div className="process-circle-frame">
                 {processSteps.map((step, index) => (
-                  <img
-                    key={`img-${index}`}
-                    src={step.image}
-                    alt={step.title}
+                  <video
+                    key={`video-${index}`}
+                    src={step.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className={`process-dynamic-img ${index === activeStep ? "active" : ""}`}
                   />
                 ))}
