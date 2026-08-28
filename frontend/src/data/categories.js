@@ -1,3 +1,8 @@
+import adultsGif from "../assets/category/Adults.gif";
+import womenGif from "../assets/category/Women.gif";
+import kidsGif from "../assets/category/Kids.gif";
+import vitalsGif from "../assets/category/Vitals.gif";
+
 /**
  * ODISS Product Categories Data
  * Source: MongoDB categories collection
@@ -13,7 +18,7 @@ const categories = [
     description:
       "Explore ODIS Adults Range of oral dissolving strips developed for convenient daily wellness. The range can include solutions supporting energy, immunity, sleep, focus, nutrition and other adult wellness needs in a convenient, fast-dissolving format.",
     image: {
-      url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1787076098/odiss_products/zwkihdbktooo4svycvio.jpg",
+      url: adultsGif,
       publicId: "odiss_products/zwkihdbktooo4svycvio",
       alt: "ODIS Adults Range oral dissolving strips",
     },
@@ -50,7 +55,7 @@ const categories = [
     description:
       "Discover the ODIS Women's Range, featuring convenient oral dissolving strip solutions designed around women's wellness and nutritional needs. Products can address areas such as beauty, immunity, energy, nutritional support and everyday wellbeing.",
     image: {
-      url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1787076457/odiss_products/lfrvky50p9zy4m44ethn.jpg",
+      url: womenGif,
       publicId: "odiss_products/lfrvky50p9zy4m44ethn",
       alt: "ODIS Women's Range oral dissolving strips",
     },
@@ -87,7 +92,7 @@ const categories = [
     description:
       "Explore the ODIS Kids Range of convenient oral dissolving strip solutions developed with children's wellness and nutritional needs in mind. The range can include products supporting everyday nutrition, immunity and other age-appropriate wellness applications.",
     image: {
-      url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1787076234/odiss_products/mayhwkd5361irql6gf5r.jpg",
+      url: kidsGif,
       publicId: "odiss_products/mayhwkd5361irql6gf5r",
       alt: "ODIS Kids Range oral dissolving strips",
     },
@@ -124,7 +129,7 @@ const categories = [
     description:
       "The ODIS Vitals Range brings together essential vitamins, minerals and nutritional wellness solutions in a convenient oral dissolving strip format. It is designed for brands looking to offer practical and innovative daily nutrition products.",
     image: {
-      url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1787076563/odiss_products/cmkm8qqfdnac4ptzfa8x.jpg",
+      url: vitalsGif,
       publicId: "odiss_products/cmkm8qqfdnac4ptzfa8x",
       alt: "ODIS Vitals Range oral dissolving strips",
     },
