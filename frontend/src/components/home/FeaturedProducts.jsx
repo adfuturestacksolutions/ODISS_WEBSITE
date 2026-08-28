@@ -1,64 +1,33 @@
-import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useRef, useMemo } from "react";
+import { getFeaturedProducts, getAllProducts } from "../../services/productService";
+import ProductCard from "../products/ProductCard";
+import "../../styles/products.css";
 
-const products = [
-  {
-    id: 1,
-    title: "Breath Freshener",
-    slug: "breath-freshener",
-    category: "Oral Hygiene",
-    image: "/home product/1.jpeg",
-    flavor: "Spearmint Flavor",
-  },
-  {
-    id: 2,
-    title: "Silenzz",
-    slug: "silenzz",
-    category: "Sleep & Relaxation",
-    image: "/home product/2.jpeg",
-    flavor: "Peppermint Flavor",
-  },
-  {
-    id: 3,
-    title: "Meltacid",
-    slug: "meltacid",
-    category: "Antacid & Digestion",
-    image: "/home product/3.jpeg",
-    flavor: "Spearmint Flavor",
-  },
-  {
-    id: 4,
-    title: "Quikoff",
-    slug: "quikoff",
-    category: "Herbal Cough & Throat",
-    image: "/home product/4.jpeg",
-    flavor: "Raspberry Flavor",
-  },
-  {
-    id: 5,
-    title: "Energizz",
-    slug: "energizz",
-    category: "Energy & Focus",
-    image: "/home product/5.jpeg",
-    flavor: "Citrus Orange Flavor",
-  },
-  {
-    id: 6,
-    title: "ImmunoBoost",
-    slug: "immunoboost",
-    category: "Immunity & Wellness",
-    image: "/home product/6.jpeg",
-    flavor: "Berry Blast Flavor",
-  },
+const HOME_PRODUCT_IMAGES = [
+  "/home product/1.jpeg",
+  "/home product/2.jpeg",
+  "/home product/3.jpeg",
+  "/home product/4.jpeg",
+  "/home product/5.jpeg",
+  "/home product/6.jpeg",
 ];
 
 const FeaturedProducts = () => {
   const scrollRef = useRef(null);
-  const navigate = useNavigate();
+
+  // Dynamically load real featured products mapped with home product images
+  const displayProducts = useMemo(() => {
+    const featured = getFeaturedProducts();
+    const list = featured && featured.length > 0 ? featured : getAllProducts().slice(0, 6);
+    return list.map((prod, idx) => ({
+      ...prod,
+      image: HOME_PRODUCT_IMAGES[idx % HOME_PRODUCT_IMAGES.length],
+    }));
+  }, []);
 
   const handleScroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 320;
+      const scrollAmount = 340;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -78,21 +47,23 @@ const FeaturedProducts = () => {
     >
       <style>{`
         .featured-products-container {
-          max-width: 1340px;
+          max-width: 1380px;
           margin: 0 auto;
-          padding: 0 30px;
+          padding: 0 clamp(16px, 3.5vw, 36px);
+        }
+        .featured-card-wrapper {
+          flex: 0 0 295px;
+          scroll-snap-align: start;
         }
         @media (max-width: 768px) {
           .featured-products-section {
-            padding: 55px 0 65px !important;
+            padding: 50px 0 60px !important;
           }
           .featured-products-container {
             padding: 0 16px !important;
           }
-          .product-card-item {
-            flex: 0 0 255px !important;
-            padding: 18px 16px 18px !important;
-            min-height: 380px !important;
+          .featured-card-wrapper {
+            flex: 0 0 260px !important;
           }
         }
       `}</style>
@@ -102,6 +73,7 @@ const FeaturedProducts = () => {
             HEADER SECTION WITH SWIPER ARROWS (ABOVE PRODUCTS)
         ========================== */}
         <div
+          className="reveal-up"
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -114,11 +86,12 @@ const FeaturedProducts = () => {
           <div style={{ maxWidth: "750px" }}>
             <h2
               style={{
+                fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
                 fontSize: "clamp(34px, 4.2vw, 56px)",
-                fontWeight: 600,
+                fontWeight: 700,
                 color: "#1e293b",
                 lineHeight: 1.15,
-                letterSpacing: "-0.03em",
+                letterSpacing: "-0.015em",
                 margin: 0,
               }}
             >
@@ -242,7 +215,7 @@ const FeaturedProducts = () => {
         </div>
 
         {/* =========================
-            PRODUCTS CAROUSEL ROW
+            PRODUCTS CAROUSEL ROW USING PRODUCTCARD
         ========================== */}
         <div
           ref={scrollRef}
@@ -253,9 +226,9 @@ const FeaturedProducts = () => {
             scrollSnapType: "x mandatory",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            paddingBottom: "10px",
+            padding: "8px 4px 20px",
           }}
-          className="hide-scrollbar"
+          className="hide-scrollbar reveal-stagger"
         >
           <style>{`
             .hide-scrollbar::-webkit-scrollbar {
@@ -263,115 +236,16 @@ const FeaturedProducts = () => {
             }
           `}</style>
 
-          {products.map((product) => (
+          {displayProducts.map((product, idx) => (
             <div
-              key={product.id}
-              className="product-card-item"
-              onClick={() => navigate(`/product/${product.slug}`)}
-              style={{
-                flex: "0 0 285px",
-                scrollSnapAlign: "start",
-                backgroundColor: "#fbfbfc",
-                borderRadius: "20px",
-                padding: "24px 22px 22px",
-                border: "none",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                minHeight: "410px",
-                boxShadow: "none",
-                cursor: "pointer",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor = "transparent";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor = "transparent";
-              }}
+              key={product._id || product.slug || idx}
+              className="featured-card-wrapper"
             >
-              {/* Product Info Header */}
-              <div>
-                <h3
-                  style={{
-                    fontSize: "20px",
-                    fontWeight: 700,
-                    color: "#1e293b",
-                    margin: 0,
-                    lineHeight: 1.25,
-                  }}
-                >
-                  {product.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "13px",
-                    color: "#64748b",
-                    margin: "6px 0 0",
-                    fontWeight: 500,
-                  }}
-                >
-                  {product.category}
-                </p>
-              </div>
-
-              {/* Product Image Box */}
-              <div
-                style={{
-                  width: "100%",
-                  height: "220px",
-                  margin: "18px 0",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: "14px",
-                  backgroundColor: "#f1f5f9",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                {product.image ? (
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      display: "block",
-                    }}
-                  />
-                ) : (
-                  <img
-                    src=""
-                    alt={product.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      display: "block",
-                    }}
-                  />
-                )}
-              </div>
-
-              {/* Bottom Flavor Label */}
-              <div>
-                <p
-                  style={{
-                    fontSize: "13.5px",
-                    color: "#475569",
-                    fontWeight: 500,
-                    margin: 0,
-                  }}
-                >
-                  {product.flavor}
-                </p>
-              </div>
+              <ProductCard
+                product={product}
+                index={idx}
+                showBuyButton={false}
+              />
             </div>
           ))}
         </div>
@@ -382,4 +256,3 @@ const FeaturedProducts = () => {
 };
 
 export default FeaturedProducts;
-

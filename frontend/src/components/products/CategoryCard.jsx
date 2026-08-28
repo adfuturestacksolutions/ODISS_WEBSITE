@@ -15,7 +15,7 @@ const CategoryCard = ({ category }) => {
 
   return (
     <div className="category-card" onClick={handleCardClick}>
-      {/* Full-Card Animated GIF Background */}
+      {/* Background/Image Container */}
       <div className="category-card-media">
         <img
           src={category.image?.url}

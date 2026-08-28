@@ -63,11 +63,11 @@
   position: relative;
   z-index: 3;
   max-width: 1280px;
-  width: 100%;
+  width: min(1280px, calc(100% - clamp(24px, 4vw, 48px)));
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
   align-items: center;
-  gap: 36px;
+  gap: clamp(16px, 3vw, 36px);
 }
 
 /* Left Pedestal Podium Product Display */
@@ -79,8 +79,8 @@
 
 .category-hero-podium {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: clamp(160px, 16vw, 220px);
+  height: clamp(160px, 16vw, 220px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,8 +88,8 @@
 }
 
 .category-hero-podium-img {
-  width: 170px;
-  height: 170px;
+  width: clamp(120px, 13vw, 170px);
+  height: clamp(120px, 13vw, 170px);
   object-fit: contain;
   filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.28));
   z-index: 2;
@@ -104,8 +104,8 @@
 .category-hero-pedestal-stand {
   position: absolute;
   bottom: 10px;
-  width: 190px;
-  height: 75px;
+  width: clamp(140px, 14vw, 190px);
+  height: clamp(55px, 6vw, 75px);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.35) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -149,9 +149,9 @@
 }
 
 .category-hero-lifestyle-img {
-  max-height: 250px;
+  max-height: clamp(180px, 20vw, 250px);
   width: auto;
-  max-width: 320px;
+  max-width: min(100%, 320px);
   object-fit: contain;
   filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.22));
   border-radius: 16px;

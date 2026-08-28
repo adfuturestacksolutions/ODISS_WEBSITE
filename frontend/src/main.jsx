@@ -6,12 +6,14 @@ import AppRoutes from "./routes/AppRoutes";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import FloatingContact from "./components/common/FloatingContact";
+import ScrollObserver from "./components/common/ScrollObserver";
 
 import "./styles/globals.css";
 
 const App = () => {
   return (
     <div className="app">
+      <ScrollObserver />
       <Navbar />
 
       <main className="site-content">

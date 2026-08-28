@@ -147,26 +147,33 @@ const processSteps = [
     number: "01",
     title: "Place",
     description: "Place the strip comfortably on your tongue and let the delivery process begin. Unlike traditional pills or capsules that require water and can be difficult to swallow, our oral strips are designed for ultimate convenience. Simply take one out of its compact packaging and rest it on your tongue anytime, anywhere without any hassle.",
-    image: "/1.png",
+    video: "/video1.mp4",
   },
   {
     number: "02",
     title: "Dissolve",
     description: "The thin format begins dissolving quickly, creating a simple and convenient experience. Within seconds, our proprietary formulation breaks down seamlessly upon contact with your saliva. There is no gritty residue or unpleasant aftertaste, just a smooth, instant transition that prepares the active ingredients for action.",
-    image: "/2.png",
+    video: "/video2.mp4",
   },
   {
     number: "03",
     title: "Absorb",
     description: "The active ingredients are delivered directly into your system through advanced oral delivery. By bypassing the harsh acidic environment of the stomach and digestive tract, this sublingual absorption method ensures that a significantly higher percentage of the nutrients enters your bloodstream instantly, maximizing bioavailability.",
-    image: "/3.png",
+    video: "/3.mp4",
   },
   {
     number: "04",
     title: "Feel",
     description: "Experience a simple, modern delivery format designed around everyday convenience. Because of the rapid absorption rate, you will feel the desired effects much faster compared to conventional methods. ThinDiss™ provides a discreet, highly effective, and travel-friendly way to seamlessly manage your daily wellness routine.",
-    image: "/4.png",
+    video: "/4.mp4",
   },
+];
+
+const processBgColors = [
+  "#FFE0B2", // Orange (inspired by D-THINK)
+  "#FFCDD2", // Pink/Red (inspired by FERROSTRIPS)
+  "#E1BEE7", // Purple (inspired by CARDIOSTRIPS)
+  "#B2DFDB", // Teal (inspired by COBAMELT)
 ];
 
 /* =========================================================
@@ -180,7 +187,6 @@ const comparisonData = [
   { feature: "Precise Dosage", thindiss: true, gummies: false, capsules: false, tablets: false },
   { feature: "Quick Action", thindiss: true, gummies: false, capsules: false, tablets: false },
 ];
-
 
 const WhyThinDiss = () => {
   /* -------------------------------------------------------
@@ -284,13 +290,13 @@ const WhyThinDiss = () => {
       <section className="thindiss-hero-immersive">
         <div className="hero-immersive-bg">
           <video autoPlay loop muted playsInline className="hero-bg-video">
-            <source src="/hero-video1.mp4" type="video/mp4" />
+            <source src="/hero-video2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div className="hero-immersive-container">
-          <div className="hero-content-right">
+          <div className="hero-content-right reveal-up">
             <div className="section-label">
               <span />
               <span>WHY THINDISS</span>
@@ -308,7 +314,7 @@ const WhyThinDiss = () => {
               superior consumer experience.
             </p>
 
-            <button className="outline-button-pill">
+            <button className="outline-button-pill anim-card-hover">
               Discover ThinDiss <span>↗</span>
             </button>
           </div>
@@ -319,7 +325,7 @@ const WhyThinDiss = () => {
           INNOVATION CAROUSEL SECTION (MATCHING REFERENCE)
       ===================================================== */}
       <section className="innovation-section">
-        <div className="innovation-header">
+        <div className="innovation-header reveal-up">
           <div className="section-label centered">
             <span />
             <span>ENGINEERED FOR EXCELLENCE</span>
@@ -334,9 +340,9 @@ const WhyThinDiss = () => {
             ref={carouselRef}
             onScroll={handleCarouselScroll}
           >
-            <div className="innovation-track">
+            <div className="innovation-track reveal-stagger">
               {innovationCards.map((card, index) => (
-                <div className="innovation-card-wrapper" key={index}>
+                <div className={`innovation-card-wrapper reveal-card anim-card-hover stagger-${(index % 6) + 1}`} key={index}>
                   <article className="innovation-card">
                     <div className="innovation-card-content">
                       <h3 className="innovation-card-title">{card.title}</h3>
@@ -353,7 +359,7 @@ const WhyThinDiss = () => {
         </div>
 
         {/* Bottom Controls: Progress bar on left, Arrows on right */}
-        <div className="innovation-controls-row">
+        <div className="innovation-controls-row reveal-up">
           <div className="carousel-progress-bar">
             <span style={{ width: `${Math.max(12, scrollProgress)}%` }}></span>
           </div>
@@ -372,10 +378,17 @@ const WhyThinDiss = () => {
       {/* =====================================================
           HOW IT WORKS (STICKY SECTION)
       ===================================================== */}
-      <section className="process-section-wrapper" ref={scrollContainerRef}>
+      <section
+        className="process-section-wrapper"
+        ref={scrollContainerRef}
+        style={{
+          backgroundColor: processBgColors[activeStep] || "var(--cream)",
+          transition: "background-color 0.6s ease"
+        }}
+      >
         <div className="process-sticky-container">
 
-          <div className="process-header">
+          <div className="process-header reveal-up">
             <div className="section-label">
               <span />
               <span>HOW IT WORKS</span>
@@ -388,20 +401,23 @@ const WhyThinDiss = () => {
 
           <div className="process-content-area">
 
-            <div className="process-visual-area">
+            <div className="process-visual-area reveal-left">
               <div className="process-circle-frame">
                 {processSteps.map((step, index) => (
-                  <img
-                    key={`img-${index}`}
-                    src={step.image}
-                    alt={step.title}
+                  <video
+                    key={`video-${index}`}
+                    src={step.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className={`process-dynamic-img ${index === activeStep ? "active" : ""}`}
                   />
                 ))}
               </div>
             </div>
 
-            <div className="process-text-area">
+            <div className="process-text-area reveal-right">
               {processSteps.map((step, index) => (
                 <div
                   key={`text-${index}`}
@@ -429,13 +445,13 @@ const WhyThinDiss = () => {
       ===================================================== */}
       <section className="why-adopt-section">
         <div className="why-adopt-container">
-          <div className="why-adopt-header">
+          <div className="why-adopt-header reveal-up">
             <h2>Why should you adopt this technology?</h2>
           </div>
 
           <div className="why-adopt-grid">
             {/* Left Column: Accordion */}
-            <div className="why-adopt-accordion">
+            <div className="why-adopt-accordion reveal-left">
               {adoptItems.map((item, idx) => {
                 const isOpen = openAdoptIndex === idx;
                 return (
@@ -463,7 +479,7 @@ const WhyThinDiss = () => {
             </div>
 
             {/* Right Column: Dynamic Graphic */}
-            <div className="why-adopt-visual">
+            <div className="why-adopt-visual reveal-right">
               <div className="why-adopt-img-frame">
                 {adoptItems.map((item, idx) => {
                   const isActive = (openAdoptIndex === -1 ? 0 : openAdoptIndex) === idx;
@@ -486,10 +502,10 @@ const WhyThinDiss = () => {
           COMPARISON TABLE SECTION
       ===================================================== */}
       <section className="comparison-section">
-        <div className="comparison-container">
+        <div className="comparison-container reveal-up">
           <h2>OTFs are 10x times better than any other alternative in the market</h2>
 
-          <div className="table-responsive-wrapper">
+          <div className="table-responsive-wrapper reveal-card">
             <table className="comparison-table">
               <thead>
                 <tr>
@@ -551,7 +567,7 @@ const WhyThinDiss = () => {
           PARTNER SECTION
       ===================================================== */}
       <section className="partner-section">
-        <div className="partner-content">
+        <div className="partner-content reveal-left">
           <div className="section-label">
             <span />
             <span>PARTNER WITH US</span>
@@ -568,12 +584,12 @@ const WhyThinDiss = () => {
           <p>
             By partnering with us, you gain access to <strong>cutting-edge drug delivery technologies</strong> and advanced formulations. Together, we can deliver high-quality products that enhance well-being globally.
           </p>
-          <button className="brand-button">
+          <button className="brand-button anim-card-hover">
             Let's Collaborate <span>↗</span>
           </button>
         </div>
 
-        <div className="partner-image">
+        <div className="partner-image reveal-right">
           <img
             src="/5.png"
             alt="Business collaboration handshake"

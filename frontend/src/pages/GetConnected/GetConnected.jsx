@@ -206,7 +206,7 @@ function GetConnected() {
 
 
           {/* FORM */}
-          <form
+          < form
             className="contact-form"
             onSubmit={(e) => e.preventDefault()}
           >
@@ -290,13 +290,13 @@ function GetConnected() {
           </form>
 
         </div>
-      </section>
+      </section >
 
 
       {/* =====================================================
           LOCATIONS
       ===================================================== */}
-      <section className="locations-section">
+      < section className="locations-section" >
 
         <div className="locations-heading">
           <span className="section-eyebrow">
@@ -475,9 +475,9 @@ function GetConnected() {
 
         </div>
 
-      </section>
+      </section >
 
-    </div>
+    </div >
   );
 }
 

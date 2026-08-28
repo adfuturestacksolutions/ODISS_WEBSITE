@@ -6,33 +6,46 @@ const CompanyIntro = () => {
       className="intro-section"
       style={{
         position: "relative",
-        padding: "90px 24px 100px",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "clamp(40px, 4.5vh, 70px) clamp(16px, 3.5vw, 32px)",
         backgroundColor: "#ffffff",
         fontFamily: "'Montserrat', sans-serif",
         color: "#1e293b",
         overflow: "hidden",
         borderTop: "1px solid rgba(226, 232, 240, 0.8)",
+        boxSizing: "border-box",
       }}
     >
       <style>{`
         .intro-main-grid {
           display: grid;
-          grid-template-columns: 1fr 1.35fr;
-          gap: clamp(36px, 4.5vw, 64px);
+          grid-template-columns: minmax(0, 1.42fr) minmax(0, 1.12fr);
+          gap: clamp(24px, 3.5vw, 52px);
           align-items: center;
+        }
+        .intro-graph-card {
+          transform: translateX(12px);
         }
         @media (max-width: 992px) {
           .intro-section {
-            padding: 60px 20px 70px !important;
+            min-height: auto !important;
+            padding: 60px 16px 70px !important;
           }
           .intro-main-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 36px !important;
+          }
+          .intro-graph-card {
+            transform: none !important;
           }
         }
         @media (max-width: 600px) {
           .intro-section {
-            padding: 45px 16px 55px !important;
+            padding: 45px 12px 55px !important;
           }
         }
       `}</style>
@@ -45,29 +58,30 @@ const CompanyIntro = () => {
           left: "50%",
           transform: "translateX(-50%)",
           width: "1000px",
-          height: "400px",
+          height: "350px",
           background: "radial-gradient(ellipse at 50% 0%, rgba(243, 182, 63, 0.07) 0%, rgba(255, 255, 255, 0) 75%)",
           pointerEvents: "none",
         }}
       />
 
-      <div style={{ maxWidth: "1280px", margin: "0 auto", width: "100%", position: "relative", zIndex: 2 }}>
+      <div style={{ maxWidth: "1380px", margin: "0 auto", width: "100%", position: "relative", zIndex: 2 }}>
 
         {/* Section Header */}
-        <div style={{ textAlign: "center", maxWidth: "860px", margin: "0 auto 55px" }}>
+        <div className="reveal-up" style={{ textAlign: "center", maxWidth: "920px", margin: "0 auto clamp(28px, 3.5vw, 44px)" }}>
           <h2
             style={{
-              fontSize: "clamp(30px, 4vw, 50px)",
-              fontWeight: 600,
-              color: "#1e293b",
-              margin: "0 0 16px",
-              lineHeight: 1.15,
-              letterSpacing: "-0.03em",
+              fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
+              fontSize: "clamp(34px, 4.2vw, 54px)",
+              fontWeight: 700,
+              color: "#0f172a",
+              margin: "0 0 14px",
+              lineHeight: 1.2,
+              letterSpacing: "-0.015em",
             }}
           >
-            Rethinking How Your Body{" "}
+            Transforming How Your Body{" "}
             <span style={{ color: "#f3b63f" }}>
-              Absorbs Nutrients.
+              Absorbs Active Ingredients.
             </span>
           </h2>
         </div>
@@ -77,35 +91,37 @@ const CompanyIntro = () => {
           {/* =====================================================
               LEFT COLUMN: BRAND-TAILORED THINDISS COPY
           ===================================================== */}
-          <div style={{ paddingRight: "0px" }}>
+          <div className="reveal-left" style={{ paddingRight: "0px" }}>
             <h3
               style={{
-                fontSize: "clamp(24px, 2.5vw, 30px)",
-                fontWeight: 700,
+                fontSize: "clamp(25px, 2.6vw, 33px)",
+                fontWeight: 800,
                 color: "#0f172a",
-                lineHeight: 1.35,
+                lineHeight: 1.3,
                 margin: "0 0 24px",
-                letterSpacing: "-0.025em",
+                letterSpacing: "-0.02em",
               }}
             >
               Why swallow pills when your body can absorb{" "}
-              <span style={{ color: "#f3b63f" }}>95%+ nutrients instantly?</span>
+              <span style={{ color: "#f3b63f" }}>95%+ Active Ingredients instantly?</span>
             </h3>
 
-            {/* Brand Key Highlights */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "22px", marginTop: "24px" }}>
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+            {/* Brand Key Highlights (5 Points, Topic + Answer on Next Line) */}
+            <div className="reveal-stagger" style={{ display: "flex", flexDirection: "column", gap: "18px", marginTop: "18px" }}>
+              
+              {/* Point 1 */}
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
                 <div
                   style={{
-                    width: "32px",
-                    height: "32px",
+                    width: "28px",
+                    height: "28px",
                     borderRadius: "50%",
-                    backgroundColor: "rgba(243, 182, 63, 0.2)",
-                    color: "#f3b63f",
+                    backgroundColor: "rgba(243, 182, 63, 0.22)",
+                    color: "#d99b2f",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "16px",
+                    fontSize: "15px",
                     fontWeight: 800,
                     flexShrink: 0,
                     marginTop: "2px",
@@ -114,27 +130,28 @@ const CompanyIntro = () => {
                   ✓
                 </div>
                 <div>
-                  <strong style={{ fontSize: "17px", fontWeight: 700, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                  <strong style={{ fontSize: "17px", fontWeight: 800, color: "#0f172a", display: "block", marginBottom: "4px" }}>
                     Overcome Pill Aversion Effortlessly
                   </strong>
-                  <span style={{ fontSize: "15px", color: "#475569", lineHeight: 1.6, fontWeight: 400 }}>
-                    Over 45% of consumers struggle with swallowing traditional capsules. ThinDiss™ strips melt in under 10 seconds with zero friction or water required.
+                  <span style={{ fontSize: "15px", color: "#334155", lineHeight: 1.55, fontWeight: 450, display: "block" }}>
+                    Over 45% struggle with pills. ThinDiss™ strips melt in seconds with zero water or swallowing friction.
                   </span>
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+              {/* Point 2 */}
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
                 <div
                   style={{
-                    width: "32px",
-                    height: "32px",
+                    width: "28px",
+                    height: "28px",
                     borderRadius: "50%",
-                    backgroundColor: "rgba(243, 182, 63, 0.2)",
-                    color: "#f3b63f",
+                    backgroundColor: "rgba(243, 182, 63, 0.22)",
+                    color: "#d99b2f",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "16px",
+                    fontSize: "15px",
                     fontWeight: 800,
                     flexShrink: 0,
                     marginTop: "2px",
@@ -143,27 +160,28 @@ const CompanyIntro = () => {
                   ✓
                 </div>
                 <div>
-                  <strong style={{ fontSize: "17px", fontWeight: 700, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                  <strong style={{ fontSize: "17px", fontWeight: 800, color: "#0f172a", display: "block", marginBottom: "4px" }}>
                     Bypass Stomach Acid &amp; Fillers
                   </strong>
-                  <span style={{ fontSize: "15px", color: "#475569", lineHeight: 1.6, fontWeight: 400 }}>
-                    Traditional pills lose up to 80% of active ingredients to digestive breakdown. ThinDiss™ sublingual technology absorbs directly into the bloodstream.
+                  <span style={{ fontSize: "15px", color: "#334155", lineHeight: 1.55, fontWeight: 450, display: "block" }}>
+                    Traditional pills lose up to 80% to digestive breakdown. Sublingual absorption enters circulation directly.
                   </span>
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+              {/* Point 3 */}
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
                 <div
                   style={{
-                    width: "32px",
-                    height: "32px",
+                    width: "28px",
+                    height: "28px",
                     borderRadius: "50%",
-                    backgroundColor: "rgba(243, 182, 63, 0.2)",
-                    color: "#f3b63f",
+                    backgroundColor: "rgba(243, 182, 63, 0.22)",
+                    color: "#d99b2f",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "16px",
+                    fontSize: "15px",
                     fontWeight: 800,
                     flexShrink: 0,
                     marginTop: "2px",
@@ -172,14 +190,75 @@ const CompanyIntro = () => {
                   ✓
                 </div>
                 <div>
-                  <strong style={{ fontSize: "17px", fontWeight: 700, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                  <strong style={{ fontSize: "17px", fontWeight: 800, color: "#0f172a", display: "block", marginBottom: "4px" }}>
                     100% Sugar-Free &amp; Pure Formulation
                   </strong>
-                  <span style={{ fontSize: "15px", color: "#475569", lineHeight: 1.6, fontWeight: 400 }}>
-                    Unlike sticky gummies packed with added sugars, ODISS delivers clean, active nutrition precision-engineered for modern active lifestyles.
+                  <span style={{ fontSize: "15px", color: "#334155", lineHeight: 1.55, fontWeight: 450, display: "block" }}>
+                    Zero added sugars, artificial gelatin, or binders—delivering clean, active payloads for modern lifestyles.
                   </span>
                 </div>
               </div>
+
+              {/* Point 4 */}
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
+                <div
+                  style={{
+                    width: "28px",
+                    height: "28px",
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(243, 182, 63, 0.22)",
+                    color: "#d99b2f",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "15px",
+                    fontWeight: 800,
+                    flexShrink: 0,
+                    marginTop: "2px",
+                  }}
+                >
+                  ✓
+                </div>
+                <div>
+                  <strong style={{ fontSize: "17px", fontWeight: 800, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                    Rapid Absorption &amp; Faster Onset
+                  </strong>
+                  <span style={{ fontSize: "15px", color: "#334155", lineHeight: 1.55, fontWeight: 450, display: "block" }}>
+                    Active ingredients enter circulation within minutes, delivering rapid and noticeable metabolic uptake.
+                  </span>
+                </div>
+              </div>
+
+              {/* Point 5 */}
+              <div className="reveal-up" style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
+                <div
+                  style={{
+                    width: "28px",
+                    height: "28px",
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(243, 182, 63, 0.22)",
+                    color: "#d99b2f",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "15px",
+                    fontWeight: 800,
+                    flexShrink: 0,
+                    marginTop: "2px",
+                  }}
+                >
+                  ✓
+                </div>
+                <div>
+                  <strong style={{ fontSize: "17px", fontWeight: 800, color: "#0f172a", display: "block", marginBottom: "4px" }}>
+                    Pocket-Sized On-The-Go Compliance
+                  </strong>
+                  <span style={{ fontSize: "15px", color: "#334155", lineHeight: 1.55, fontWeight: 450, display: "block" }}>
+                    Ultra-thin pocket cassettes let you carry and take your daily wellness routine anywhere, anytime.
+                  </span>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -187,6 +266,7 @@ const CompanyIntro = () => {
               RIGHT COLUMN: EXACT BIOAVAILABILITY CURVE GRAPH
           ===================================================== */}
           <div
+            className="intro-graph-card reveal-right reveal-card anim-card-hover"
             style={{
               position: "relative",
               width: "100%",
@@ -388,7 +468,7 @@ const CompanyIntro = () => {
                   {/* Sugar sparkles / highlight */}
                   <ellipse cx="-2" cy="-4" rx="4" ry="2" fill="#ffffff" opacity="0.4" />
                   <defs>
-                    <linearGradient id="gummyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <linearGradient id="gummyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#f43f5e" />
                       <stop offset="70%" stopColor="#e11d48" />
                       <stop offset="100%" stopColor="#be123c" />

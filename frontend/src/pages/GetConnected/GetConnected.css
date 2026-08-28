@@ -27,11 +27,9 @@
   padding: 70px 24px 54px;
   text-align: center;
   background:
-    radial-gradient(
-      circle at 50% 0%,
+    radial-gradient(circle at 50% 0%,
       rgba(255, 191, 63, 0.08),
-      transparent 42%
-    );
+      transparent 42%);
 }
 
 .connect-intro-inner {
@@ -161,11 +159,9 @@
   padding: 52px 48px;
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #fffdfa 0%,
-      #fffaf0 100%
-    );
+      #fffaf0 100%);
 }
 
 .small-label {
@@ -353,11 +349,9 @@
   border-radius: 9px;
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #efa30b,
-      #df8d00
-    );
+      #df8d00);
 
   color: #ffffff;
 
@@ -415,16 +409,12 @@
   padding: 30px 24px 100px;
 
   background:
-    radial-gradient(
-      circle at 10% 55%,
+    radial-gradient(circle at 10% 55%,
       rgba(232, 154, 8, 0.04),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 90% 55%,
+      transparent 25%),
+    radial-gradient(circle at 90% 55%,
       rgba(232, 154, 8, 0.04),
-      transparent 25%
-    );
+      transparent 25%);
 }
 
 
@@ -522,11 +512,9 @@
   color: var(--gold);
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #fffaf0,
-      #fff5df
-    );
+      #fff5df);
 }
 
 .location-tab.active::after {
@@ -627,12 +615,10 @@
   pointer-events: none;
 
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba(0, 0, 0, 0.02),
       transparent 40%,
-      rgba(0, 0, 0, 0.08)
-    );
+      rgba(0, 0, 0, 0.08));
 }
 
 
