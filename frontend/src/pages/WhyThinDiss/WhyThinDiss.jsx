@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./WhyThinDiss.css";
+import { Link } from "react-router-dom";
 
 const brandColor = "#F4B83F";
 
@@ -185,14 +186,14 @@ const WhyThinDiss = () => {
       title: "Smarter Delivery Technology",
       content:
         "ThinDiss™ transforms active ingredients into a convenient oral dissolving format. The thin-film platform is designed to dissolve in the mouth, eliminating the need for water and traditional swallowing. This creates a simple, user-friendly delivery experience while supporting efficient formulation and consistent dosing.",
-      image: "/strip_dissolve.jpg",
+      image: "/smarter.png",
       imageAlt: "Smarter Delivery Technology",
     },
     {
       title: "Built for Brand Expansion",
       content:
         "One technology. Multiple possibilities. ThinDiss™ can be developed across a wide range of wellness and nutraceutical applications, with flexibility in formulations, flavours, dosages and packaging. This gives brands the freedom to create differentiated products for evolving consumer needs.",
-      image: "/portfolio_expansion.jpg",
+      image: "/brand.png",
       imageAlt: "Built for Brand Expansion",
     },
   ];
@@ -234,9 +235,13 @@ const WhyThinDiss = () => {
               superior consumer experience.
             </p>
 
-            <button className="outline-button-pill anim-card-hover">
-              Discover ThinDiss <span>↗</span>
-            </button>
+            <Link
+  to="/products"
+  className="outline-button-pill anim-card-hover"
+>
+  Discover ThinDiss <span>↗</span>
+</Link>
+            
           </div>
         </div>
       </section>
@@ -313,10 +318,8 @@ const WhyThinDiss = () => {
               <span />
               <span>HOW IT WORKS</span>
             </div>
-            <h2> ODFs</h2>
-            <p className="process-intro-paragraph">
-              With more than 25 packaging styles and customisation options, we create a product that stands out. ThinDiss™ ensures rapid absorption and maximum bioavailability, bypassing the digestive system to deliver active ingredients directly into your bloodstream.
-            </p>
+            <h2> Oral Dissolving Strips </h2>
+            
           </div>
 
           <div className="process-content-area">
@@ -465,14 +468,17 @@ const WhyThinDiss = () => {
           <p>
             By partnering with us, you gain access to <strong>cutting-edge drug delivery technologies</strong> and advanced formulations. Together, we can deliver high-quality products that enhance well-being globally.
           </p>
-          <button className="brand-button anim-card-hover">
-            Let's Collaborate <span>↗</span>
-          </button>
+          <Link
+  to="/get-connected"
+  className="brand-button anim-card-hover"
+>
+  Let's Collaborate <span>↗</span>
+</Link>
         </div>
 
         <div className="partner-image reveal-right">
           <img
-            src="why_adopt_analytics.jpg"
+            src="5.png"
             alt="Business collaboration handshake"
           />
         </div>
