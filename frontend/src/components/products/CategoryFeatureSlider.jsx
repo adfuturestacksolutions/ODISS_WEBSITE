@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// Import Category Card Showcase Images
-import cardImg1 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_10_00 PM.png";
-import cardImg2 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_13_50 PM.png";
-import cardImg3 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_15_23 PM.png";
-import cardImg4 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_16_47 PM.png";
+// Import Category Card Showcase Images (1:1)
+import cardImg1 from "../../assets/products/Category Card/image_1_1x1_no_padding.jpg";
+import cardImg2 from "../../assets/products/Category Card/image_2_1x1_no_padding.jpg";
+import cardImg3 from "../../assets/products/Category Card/image_3_1x1_no_padding.jpg";
+import cardImg4 from "../../assets/products/Category Card/image_4_1x1_no_padding.jpg";
 
 const slides = [
   { id: 1, src: cardImg1, alt: "ODISS Sublingual Strip Range Showcase 1" },

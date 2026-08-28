@@ -24,7 +24,7 @@
 }
 
 .product-hero-video {
-  width: 100%;
+  width: 100%; 
   height: 100%;
   /* fill = fills wrapper at its native 1920×640 ratio, zero gaps or distortion */
   object-fit: fill;
@@ -68,15 +68,15 @@
 ========================================================= */
 .category-explore-section {
   width: 100%;
-  padding: clamp(48px, 6vw, 80px) clamp(16px, 3.5vw, 24px);
+  padding: 48px 24px;
   background: var(--odiss-cream, #f7f4ec);
   color: var(--odiss-dark, #242424);
   position: relative;
-  overflow: hidden;
 }
 
 .category-explore-container {
   max-width: var(--container, 1240px);
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -84,7 +84,7 @@
 .category-explore-header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto clamp(36px, 4.5vw, 56px);
+  margin: 0 auto clamp(16px, 2vw, 28px);
 }
 
 .category-explore-tag {
@@ -110,7 +110,7 @@
 }
 
 .category-explore-title {
-  font-size: 42px;
+  font-size: clamp(26px, 3vw, 36px);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--odiss-dark, #242424);
@@ -124,12 +124,38 @@
   line-height: 1.5;
 }
 
-/* Asymmetric Bento Grid */
+/* Bento Grid */
 .category-bento-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.85fr);
-  gap: clamp(16px, 2.5vw, 28px);
-  align-items: stretch;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Large Desktop: Fit cleanly in single viewport */
+@media (min-width: 1025px) {
+  .category-explore-section {
+    min-height: 100vh;
+    padding: clamp(24px, 3vw, 40px) clamp(16px, 3.5vw, 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .category-explore-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .category-bento-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+    gap: clamp(12px, 2vw, 20px);
+    align-items: stretch;
+    flex: 1;
+    min-height: 0;
+    max-height: min(72vh, 580px);
+  }
 }
 
 /* Left Showcase Feature Image Card */
@@ -145,13 +171,16 @@
     box-shadow 0.4s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
-/* Compact Showcase Card & Minimal Luxury Slider */
+/* Left Showcase Slider — fills full column height matching right grid */
 .category-feature-card.ratio-9-16 {
   width: 100%;
-  min-height: unset;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  min-height: 0;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(36, 36, 36, 0.08);
 }
 
 .category-slider-wrapper {
@@ -180,18 +209,26 @@
   z-index: 2;
 }
 
+/* Ken Burns slow zoom keyframe */
+@keyframes slider-zoom-in {
+  from { transform: scale(1); }
+  to   { transform: scale(1.12); }
+}
+
 .category-slider-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   display: block;
-  transform: scale(1.0001);
-  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: scale(1);
+  transform-origin: center center;
+  /* no animation while idle */
 }
 
 .category-slider-slide.active .category-slider-img {
-  transform: scale(1.06);
+  /* fresh zoom starts every time the slide becomes active */
+  animation: slider-zoom-in 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 /* Ambient Gradient Overlay */
@@ -394,7 +431,9 @@
 .category-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-rows: repeat(2, 1fr);
+  gap: clamp(10px, 1.5vw, 16px);
+  height: 100%;
 }
 
 /* Category Card */
@@ -407,7 +446,9 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
-  height: 270px;
+  /* flexible — fills the row evenly */
+  height: 100%;
+  min-height: 0;
   cursor: pointer;
   transition: transform 0.35s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
     box-shadow 0.35s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
@@ -1880,19 +1921,44 @@
 }
 
 @media (max-width: 1024px) {
-  .category-bento-grid {
-    grid-template-columns: 1fr;
+  .category-explore-section {
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+    padding: 48px 16px 40px;
+    display: block;
   }
 
-  .category-feature-card {
-    min-height: 400px;
+  .category-bento-grid {
+    display: flex;
+    flex-direction: column;
+    max-height: none;
+    height: auto;
+    gap: 20px;
   }
 
   .category-feature-card.ratio-9-16 {
-    max-width: 480px;
     width: 100%;
-    margin: 0 auto 12px auto;
-    aspect-ratio: 9 / 16;
+    max-width: 100%;
+    height: 280px;
+    aspect-ratio: auto;
+    margin: 0;
+    border-radius: 16px;
+  }
+
+  .category-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 14px;
+    height: auto;
+    width: 100%;
+  }
+
+  .category-card {
+    height: 220px;
+    min-height: 220px;
+    border-radius: 14px;
   }
 
   .product-layout-split {
@@ -1958,7 +2024,35 @@
 
 @media (max-width: 768px) {
   .products-showcase-section {
-    padding: 40px 16px 60px;
+    padding: 36px 16px 48px;
+  }
+
+  .products-showcase-header {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .products-showcase-title {
+    font-size: clamp(22px, 6vw, 30px);
+    line-height: 1.2;
+  }
+
+  .products-showcase-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-top: 8px;
+  }
+
+  .product-category-pills-bar {
+    gap: 8px;
+    margin-bottom: 20px;
+    /* scrollable row of pills */
+    padding-bottom: 6px;
+  }
+
+  .product-category-pill-btn {
+    padding: 8px 14px;
+    font-size: 12px;
   }
 
   .product-grid {
@@ -1971,40 +2065,115 @@
   }
 
   .product-card-title {
-    font-size: 17px;
+    font-size: 15px;
+  }
+
+  .product-card-category-badge {
+    font-size: 9px;
   }
 }
 
 @media (max-width: 640px) {
   .category-explore-section {
-    padding: 36px 16px;
+    padding: 28px 16px 32px;
   }
 
   .category-explore-header,
   .products-showcase-header {
-    margin-bottom: 28px;
+    margin-bottom: 20px;
   }
 
   .category-explore-title,
   .products-showcase-title {
-    font-size: 26px;
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
+
+  .products-showcase-desc {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .products-showcase-tag {
+    font-size: 9px;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+
+  /* Pills: allow horizontal scroll on single row */
+  .product-category-pills-bar {
+    flex-nowrap: nowrap;
+    gap: 6px;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .product-category-pills-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-category-pill-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+
+  .product-category-pill-count {
+    font-size: 10px;
+    padding: 1px 5px;
   }
 
   .category-cards-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+    height: auto;
+    width: 100%;
+  }
+
+  .category-card {
+    height: 180px;
+    min-height: 180px;
+    border-radius: 12px;
+  }
+
+  .category-card-content {
+    padding: 14px;
+  }
+
+  .category-card-title {
+    font-size: 16px;
+  }
+
+  .category-card-link {
+    font-size: 11px;
   }
 
   .product-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .product-card-media {
+    padding: 14px;
+  }
+
+  .product-card-title {
+    font-size: 13px;
+  }
+
+  .product-card-cta-btn {
+    font-size: 11px;
+    padding: 8px 10px;
   }
 
   .product-topbar-wrapper {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
-    padding-bottom: 16px;
+    gap: 10px;
+    padding-bottom: 12px;
     width: 100%;
   }
 
@@ -2022,7 +2191,7 @@
     justify-content: space-between;
     width: 100%;
     margin-left: 0;
-    gap: 12px;
+    gap: 10px;
   }
 
   .product-topbar-sort {
@@ -2044,14 +2213,14 @@
   .product-topbar-count {
     padding-left: 0;
     border-left: none;
-    font-size: 12px;
+    font-size: 11px;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   .product-pagination {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     text-align: center;
   }
 
