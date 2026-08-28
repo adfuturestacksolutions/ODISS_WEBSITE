@@ -79,13 +79,13 @@ const Navbar = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              width: "clamp(100px, 9vw, 120px)",
+              width: "clamp(120px, 12vw, 170px)",
               flexShrink: 0,
               textDecoration: "none",
             }}
           >
             <img
-              src="/odiss-logo.png"
+              src="/odiss_logo.png"
               alt="ODISS"
               style={{
                 width: "100%",

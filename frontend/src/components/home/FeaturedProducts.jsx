@@ -3,26 +3,13 @@ import { getFeaturedProducts, getAllProducts } from "../../services/productServi
 import ProductCard from "../products/ProductCard";
 import "../../styles/products.css";
 
-const HOME_PRODUCT_IMAGES = [
-  "/home product/1.jpeg",
-  "/home product/2.jpeg",
-  "/home product/3.jpeg",
-  "/home product/4.jpeg",
-  "/home product/5.jpeg",
-  "/home product/6.jpeg",
-];
-
 const FeaturedProducts = () => {
   const scrollRef = useRef(null);
 
-  // Dynamically load real featured products mapped with home product images
+  // Load featured products with transparent images
   const displayProducts = useMemo(() => {
     const featured = getFeaturedProducts();
-    const list = featured && featured.length > 0 ? featured : getAllProducts().slice(0, 6);
-    return list.map((prod, idx) => ({
-      ...prod,
-      image: HOME_PRODUCT_IMAGES[idx % HOME_PRODUCT_IMAGES.length],
-    }));
+    return featured && featured.length > 0 ? featured : getAllProducts().slice(0, 8);
   }, []);
 
   const handleScroll = (direction) => {
@@ -96,7 +83,7 @@ const FeaturedProducts = () => {
               }}
             >
               Explore Our Advanced{" "}
-              <span style={{ color: "#f3b63f" }}>Oral Film Portfolio</span>
+              <span style={{ color: "#f3b63f" }}>Oral Strips Portfolio</span>
             </h2>
 
             <p
@@ -244,6 +231,7 @@ const FeaturedProducts = () => {
               <ProductCard
                 product={product}
                 index={idx}
+                useTransparentImage={true}
                 showBuyButton={false}
               />
             </div>

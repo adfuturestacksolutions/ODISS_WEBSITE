@@ -69,16 +69,16 @@ const WhyOdissHome = () => {
           textAlign: "center",
         }}
       >
-        {/* Main Title in Serif */}
+        {/* Main Title in ODISS Montserrat Font */}
         <h2
           className="reveal-up"
           style={{
-            fontSize: "clamp(30px, 4.4vw, 64px)",
+            fontSize: "clamp(30px, 4.2vw, 60px)",
             color: "#ffffff",
-            fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
-            fontWeight: 500,
-            lineHeight: 1.18,
-            letterSpacing: "-0.02em",
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 600,
+            lineHeight: 1.2,
+            letterSpacing: "-0.025em",
             margin: "0 0 clamp(36px, 5vw, 70px)",
             textShadow: "0 4px 20px rgba(0,0,0,0.5)",
           }}
@@ -87,41 +87,29 @@ const WhyOdissHome = () => {
           <span
             style={{
               display: "inline-flex",
-              alignItems: "center",
-              verticalAlign: "middle",
+              alignItems: "flex-end",
+              verticalAlign: "-0.06 em",
               position: "relative",
-              marginRight: "10px",
+              marginRight: "8px",
             }}
           >
             <img
-              src="/odiss-logo.png"
+              src="/odiss-logo-white-orange.png"
               alt="ODISS"
               style={{
-                height: "clamp(26px, 3.8vw, 54px)",
+                height: "1.28em",
                 width: "auto",
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
-                display: "inline-block",
+                display: "block",
               }}
             />
-            <sup
-              style={{
-                fontSize: "0.36em",
-                fontWeight: 700,
-                position: "absolute",
-                top: "-0.25em",
-                right: "-0.7em",
-                color: "#ffffff",
-              }}
-            >
-              ®
-            </sup>
+
           </span>
           ThinDiss
           <sup
             style={{
-              fontSize: "0.38em",
-              fontWeight: 700,
+              fontSize: "0.34em",
+              fontWeight: 600,
               position: "relative",
               top: "-0.55em",
               marginLeft: "2px",
