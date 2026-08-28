@@ -39,7 +39,7 @@ const products = [
       { name: "Ivy leaf Extract", description: "" },
       { name: "Eucalyptus oil", description: "" }
     ],
-    isFeatured: false,
+    isFeatured: true,
     status: "published",
     manufacturing: {
       privateLabel: true,
@@ -96,7 +96,7 @@ const products = [
       { name: "Fennel Extract", description: "" },
       { name: "Vitamin B6", description: "" }
     ],
-    isFeatured: false,
+    isFeatured: true,
     status: "published",
     manufacturing: {
       privateLabel: true,
@@ -153,7 +153,7 @@ const products = [
       { name: "Vitamin B6", description: "" },
       { name: "Bacopa Extract", description: "" }
     ],
-    isFeatured: false,
+    isFeatured: true,
     status: "published",
     manufacturing: {
       privateLabel: true,
@@ -246,7 +246,7 @@ const products = [
       { name: "Vitamin B12", description: "" },
       { name: "Caffeine", description: "" }
     ],
-    isFeatured: false,
+    isFeatured: true,
     status: "published",
     manufacturing: { privateLabel: true, customFormulation: true },
     seo: {
@@ -417,7 +417,7 @@ const products = [
       { name: "Clove Extract", description: "" },
       { name: "Cinnamon Extract", description: "" }
     ],
-    isFeatured: false,
+    isFeatured: true,
     status: "published",
     manufacturing: { privateLabel: true, customFormulation: true },
     seo: {
@@ -462,7 +462,7 @@ const products = [
       { name: "Cordyceps militaris Extract", description: "" },
       { name: "Moringa Pod Extract", description: "" }
     ],
-    isFeatured: false,
+    isFeatured: true,
     status: "published",
     manufacturing: { privateLabel: true, customFormulation: true },
     seo: {
@@ -538,7 +538,7 @@ const products = [
       { name: "Asparagus Extract", description: "" },
       { name: "Vitamin B6", description: "" }
     ],
-    isFeatured: false,
+    isFeatured: true,
     status: "published",
     manufacturing: { privateLabel: true, customFormulation: true },
     seo: {

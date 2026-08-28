@@ -6,7 +6,8 @@ const WhyOdissHome = () => {
       className="why-odiss-section"
       style={{
         position: "relative",
-        minHeight: "clamp(550px, 75vh, 850px)",
+        minHeight: "clamp(650px, 90vh, 960px)",
+        width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -39,15 +40,18 @@ const WhyOdissHome = () => {
         }
       `}</style>
 
-      {/* Background Image with Cinematic Overlay */}
+      {/* Full-Cover Background Image with Cinematic Overlay */}
       <div
         style={{
           position: "absolute",
           inset: 0,
+          width: "100%",
+          height: "100%",
           backgroundImage:
-            "linear-gradient(rgba(18, 18, 18, 0.55), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&auto=format&fit=crop&q=85')",
+            "linear-gradient(rgba(18, 18, 18, 0.45), rgba(15, 15, 15, 0.65)), url('/3pillars.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center 40%",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
           zIndex: 1,
         }}
       />
@@ -80,7 +84,53 @@ const WhyOdissHome = () => {
           }}
         >
           3 pillars of <br />
-          ODISS® ThinFilm™ innovation
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              verticalAlign: "middle",
+              position: "relative",
+              marginRight: "10px",
+            }}
+          >
+            <img
+              src="/odiss-logo.png"
+              alt="ODISS"
+              style={{
+                height: "clamp(26px, 3.8vw, 54px)",
+                width: "auto",
+                objectFit: "contain",
+                filter: "brightness(0) invert(1)",
+                display: "inline-block",
+              }}
+            />
+            <sup
+              style={{
+                fontSize: "0.36em",
+                fontWeight: 700,
+                position: "absolute",
+                top: "-0.25em",
+                right: "-0.7em",
+                color: "#ffffff",
+              }}
+            >
+              ®
+            </sup>
+          </span>
+          ThinDiss
+          <sup
+            style={{
+              fontSize: "0.38em",
+              fontWeight: 700,
+              position: "relative",
+              top: "-0.55em",
+              marginLeft: "2px",
+              marginRight: "4px",
+            }}
+          >
+            ™
+          </sup>{" "}
+          innovation
         </h2>
 
         {/* Pillars Grid Container */}

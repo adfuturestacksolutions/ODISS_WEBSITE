@@ -7,9 +7,15 @@ import { getProductImageUrl } from "../../utils/imageUtils";
  * Features 1:1 floating image container, ambient gold glow halo, diagonal glass reflection sweep,
  * clean typography hierarchy, and animated gold gradient CTA button.
  */
-const ProductCard = ({ product, index = 0, useTransparentImage = false, onSelectProduct }) => {
+const ProductCard = ({
+  product,
+  index = 0,
+  useTransparentImage = false,
+  onSelectProduct,
+  showBuyButton = true,
+}) => {
   const navigate = useNavigate();
-  const imageUrl = getProductImageUrl(product, useTransparentImage);
+  const imageUrl = product?.image || getProductImageUrl(product, useTransparentImage);
   const fallbackUrl = product.images?.[0]?.url;
   const imageAlt = product.images?.[0]?.alt || product.name;
 
@@ -66,32 +72,34 @@ const ProductCard = ({ product, index = 0, useTransparentImage = false, onSelect
           <h3 className="product-card-title">{product.name}</h3>
         </div>
 
-        {/* "Buy Now" Gold Gradient CTA Button */}
-        <button
-          type="button"
-          className="product-card-buy-btn"
-          onClick={(e) => {
-            e.stopPropagation();
-            handleClick();
-          }}
-          aria-label={`View ${product.name}`}
-        >
-          <span>Buy Now</span>
-          <svg
-            className="product-card-arrow"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        {/* "Buy Now" Gold Gradient CTA Button (Optional) */}
+        {showBuyButton && (
+          <button
+            type="button"
+            className="product-card-buy-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleClick();
+            }}
+            aria-label={`View ${product.name}`}
           >
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
-        </button>
+            <span>Buy Now</span>
+            <svg
+              className="product-card-arrow"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );

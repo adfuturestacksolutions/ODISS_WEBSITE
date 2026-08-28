@@ -85,12 +85,13 @@ const CTASection = () => {
         <div className="reveal-up" style={{ textAlign: "center", marginBottom: "32px" }}>
           <h2
             style={{
-              fontSize: "clamp(26px, 3.2vw, 42px)",
+              fontFamily: "var(--font-serif, 'Playfair Display', Georgia, serif)",
+              fontSize: "clamp(28px, 3.4vw, 44px)",
               fontWeight: 700,
               color: "#1e293b",
               margin: 0,
               lineHeight: 1.2,
-              letterSpacing: "-0.02em"
+              letterSpacing: "-0.015em"
             }}
           >
             Frequently Asked <span style={{ color: "#f3b63f" }}>Questions</span>
