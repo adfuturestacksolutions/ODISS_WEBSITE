@@ -203,8 +203,8 @@
 }
 
 .innovation-card-wrapper {
-  flex: 0 0 310px;
-  width: 310px;
+  flex: 0 0 min(310px, 85vw);
+  width: min(310px, 85vw);
   box-sizing: border-box;
 }
 
@@ -254,21 +254,49 @@
 
 .innovation-card-icon-wrap {
   align-self: flex-end;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(244, 184, 63, 0.22) 0%, rgba(244, 184, 63, 0.05) 70%);
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(244, 184, 63, 0.3);
-  margin-top: 18px;
+  margin-top: 10px;
   flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
 .innovation-card:hover .innovation-card-icon-wrap {
   transform: scale(1.1);
+}
+
+@keyframes icon-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes icon-float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes icon-spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.anim-pulse {
+  animation: icon-pulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-float {
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+.anim-spin-slow {
+  animation: icon-spin-slow 10s linear infinite;
+  transform-origin: center;
 }
 
 /* Bottom Controls: Progress bar on left, Arrows on right */
@@ -694,121 +722,107 @@
 }
 
 /* =========================================================
-   COMPARISON TABLE SECTION
+   COMPARISON VIDEO SECTION
 ========================================================= */
-.comparison-section {
-  padding: 100px 5%;
-  background: #ffffff;
+.comparison-video-section {
+  padding: 10px 5% 30px;
+  background: var(--cream);
+  background-image: radial-gradient(circle at 85% 15%, rgba(244, 184, 63, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 15% 85%, rgba(244, 184, 63, 0.05) 0%, transparent 35%);
+  position: relative;
+  overflow: hidden;
 }
 
-.comparison-container {
-  max-width: 1100px;
+.comparison-video-container {
+  max-width: 1150px;
   margin: 0 auto;
-}
-
-.comparison-container h2 {
-  font-size: 36px;
-  color: var(--dark);
-  margin-bottom: 50px;
   text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  z-index: 2;
 }
 
-.table-responsive-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-  border-radius: 12px;
-}
-
-.comparison-table {
-  width: 100%;
-  min-width: 800px;
-  border-collapse: collapse;
-  background: #F8FBFF;
-}
-
-.comparison-table th,
-.comparison-table td {
-  padding: 24px 20px;
-  text-align: center;
-  border-bottom: 1px solid #EAEAEA;
-  font-size: 16px;
+.showcase-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3.5vw, 42px);
   color: var(--dark);
-}
-
-.comparison-table th {
   font-weight: 700;
-  font-size: 18px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
-.th-feature,
-.td-feature {
-  text-align: left !important;
-  font-weight: 600;
-  width: 25%;
+.video-player-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(0, 0, 0, 0.05);
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Highlight the ThinDiss Column */
-.th-thindiss,
-.td-thindiss {
-  background: var(--cream-dark);
-}
-
-.th-thindiss {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.brand-name {
-  color: #2F9C95;
-  /* Teal brand color like reference */
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.brand-sub {
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-}
-
-.emoji-icon {
-  font-size: 24px;
+.comparison-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  margin-top: 8px;
 }
 
-.icon-check {
+.comparison-features-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: #4A90E2;
-  color: #fff;
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: bold;
+  gap: 16px;
+  background: #ffffff;
+  padding: 16px 36px;
+  border-radius: 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  margin-top: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.icon-cross {
-  display: inline-flex;
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.feature-icon {
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+}
+
+.feature-divider {
+  width: 1px;
+  height: 24px;
+  background: #EAEAEA;
+  margin: 0 8px;
+}
+
+.comparison-footer-text {
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid #A0AAB2;
-  color: #A0AAB2;
-  border-radius: 50%;
-  font-size: 14px;
+  gap: 16px;
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
 }
+
+.comparison-footer-text .line {
+  height: 1px;
+  width: 40px;
+  background: var(--brand);
+  opacity: 0.5;
+}
+
+
 
 /* =========================================================
    PARTNER SECTION
@@ -904,7 +918,7 @@
 
 @media (max-width: 768px) {
   .thindiss-hero-immersive {
-    min-height: 85vh;
+    min-height: 90vh;
   }
 
   .innovation-card-wrapper {
@@ -915,15 +929,25 @@
     height: 250vh;
   }
 
+  .process-sticky-container {
+    justify-content: center;
+    padding-top: 8vh;
+  }
+
   .process-content-area {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 24px;
   }
 
   .process-circle-frame {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto 30px;
+    width: min(280px, 65vw);
+    height: min(280px, 65vw);
+    margin: 0 auto 10px;
+  }
+
+  .process-text-area {
+    min-height: 250px;
   }
 
   .process-dynamic-text {
@@ -933,6 +957,32 @@
   .process-pagination {
     left: 50%;
     transform: translateX(-50%);
+    bottom: -15px;
+  }
+
+  .why-adopt-img-frame {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .comparison-video-section {
+    padding: 20px 15px 40px;
+  }
+
+  .comparison-features-pill {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 24px;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .feature-divider {
+    width: 100%;
+    height: 1px;
+    margin: 4px 0;
   }
 
   .comparison-container h2 {
@@ -941,5 +991,6 @@
 
   .partner-section {
     grid-template-columns: 1fr;
+    padding: 60px 20px;
   }
 }
