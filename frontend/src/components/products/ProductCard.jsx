@@ -1,34 +1,54 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { getProductImageUrl } from "../../utils/imageUtils";
 
 /**
  * ProductCard - Premium, Minimal, Borderless E-commerce Card
  * Features 1:1 floating image container, ambient gold glow halo, diagonal glass reflection sweep,
  * clean typography hierarchy, and animated gold gradient CTA button.
  */
-const ProductCard = ({ product, index = 0, onSelectProduct }) => {
-  const mainImage = product.images?.[0]?.url;
+const ProductCard = ({ product, index = 0, useTransparentImage = false, onSelectProduct }) => {
+  const navigate = useNavigate();
+  const imageUrl = getProductImageUrl(product, useTransparentImage);
+  const fallbackUrl = product.images?.[0]?.url;
   const imageAlt = product.images?.[0]?.alt || product.name;
+
+  const handleClick = () => {
+    if (onSelectProduct) {
+      onSelectProduct(product);
+    } else if (product?.slug) {
+      navigate(`/product/${product.slug}`);
+    }
+  };
 
   return (
     <div
       className={`product-card reveal-card anim-card-hover stagger-${(index % 8) + 1}`}
       style={{ "--card-index": index }}
-      onClick={() => onSelectProduct && onSelectProduct(product)}
+      onClick={handleClick}
     >
       {/* 1:1 Square Product Image Container */}
       <div className="product-card-media">
         {/* Ambient Gold Radial Glow Layer */}
         <div className="product-card-glow" aria-hidden="true" />
 
-        {/* Diagonal Shimmer Glass Reflection Layer */}
-        <div className="product-card-shimmer" aria-hidden="true" />
+        {/* Ambient Translucent Hover Overlay Layer */}
+        <div className="product-card-overlay" aria-hidden="true" />
 
-        {mainImage ? (
+        {/* Diagonal Shining Light Beam Sweep Layer */}
+        <div className="product-card-shine" aria-hidden="true" />
+
+        {imageUrl ? (
           <img
-            src={mainImage}
+            src={imageUrl}
             alt={imageAlt}
             className="product-card-img"
             loading="lazy"
+            onError={(e) => {
+              if (fallbackUrl && e.currentTarget.src !== fallbackUrl) {
+                e.currentTarget.src = fallbackUrl;
+              }
+            }}
           />
         ) : (
           <div className="product-card-img-placeholder">
@@ -52,9 +72,9 @@ const ProductCard = ({ product, index = 0, onSelectProduct }) => {
           className="product-card-buy-btn"
           onClick={(e) => {
             e.stopPropagation();
-            if (onSelectProduct) onSelectProduct(product);
+            handleClick();
           }}
-          aria-label={`Buy ${product.name}`}
+          aria-label={`View ${product.name}`}
         >
           <span>Buy Now</span>
           <svg

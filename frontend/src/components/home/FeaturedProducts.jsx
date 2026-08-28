@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {
     id: 1,
     title: "Breath Freshener",
+    slug: "breath-freshener",
     category: "Oral Hygiene",
     image: "/home product/1.jpeg",
     flavor: "Spearmint Flavor",
@@ -11,6 +13,7 @@ const products = [
   {
     id: 2,
     title: "Silenzz",
+    slug: "silenzz",
     category: "Sleep & Relaxation",
     image: "/home product/2.jpeg",
     flavor: "Peppermint Flavor",
@@ -18,6 +21,7 @@ const products = [
   {
     id: 3,
     title: "Meltacid",
+    slug: "meltacid",
     category: "Antacid & Digestion",
     image: "/home product/3.jpeg",
     flavor: "Spearmint Flavor",
@@ -25,6 +29,7 @@ const products = [
   {
     id: 4,
     title: "Quikoff",
+    slug: "quikoff",
     category: "Herbal Cough & Throat",
     image: "/home product/4.jpeg",
     flavor: "Raspberry Flavor",
@@ -32,6 +37,7 @@ const products = [
   {
     id: 5,
     title: "Energizz",
+    slug: "energizz",
     category: "Energy & Focus",
     image: "/home product/5.jpeg",
     flavor: "Citrus Orange Flavor",
@@ -39,6 +45,7 @@ const products = [
   {
     id: 6,
     title: "ImmunoBoost",
+    slug: "immunoboost",
     category: "Immunity & Wellness",
     image: "/home product/6.jpeg",
     flavor: "Berry Blast Flavor",
@@ -47,6 +54,7 @@ const products = [
 
 const FeaturedProducts = () => {
   const scrollRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleScroll = (direction) => {
     if (scrollRef.current) {
@@ -260,29 +268,31 @@ const FeaturedProducts = () => {
             <div
               key={product.id}
               className={`product-card-item reveal-card anim-card-hover stagger-${(idx % 6) + 1}`}
+              onClick={() => navigate(`/product/${product.slug}`)}
               style={{
                 flex: "0 0 285px",
                 scrollSnapAlign: "start",
                 backgroundColor: "#fbfbfc",
                 borderRadius: "20px",
                 padding: "24px 22px 22px",
-                border: "1px solid rgba(226, 232, 240, 0.9)",
+                border: "none",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
                 minHeight: "410px",
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
+                boxShadow: "none",
+                cursor: "pointer",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow = "0 14px 32px rgba(243, 182, 63, 0.12)";
-                e.currentTarget.style.borderColor = "rgba(243, 182, 63, 0.4)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "transparent";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.02)";
-                e.currentTarget.style.borderColor = "rgba(226, 232, 240, 0.9)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "transparent";
               }}
             >
               {/* Product Info Header */}
