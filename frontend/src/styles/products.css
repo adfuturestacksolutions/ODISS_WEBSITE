@@ -89,15 +89,15 @@
 
 .category-explore-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--odiss-gold-dark, #d99b2f);
   background: rgba(217, 155, 47, 0.08);
-  padding: 6px 14px;
+  padding: 4px 12px;
   border-radius: 0;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .products-page h1,
@@ -110,7 +110,7 @@
 }
 
 .category-explore-title {
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--odiss-dark, #242424);
@@ -118,10 +118,10 @@
 }
 
 .category-explore-desc {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--odiss-muted, #707070);
-  margin-top: 12px;
-  line-height: 1.6;
+  margin-top: 8px;
+  line-height: 1.5;
 }
 
 /* Asymmetric Bento Grid */
@@ -138,16 +138,15 @@
   border-radius: 0;
   overflow: hidden;
   background: var(--odiss-dark, #242424);
-  min-height: 520px;
+  min-height: 380px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(36, 36, 36, 0.08);
   transition: transform 0.4s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
     box-shadow 0.4s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
-/* 9:16 Ratio Showcase Card & Minimal Luxury Slider */
+/* Compact Showcase Card & Minimal Luxury Slider */
 .category-feature-card.ratio-9-16 {
-  aspect-ratio: 9 / 16;
   width: 100%;
   min-height: unset;
   height: 100%;
@@ -395,19 +394,20 @@
 .category-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 /* Category Card */
 .category-card {
   position: relative;
-  background: #ffffff;
+  background: #121212;
   border-radius: 0;
   overflow: hidden;
-  border: 1px solid rgba(36, 36, 36, 0.08);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
+  height: 270px;
   cursor: pointer;
   transition: transform 0.35s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
     box-shadow 0.35s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1)),
@@ -416,162 +416,143 @@
 
 .category-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
-  border-color: rgba(217, 155, 47, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border-color: rgba(217, 155, 47, 0.5);
 }
 
-/* Media Wrapper */
+/* Full Width/Height Media Wrapper */
 .category-card-media {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 200px;
-  background: #f0ece1;
+  height: 100%;
+  background: #181818;
   overflow: hidden;
   border-radius: 0;
+  z-index: 1;
 }
 
 .category-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
+  object-position: center;
+  display: block;
+  transform: scale(1.001);
+  transition: transform 0.7s var(--ease-smooth, cubic-bezier(0.2, 0.8, 0.2, 1));
 }
 
 .category-card:hover .category-card-img {
   transform: scale(1.08);
 }
 
+/* Slight Dark Ambient Multi-Stop Gradient Layer Above GIF */
 .category-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg,
-      rgba(0, 0, 0, 0) 40%,
-      rgba(0, 0, 0, 0.4) 100%);
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.15) 0%,
+    rgba(18, 18, 18, 0.4) 45%,
+    rgba(18, 18, 18, 0.88) 100%
+  );
+  opacity: 1;
+  transition: background 0.35s ease, opacity 0.35s ease;
 }
 
 .category-card:hover .category-card-overlay {
-  opacity: 0.9;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.1) 0%,
+    rgba(18, 18, 18, 0.45) 40%,
+    rgba(18, 18, 18, 0.92) 100%
+  );
 }
 
-/* Index Badge */
-.category-card-index {
+/* Shimmer Light Sweep */
+.category-card-shimmer {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 2;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--odiss-dark, #242424);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  padding: 4px 10px;
-  border-radius: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  z-index: 3;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.8s ease;
+  pointer-events: none;
 }
 
-/* Quick View floating action */
-.category-card-quick-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
-  color: #ffffff;
-  background: rgba(36, 36, 36, 0.75);
-  backdrop-filter: blur(8px);
-  padding: 6px 12px;
-  border-radius: 0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: all 0.3s ease;
+.category-card:hover .category-card-shimmer {
+  left: 140%;
 }
 
-.category-card:hover .category-card-quick-btn {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.category-card-quick-btn:hover {
-  background: var(--odiss-gold, #f3b63f);
-  color: var(--odiss-dark, #242424);
-  border-color: var(--odiss-gold, #f3b63f);
-}
-
-/* Card Content */
+/* Card Content Overlay Sitting Above GIF */
 .category-card-content {
+  position: relative;
+  z-index: 4;
+  height: 100%;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-between;
+  justify-content: flex-end;
+  pointer-events: none;
 }
 
 .category-card-header {
   margin-bottom: 10px;
 }
 
-.category-card-tag {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--odiss-gold-dark, #d99b2f);
-}
-
 .category-card-title {
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--odiss-dark, #242424);
-  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0;
   letter-spacing: -0.01em;
   line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.category-card-desc {
-  font-size: 15px;
-  color: var(--odiss-muted, #707070);
-  line-height: 1.55;
-  margin-bottom: 20px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.category-card:hover .category-card-title {
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 /* Card Footer CTA Link */
 .category-card-footer {
-  padding-top: 14px;
-  border-top: 1px solid rgba(36, 36, 36, 0.06);
+  padding-top: 0;
+  border-top: none;
 }
 
 .category-card-link {
+  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  color: var(--odiss-dark, #242424);
+  color: var(--odiss-gold-dark, #d99b2f);
   transition: color 0.25s ease;
 }
 
 .category-card-arrow {
   color: var(--odiss-gold-dark, #d99b2f);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
 }
 
 .category-card:hover .category-card-link {
-  color: var(--odiss-gold-dark, #d99b2f);
+  color: var(--odiss-gold, #f3b63f);
 }
 
 .category-card:hover .category-card-arrow {
+  color: var(--odiss-gold, #f3b63f);
   transform: translateX(6px);
 }
 

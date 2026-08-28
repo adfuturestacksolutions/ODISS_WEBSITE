@@ -14,7 +14,7 @@ const CategoryCard = ({ category }) => {
   };
 
   return (
-    <div className="category-card reveal-card anim-card-hover" onClick={handleCardClick}>
+    <div className="category-card" onClick={handleCardClick}>
       {/* Background/Image Container */}
       <div className="category-card-media">
         <img
@@ -23,22 +23,20 @@ const CategoryCard = ({ category }) => {
           className="category-card-img"
           loading="lazy"
         />
+        {/* Dark Ambient Gradient Layer Above GIF */}
         <div className="category-card-overlay" />
         
         {/* Shimmer sweep effect */}
         <div className="category-card-shimmer" />
       </div>
 
-      {/* Content Area */}
+      {/* Content Overlay Sitting Above GIF */}
       <div className="category-card-content">
         <div className="category-card-header">
-          <span className="category-card-tag">ODISS Range</span>
           <h3 className="category-card-title">{category.name}</h3>
         </div>
 
-        <p className="category-card-desc">{category.shortDescription}</p>
-
-        {/* Bottom CTA Row */}
+        {/* Bottom Navigation CTA */}
         <div className="category-card-footer">
           <Link
             to={`/category/${category.slug}`}

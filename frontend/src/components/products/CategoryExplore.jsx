@@ -17,10 +17,6 @@ const CategoryExplore = () => {
           <h2 className="category-explore-title">
             Explore Formulations by Category
           </h2>
-          <p className="category-explore-desc">
-            Precision sublingual oral dissolving strip solutions engineered for
-            distinct age groups, lifestyle dynamics, and vital health requirements.
-          </p>
         </div>
 
         {/* Bento Grid: Featured Slideshow Card (Left) + Category Cards Grid (Right) */}
