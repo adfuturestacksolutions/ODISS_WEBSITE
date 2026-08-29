@@ -65,7 +65,7 @@ const HeroFeatureMarquee = () => {
       <style>{`
         .hero-feature-marquee-wrapper {
           position: absolute;
-          bottom: 10px;
+          bottom: 3px;
           left: 0;
           right: 0;
           height: 105px;

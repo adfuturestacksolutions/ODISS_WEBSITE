@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// Import Category Card Showcase Images
-import cardImg1 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_10_00 PM.png";
-import cardImg2 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_13_50 PM.png";
-import cardImg3 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_15_23 PM.png";
-import cardImg4 from "../../assets/products/Category Card/ChatGPT Image Aug 26, 2026, 07_16_47 PM.png";
-
+// Category Card Showcase Images (using existing high quality public assets)
 const slides = [
-  { id: 1, src: cardImg1, alt: "ODISS Sublingual Strip Range Showcase 1" },
-  { id: 2, src: cardImg2, alt: "ODISS Sublingual Strip Range Showcase 2" },
-  { id: 3, src: cardImg3, alt: "ODISS Sublingual Strip Range Showcase 3" },
-  { id: 4, src: cardImg4, alt: "ODISS Sublingual Strip Range Showcase 4" },
+  { id: 1, src: "/home product/1.jpeg", alt: "ODISS Sublingual Strip Range Showcase 1" },
+  { id: 2, src: "/home product/2.jpeg", alt: "ODISS Sublingual Strip Range Showcase 2" },
+  { id: 3, src: "/home product/3.jpeg", alt: "ODISS Sublingual Strip Range Showcase 3" },
+  { id: 4, src: "/home product/4.jpeg", alt: "ODISS Sublingual Strip Range Showcase 4" },
 ];
 
 /**
