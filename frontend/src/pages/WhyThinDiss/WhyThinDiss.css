@@ -756,20 +756,32 @@
 
 .video-player-wrapper {
   position: relative;
-  width: 100%;
+
+  width: min(100%, 1100px);
+
   aspect-ratio: 16 / 9;
-  border-radius: 20px;
+  height: auto;
+
+  margin: 0 auto;
+
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(0, 0, 0, 0.05);
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  background: var(--cream);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.12),
+    0 8px 25px rgba(244, 184, 63, 0.08);
+
+  border: 1px solid rgba(244, 184, 63, 0.18);
 }
 
 .comparison-video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+  background: transparent;
 }
 
 .comparison-features-pill {
@@ -969,8 +981,28 @@
   }
 
   .comparison-video-section {
-    padding: 20px 15px 40px;
-  }
+  padding: 50px 5% 70px;
+  background: var(--cream);
+  background-image:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(244, 184, 63, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(244, 184, 63, 0.05) 0%,
+      transparent 35%
+    );
+  position: relative;
+  overflow: hidden;
+}
+.video-player-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 18px;
+}
 
   .comparison-features-pill {
     flex-direction: column;
