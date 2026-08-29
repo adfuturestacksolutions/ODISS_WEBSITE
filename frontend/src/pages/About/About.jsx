@@ -104,6 +104,7 @@ const About = () => {
                 src="/media_1788004463035.jpg" 
                 alt="Vision and Mission Central Image" 
                 className="animated-premium-img" 
+                style={{ filter: 'hue-rotate(150deg) saturate(1.2)' }}
               />
             </div>
 
@@ -125,7 +126,7 @@ const About = () => {
             <div className="global-perspective-visual">
               <div className="global-halo"></div>
               <div className="image-globe-wrapper">
-                <img src="/global_vision_custom.jpg" alt="ODISS Global Reach" className="globe-picture" />
+                <img src="/professional_blue_globe.jpg" alt="ODISS Global Reach" className="globe-picture" />
               </div>
               
               <div className="floating-points-container">
@@ -181,7 +182,7 @@ const About = () => {
                 muted 
                 playsInline 
                 className="diff-center-video animated-strip-image"
-                style={{ objectFit: 'cover', aspectRatio: '1/1' }}
+                style={{ objectFit: 'cover', aspectRatio: '1/1', filter: 'hue-rotate(280deg) saturate(1.5)' }}
               />
             </div>
             
@@ -228,7 +229,11 @@ const About = () => {
               onClick={() => setActiveCard(0)}
             >
               <div className="cf-media">
-                <img src="/new_pillar_precision_1787832855884.jpg" alt="Precision Formulation" />
+                <img 
+                  src="/hero_strip_clean_2.jpg" 
+                  alt="Precision Formulation" 
+                  style={{ filter: 'hue-rotate(180deg) saturate(1.5)' }} 
+                />
                 {/* You can easily replace the <img> with a <video autoPlay loop muted> here for animations */}
               </div>
               <div className="cf-content">
@@ -242,7 +247,11 @@ const About = () => {
               onClick={() => setActiveCard(1)}
             >
               <div className="cf-media">
-                <img src="/about_hero_dynamic.jpg" alt="Uncompromising Quality" />
+                <img 
+                  src="/about_hero_dynamic.jpg" 
+                  alt="Uncompromising Quality" 
+                  style={{ filter: 'hue-rotate(-30deg) saturate(1.2)' }} 
+                />
               </div>
               <div className="cf-content">
                 <h3>Uncompromising Quality</h3>
@@ -255,7 +264,11 @@ const About = () => {
               onClick={() => setActiveCard(2)}
             >
               <div className="cf-media">
-                <img src="/new_pillar_patient_1787833063887.jpg" alt="Patient-Centricity" />
+                <img 
+                  src="/new_pillar_patient_1787833063887.jpg" 
+                  alt="Patient-Centricity" 
+                  style={{ objectPosition: 'center center' }}
+                />
               </div>
               <div className="cf-content">
                 <h3>Patient-Centricity</h3>
