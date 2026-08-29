@@ -20,54 +20,53 @@ const Hero = () => {
       <style>{`
         .hero-main-grid {
           width: min(1400px, calc(100% - clamp(24px, 5vw, 80px)));
-          margin: 0 auto 105px auto;
+          margin: 0 auto;
+          padding-bottom: clamp(100px, 12vh, 130px);
+          padding-top: clamp(20px, 3.5vh, 45px);
           display: grid;
           grid-template-columns: 1fr 1.35fr;
-          gap: clamp(20px, 3vw, 48px);
+          gap: clamp(28px, 4vw, 56px);
           flex: 1;
-          min-height: calc(100vh - 75px - 110px);
-          align-items: center;
+          align-items: flex-start;
         }
 
-        /* ── LEFT: Headline Only (aligned with navbar logo) ── */
- .hero-left-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 0;
-  transform: translateY(-150px);
-  background: transparent;
-  position: relative;
-  z-index: 2;
-}
-        /* ── RIGHT: Video on top + Text & CTA on bottom (Reference Layout) ── */
+        /* ── LEFT: Headline (Vertically Centered with the Video) ── */
+        .hero-left-col {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: clamp(280px, 30vw, 420px);
+          padding: 0;
+          background: transparent;
+          position: relative;
+          z-index: 2;
+        }
+
+        /* ── RIGHT: Video on top + Text & CTA cleanly under the video ── */
         .hero-right-col {
           position: relative;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: flex-start;
           background: transparent;
-          gap: clamp(16px, 2vh, 24px);
+          gap: clamp(18px, 2.2vh, 26px);
+          width: 100%;
         }
 
         .hero-video-box {
           position: relative;
           width: 100%;
           max-width: 860px;
-          height: 480px;
-          max-height: 530px;
-          min-height: 360px;
-          overflow: hidden;
-          border-radius: 28px;
+          height: clamp(300px, 32vw, 440px);
+          transform: translateX(clamp(-30px, -2.2vw, -15px));
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #ffffff;
-          box-shadow: 
-            0 0 55px 30px rgba(255, 255, 255, 1),
-            0 20px 45px rgba(0, 0, 0, 0.03);
-          align-self: center;
+          background: transparent;
+          box-shadow: none;
+          border: none;
+          outline: none;
         }
 
         .hero-video-box video {
@@ -76,30 +75,37 @@ const Hero = () => {
           object-fit: cover;
           object-position: center;
           display: block;
+          border: none;
+          outline: none;
+          mix-blend-mode: multiply;
+          -webkit-mask-image: 
+            linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%),
+            linear-gradient(to bottom, transparent 0%, black 12%, black 68%, transparent 94%);
+          -webkit-mask-composite: source-in;
+          mask-image: 
+            linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%),
+            linear-gradient(to bottom, transparent 0%, black 12%, black 68%, transparent 94%);
+          mask-composite: intersect;
         }
 
-        /* White feather and shadow on all 4 edges */
+        /* Seamless edge gradient feather overlay */
         .hero-video-box::after {
           content: '';
           position: absolute;
-          inset: 0;
-          border-radius: 28px;
-          box-shadow: inset 0 0 45px 30px rgba(255, 255, 255, 0.95);
-          background:
-            linear-gradient(to right,  rgba(255,255,255,0.98) 0%, transparent 20%),
-            linear-gradient(to left,   rgba(255,255,255,0.95) 0%, transparent 20%),
-            linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, transparent 20%),
-            linear-gradient(to top,    rgba(255,255,255,0.98) 0%, transparent 20%);
+          inset: -4px;
           pointer-events: none;
-          z-index: 1;
+          z-index: 2;
+          background:
+            linear-gradient(to bottom, #ffffff 0%, transparent 14%, transparent 68%, #ffffff 95%),
+            linear-gradient(to right,  #ffffff 0%, transparent 15%, transparent 85%, #ffffff 100%);
         }
 
         .hero-right-content {
           position: relative;
           z-index: 5;
-          margin-top: -95px; /* slightly raised */
-          align-self: flex-end; /* majorly moves to the right side */
+          margin-top: clamp(-115px, -8.5vw, -92px);
           margin-left: auto;
+          align-self: flex-end;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -108,16 +114,22 @@ const Hero = () => {
           gap: clamp(14px, 1.8vh, 20px);
         }
 
+        .hero-cta-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 28px rgba(243, 182, 63, 0.48) !important;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 960px) {
           .hero-main-grid {
             grid-template-columns: 1fr;
             min-height: auto;
-            margin-bottom: 95px;
+            padding-bottom: 110px;
             gap: 28px;
           }
           .hero-left-col {
-            padding: 30px 0 10px;
+            height: auto;
+            padding: 20px 0 0;
             text-align: center;
             align-items: center;
           }
@@ -126,9 +138,10 @@ const Hero = () => {
           }
           .hero-video-box {
             transform: none;
+            height: clamp(240px, 45vw, 360px);
           }
           .hero-right-content {
-            margin-top: -45px;
+            margin-top: -60px;
             margin-left: 0;
             align-self: center;
             align-items: center;
@@ -138,13 +151,13 @@ const Hero = () => {
 
         @media (max-width: 480px) {
           .hero-main-grid {
-            margin-bottom: 85px;
+            padding-bottom: 95px;
           }
           .hero-video-box {
-            height: 60vw;
-            min-height: 220px;
+            height: 54vw;
+            min-height: 200px;
           }
-          .hero-left-col { padding: 24px 0 10px; }
+          .hero-left-col { padding: 16px 0 0; }
         }
       `}</style>
 
@@ -207,6 +220,7 @@ const Hero = () => {
 
             <Link
               to="/products"
+              className="hero-cta-btn"
               onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
               style={{
                 display: "inline-flex",

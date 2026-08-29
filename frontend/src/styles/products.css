@@ -2101,7 +2101,7 @@
 
   /* Pills: allow horizontal scroll on single row */
   .product-category-pills-bar {
-    flex-nowrap: nowrap;
+    -ms-flex-wrap: nowrap;
     gap: 6px;
     margin-bottom: 16px;
     scrollbar-width: none;
