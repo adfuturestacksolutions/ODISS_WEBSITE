@@ -7,10 +7,10 @@ import cardImg3 from "../../assets/products/Category Card/image_3_1x1_no_padding
 import cardImg4 from "../../assets/products/Category Card/image_4_1x1_no_padding.jpg";
 
 const slides = [
-  { id: 1, src: cardImg1, alt: "ODISS Sublingual Strip Range Showcase 1" },
-  { id: 2, src: cardImg2, alt: "ODISS Sublingual Strip Range Showcase 2" },
-  { id: 3, src: cardImg3, alt: "ODISS Sublingual Strip Range Showcase 3" },
-  { id: 4, src: cardImg4, alt: "ODISS Sublingual Strip Range Showcase 4" },
+  { id: 1, src: "/home product/1.jpeg", alt: "ODISS Sublingual Strip Range Showcase 1" },
+  { id: 2, src: "/home product/2.jpeg", alt: "ODISS Sublingual Strip Range Showcase 2" },
+  { id: 3, src: "/home product/3.jpeg", alt: "ODISS Sublingual Strip Range Showcase 3" },
+  { id: 4, src: "/home product/4.jpeg", alt: "ODISS Sublingual Strip Range Showcase 4" },
 ];
 
 /**

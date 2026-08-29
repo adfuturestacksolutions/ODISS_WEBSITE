@@ -76,6 +76,7 @@ const Navbar = () => {
           <Link
             to="/"
             aria-label="ODISS Home"
+            onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
             style={{
               display: "flex",
               alignItems: "center",
@@ -119,6 +120,7 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                   style={{
                     position: "relative",
                     display: "inline-flex",
@@ -227,6 +229,7 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
+                  onClick={() => window.scrollTo({ top: 0, behavior: "instant" })}
                   style={{
                     display: "flex",
                     alignItems: "center",
