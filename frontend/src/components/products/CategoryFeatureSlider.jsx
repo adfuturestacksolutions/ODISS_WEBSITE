@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// Category Card Showcase Images (using existing high quality public assets)
+// Import Category Card Showcase Images (1:1)
+import cardImg1 from "../../assets/products/Category Card/image_1_1x1_no_padding.jpg";
+import cardImg2 from "../../assets/products/Category Card/image_2_1x1_no_padding.jpg";
+import cardImg3 from "../../assets/products/Category Card/image_3_1x1_no_padding.jpg";
+import cardImg4 from "../../assets/products/Category Card/image_4_1x1_no_padding.jpg";
+
 const slides = [
   { id: 1, src: "/home product/1.jpeg", alt: "ODISS Sublingual Strip Range Showcase 1" },
   { id: 2, src: "/home product/2.jpeg", alt: "ODISS Sublingual Strip Range Showcase 2" },
