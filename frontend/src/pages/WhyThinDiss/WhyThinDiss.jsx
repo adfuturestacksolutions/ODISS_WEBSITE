@@ -462,9 +462,15 @@ const WhyThinDiss = () => {
             Tomorrow Together
           </h2>
           <p>
-            At ODISS, we believe in the power of collaboration to drive
-            innovation in the nutraceutical industry.
-          </p>
+  At{" "}
+  <img
+    src="/odiss_logo.png"
+    alt="ODISS"
+    className="inline-odiss-logo"
+  />{" "}
+  we believe in the power of collaboration to drive innovation in the
+  nutraceutical industry.
+</p>
           <p>
             By partnering with us, you gain access to <strong>cutting-edge drug delivery technologies</strong> and advanced formulations. Together, we can deliver high-quality products that enhance well-being globally.
           </p>

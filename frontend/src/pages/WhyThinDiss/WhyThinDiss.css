@@ -66,7 +66,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: 1;
+  display: block;
 }
 
 .hero-immersive-bg::after {
@@ -83,17 +85,17 @@
     rgba(250, 249, 246, 0.92) 100%
   );
 }
-
 @media (min-width: 981px) {
   .hero-immersive-bg::after {
-    background: linear-gradient(90deg,
-        rgba(250, 249, 246, 0.1) 0%,
-        rgba(250, 249, 246, 0.5) 40%,
-        rgba(250, 249, 246, 0.96) 72%,
-        rgba(250, 249, 246, 1) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(250, 249, 246, 0) 0%,
+      rgba(250, 249, 246, 0.05) 40%,
+      rgba(250, 249, 246, 0.35) 70%,
+      rgba(250, 249, 246, 0.75) 100%
+    );
   }
 }
-
 .hero-immersive-container {
   position: relative;
   z-index: 3;
@@ -226,6 +228,66 @@
   min-height: 230px;
   height: 100%;
   box-sizing: border-box;
+}
+
+.innovation-card-wrapper:nth-child(1) .innovation-card {
+  background: #FFF1D6;
+  border-color: #F6D79A;
+}
+
+.innovation-card-wrapper:nth-child(2) .innovation-card {
+  background: #E8F5FF;
+  border-color: #B9DFF7;
+}
+
+.innovation-card-wrapper:nth-child(3) .innovation-card {
+  background: #E8EEFF;
+  border-color: #BFCDF5;
+}
+
+.innovation-card-wrapper:nth-child(4) .innovation-card {
+  background: #FFF0F6;
+  border-color: #F2C8DA;
+}
+
+.innovation-card-wrapper:nth-child(5) .innovation-card {
+  background: #EAF8F7;
+  border-color: #B9E3DF;
+}
+
+.innovation-card-wrapper:nth-child(6) .innovation-card {
+  background: #FCEAF3;
+  border-color: #EEC2D6;
+}
+
+.innovation-card-wrapper:nth-child(7) .innovation-card {
+  background: #E8FAFA;
+  border-color: #B7E5E5;
+}
+
+.innovation-card-wrapper:nth-child(8) .innovation-card {
+  background: #EDF4FF;
+  border-color: #C5D9F5;
+}
+
+.innovation-card-wrapper:nth-child(9) .innovation-card {
+  background: #EEF2F7;
+  border-color: #CBD5E1;
+}
+
+.innovation-card-wrapper:nth-child(10) .innovation-card {
+  background: #FFF0F0;
+  border-color: #F1C5C5;
+}
+
+.innovation-card-wrapper:nth-child(11) .innovation-card {
+  background: #F2FAEE;
+  border-color: #C9E5B8;
+}
+
+.innovation-card-wrapper:nth-child(12) .innovation-card {
+  background: #FFF4E5;
+  border-color: #F4D09C;
 }
 
 .innovation-card:hover {
@@ -884,12 +946,26 @@
   box-shadow: 0 10px 20px rgba(244, 184, 63, 0.3);
 }
 
+.partner-image {
+  width: 125%;
+}
+
+.partner-image {
+  width: 115%;
+  transform: translateX(-20px);
+}
+.inline-odiss-logo {
+  width: 90px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+}
 .partner-image img {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
-
 /* =========================================================
    RESPONSIVE DESIGN 
 ========================================================= */
