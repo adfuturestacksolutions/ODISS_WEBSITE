@@ -15,7 +15,7 @@
   color: var(--navy);
   background: #ffffff;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 

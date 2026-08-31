@@ -179,7 +179,7 @@ const WhyThinDiss = () => {
       title: "A Growing Market",
       content:
         "Consumer demand is moving toward simpler, more convenient wellness formats. Oral thin-film technology offers brands an opportunity to move beyond conventional tablets, capsules and gummies with a modern format designed around convenience, portability and ease of use.",
-      image: "/grow.png",
+      image: "/growing.png",
       imageAlt: "A Growing Market",
     },
     {
@@ -236,12 +236,12 @@ const WhyThinDiss = () => {
             </p>
 
             <Link
-  to="/products"
-  className="outline-button-pill anim-card-hover"
->
-  Discover ThinDiss <span>↗</span>
-</Link>
-            
+              to="/products"
+              className="outline-button-pill anim-card-hover"
+            >
+              Discover ThinDiss <span>↗</span>
+            </Link>
+
           </div>
         </div>
       </section>
@@ -319,7 +319,7 @@ const WhyThinDiss = () => {
               <span>HOW IT WORKS</span>
             </div>
             <h2> Oral Dissolving Strips </h2>
-            
+
           </div>
 
           <div className="process-content-area">
@@ -462,24 +462,24 @@ const WhyThinDiss = () => {
             Tomorrow Together
           </h2>
           <p>
-  At{" "}
-  <img
-    src="/odiss_logo.png"
-    alt="ODISS"
-    className="inline-odiss-logo"
-  />{" "}
-  we believe in the power of collaboration to drive innovation in the
-  nutraceutical industry.
-</p>
+            At{" "}
+            <img
+              src="/odiss_logo.png"
+              alt="ODISS"
+              className="inline-odiss-logo"
+            />{" "}
+            we believe in the power of collaboration to drive innovation in the
+            nutraceutical industry.
+          </p>
           <p>
             By partnering with us, you gain access to <strong>cutting-edge drug delivery technologies</strong> and advanced formulations. Together, we can deliver high-quality products that enhance well-being globally.
           </p>
           <Link
-  to="/get-connected"
-  className="brand-button anim-card-hover"
->
-  Let's Collaborate <span>↗</span>
-</Link>
+            to="/get-connected"
+            className="brand-button anim-card-hover"
+          >
+            Let's Collaborate <span>↗</span>
+          </Link>
         </div>
 
         <div className="partner-image reveal-right">
