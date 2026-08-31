@@ -20,11 +20,14 @@ export const getProductImageUrl = (product, isTransparent = false) => {
 
   // Derive transparent image filename from publicId or Cloudinary URL
   const publicId = mainImg.publicId;
-  const filename = publicId
-    ? publicId.split("/").pop() + ".png"
+  let filename = publicId
+    ? publicId.split("/").pop()
     : mainImg.url.split("/").pop();
 
   if (filename) {
+    if (!filename.endsWith(".png")) {
+      filename += ".png";
+    }
     return `/products/transparent/${filename}`;
   }
 

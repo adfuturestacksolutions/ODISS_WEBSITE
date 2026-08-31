@@ -1291,55 +1291,57 @@
   transform: translateY(-6px);
 }
 
-/* 1:1 Square Product Image Container with Cream Backdrop */
+/* 1:1 Square Product Image Container with Ambient Identity Backdrop */
 .product-card-media {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: var(--odiss-cream-light, #fcfaf4);
+  background: var(--card-media-bg, var(--odiss-cream-light, #fcfaf4));
   border-radius: 22px;
-  border: none;
+  border: 1px solid var(--card-border, rgba(36, 36, 36, 0.06));
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
-  box-shadow: none;
+  box-shadow: var(--card-shadow, 0 6px 20px rgba(0, 0, 0, 0.04));
   transition: box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
     transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .product-card:hover .product-card-media {
-  box-shadow: none;
+  border-color: var(--card-border-hover, rgba(217, 155, 47, 0.45));
+  box-shadow: var(--card-shadow-hover, 0 12px 30px rgba(217, 155, 47, 0.2));
 }
 
-/* Ambient Gold Radial Glow Halo (Layered Behind Image) */
+/* Ambient Radial Glow Halo (Visible anytime + blooms on hover) */
 .product-card-glow {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 50% 50%,
-      rgba(255, 215, 120, 0.45) 0%,
-      rgba(243, 182, 63, 0.15) 45%,
+      var(--card-glow-start, rgba(255, 215, 120, 0.6)) 0%,
+      var(--card-glow-mid, rgba(243, 182, 63, 0.28)) 45%,
       transparent 75%);
-  opacity: 0;
-  transition: opacity 0.35s ease-out;
+  opacity: 0.85;
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
   pointer-events: none;
   z-index: 1;
 }
 
 .product-card:hover .product-card-glow {
   opacity: 1;
+  transform: scale(1.06);
 }
 
-/* Ambient Translucent Hover Overlay Layer */
+/* Ambient Translucent Identity Overlay Layer (Visible anytime + deepens on hover) */
 .product-card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.25) 0%,
-      rgba(217, 155, 47, 0.1) 40%,
-      rgba(36, 36, 36, 0.08) 100%);
-  opacity: 0;
+      var(--card-overlay-start, rgba(255, 255, 255, 0.25)) 0%,
+      var(--card-overlay-end, rgba(217, 155, 47, 0.15)) 100%);
+  opacity: 0.75;
   transition: opacity 0.35s ease-out;
   pointer-events: none;
   z-index: 2;
@@ -1441,7 +1443,8 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--odiss-muted, #707070);
+  color: var(--card-type-color, var(--odiss-muted, #707070));
+  transition: color 0.25s ease;
 }
 
 .product-card-title {
@@ -1455,10 +1458,10 @@
 }
 
 .product-card:hover .product-card-title {
-  color: var(--odiss-gold-dark, #d99b2f);
+  color: var(--card-title-hover, var(--card-accent, var(--odiss-gold-dark, #d99b2f)));
 }
 
-/* Gold Gradient "Buy Now" CTA Button */
+/* Product-matched Gradient "Buy Now" CTA Button */
 .product-card-buy-btn {
   display: inline-flex;
   align-items: center;
@@ -1471,18 +1474,18 @@
   font-size: 13.5px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #ffffff;
-  background: linear-gradient(135deg, #f3b63f 0%, #d99b2f 100%);
+  color: var(--card-btn-text, #ffffff);
+  background: var(--card-btn-bg, linear-gradient(135deg, #f3b63f 0%, #d99b2f 100%));
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(217, 155, 47, 0.3);
+  box-shadow: var(--card-btn-shadow, 0 4px 14px rgba(217, 155, 47, 0.3));
   transition: all 0.3s ease;
 }
 
 .product-card:hover .product-card-buy-btn {
-  background: linear-gradient(135deg, #f5bd4f 0%, #ca8a21 100%);
-  box-shadow: 0 6px 20px rgba(217, 155, 47, 0.48);
+  background: var(--card-btn-bg-hover, linear-gradient(135deg, #f5bd4f 0%, #ca8a21 100%));
+  box-shadow: var(--card-btn-shadow-hover, 0 6px 20px rgba(217, 155, 47, 0.48));
   transform: translateY(-1px);
 }
 
