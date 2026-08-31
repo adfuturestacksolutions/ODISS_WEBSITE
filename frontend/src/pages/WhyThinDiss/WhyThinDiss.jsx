@@ -186,7 +186,7 @@ const WhyThinDiss = () => {
       title: "Smarter Delivery Technology",
       content:
         "ThinDiss™ transforms active ingredients into a convenient oral dissolving format. The thin-film platform is designed to dissolve in the mouth, eliminating the need for water and traditional swallowing. This creates a simple, user-friendly delivery experience while supporting efficient formulation and consistent dosing.",
-      image: "/smarter.png",
+      image: "/smart.png",
       imageAlt: "Smarter Delivery Technology",
     },
     {
@@ -197,6 +197,11 @@ const WhyThinDiss = () => {
       imageAlt: "Built for Brand Expansion",
     },
   ];
+  const adoptBgColors = [
+  "#FFF7E8", // A Growing Market
+  "#EEF8FF", // Smarter Delivery Technology
+  "#F3F8EE", // Built for Brand Expansion
+];
 
   const toggleAdopt = (index) => {
     setOpenAdoptIndex(openAdoptIndex === index ? -1 : index);
@@ -316,7 +321,7 @@ const WhyThinDiss = () => {
           <div className="process-header reveal-up">
             <div className="section-label">
               <span />
-              <span>HOW IT WORKS</span>
+              <span>ThinDiss</span>
             </div>
             <h2> Oral Dissolving Strips </h2>
 
@@ -366,7 +371,15 @@ const WhyThinDiss = () => {
       {/* =====================================================
           WHY ADOPT THIS TECHNOLOGY (ACCORDION & DYNAMIC VISUAL)
       ===================================================== */}
-      <section className="why-adopt-section">
+      <section
+  className="why-adopt-section"
+  style={{
+    backgroundColor:
+      openAdoptIndex === -1
+        ? "#FFFFFF"
+        : adoptBgColors[openAdoptIndex],
+  }}
+>
         <div className="why-adopt-container">
           <div className="why-adopt-header reveal-up">
             <h2>Why should you adopt this technology?</h2>
@@ -440,7 +453,7 @@ const WhyThinDiss = () => {
               onContextMenu={(e) => e.preventDefault()}
               style={{ pointerEvents: 'none' }}
             >
-              <source src="/tablevideo.mp4" type="video/mp4" />
+              <source src="/tablevideo (2).mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
