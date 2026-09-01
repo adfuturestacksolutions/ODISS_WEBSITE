@@ -49,8 +49,8 @@ const ProductFilters = ({
         <div className="product-sidebar-header">
           <div className="product-sidebar-title-group">
             <svg
-              width="18"
-              height="18"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -81,8 +81,8 @@ const ProductFilters = ({
           <div className="product-sidebar-search">
             <svg
               className="product-sidebar-search-icon"
-              width="16"
-              height="16"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -224,8 +224,8 @@ const ProductFilters = ({
               onClick={onResetFilters}
             >
               <svg
-                width="14"
-                height="14"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"

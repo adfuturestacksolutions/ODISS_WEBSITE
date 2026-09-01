@@ -20,10 +20,14 @@
   width: 100%;
   min-height: 100vh;
   background-color: var(--odiss-cream);
+  background-image: var(--detail-page-aura, none);
+  background-repeat: no-repeat;
+  background-size: 100% 900px;
   color: var(--odiss-dark);
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   padding-bottom: 120px;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease;
 }
 
 .product-detail-container {
@@ -117,7 +121,7 @@
 }
 
 .product-detail-breadcrumb a:hover {
-  color: var(--odiss-gold-dark);
+  color: var(--detail-accent, var(--odiss-gold-dark));
 }
 
 .product-detail-breadcrumb .sep {
@@ -147,10 +151,10 @@
 }
 
 .product-detail-back-btn:hover {
-  border-color: var(--odiss-gold-dark);
-  color: var(--odiss-gold-dark);
+  border-color: var(--detail-accent, var(--odiss-gold-dark));
+  color: var(--detail-accent, var(--odiss-gold-dark));
   background-color: var(--odiss-white);
-  box-shadow: 0 8px 20px rgba(217, 155, 47, 0.12);
+  box-shadow: 0 8px 20px var(--detail-pill-bg, rgba(217, 155, 47, 0.12));
   transform: translateX(-3px);
 }
 
@@ -176,16 +180,17 @@
 .product-detail-media-card {
   position: relative;
   border-radius: 28px;
-  background: radial-gradient(circle at 50% 40%, var(--odiss-cream-light) 0%, var(--odiss-cream) 100%);
-  border: none;
+  background: var(--detail-media-bg, radial-gradient(circle at 50% 40%, var(--odiss-cream-light) 0%, var(--odiss-cream) 100%));
+  border: 1.5px solid var(--detail-media-border, rgba(112, 112, 112, 0.1));
   padding: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 480px;
-  box-shadow: 0 20px 48px -12px rgba(36, 36, 36, 0.06);
+  box-shadow: var(--detail-media-shadow, 0 20px 48px -12px rgba(36, 36, 36, 0.06));
   overflow: hidden;
+  transition: all 0.4s ease;
 }
 
 .product-detail-media-glow {
@@ -193,11 +198,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
-  height: 75%;
-  background: radial-gradient(circle, rgba(255, 215, 120, 0.28) 0%, rgba(247, 244, 236, 0) 70%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, var(--detail-glow-start, rgba(255, 215, 120, 0.35)) 0%, var(--detail-glow-mid, rgba(247, 244, 236, 0.08)) 50%, rgba(247, 244, 236, 0) 72%);
   pointer-events: none;
-  filter: blur(30px);
+  filter: blur(36px);
+  transition: all 0.4s ease;
 }
 
 .product-detail-badge {
@@ -213,12 +219,13 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background-color: rgba(252, 250, 244, 0.95);
-  color: var(--odiss-gold-dark);
-  border: 1px solid rgba(217, 155, 47, 0.25);
+  background-color: var(--detail-badge-bg, rgba(252, 250, 244, 0.95));
+  color: var(--detail-badge-text, var(--odiss-gold-dark));
+  border: 1px solid var(--detail-badge-border, rgba(217, 155, 47, 0.25));
   box-shadow: 0 4px 14px rgba(36, 36, 36, 0.04);
   backdrop-filter: blur(10px);
   z-index: 2;
+  transition: all 0.3s ease;
 }
 
 .product-detail-main-img {
@@ -259,9 +266,9 @@
 
 .product-detail-thumb-btn.active,
 .product-detail-thumb-btn:hover {
-  border-color: var(--odiss-gold-dark);
+  border-color: var(--detail-accent, var(--odiss-gold-dark));
   background-color: var(--odiss-white);
-  box-shadow: 0 6px 16px rgba(217, 155, 47, 0.2);
+  box-shadow: 0 6px 16px var(--detail-pill-bg, rgba(217, 155, 47, 0.2));
 }
 
 .product-detail-thumb-btn img {
@@ -281,7 +288,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--odiss-gold-dark);
+  color: var(--detail-accent, var(--odiss-gold-dark));
   margin-bottom: 12px;
 }
 
@@ -299,8 +306,9 @@
   align-self: flex-start;
   padding: 6px 16px;
   border-radius: 12px;
-  background-color: var(--odiss-cream-light);
-  color: var(--odiss-dark-soft);
+  background-color: var(--detail-pill-bg, var(--odiss-cream-light));
+  color: var(--detail-pill-text, var(--odiss-dark-soft));
+  border: 1px solid var(--detail-pill-border, rgba(36, 36, 36, 0.05));
   font-size: 13.5px;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(36, 36, 36, 0.03);
@@ -343,7 +351,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--odiss-gold), var(--odiss-gold-dark));
+  background: var(--detail-spec-line, linear-gradient(90deg, var(--odiss-gold), var(--odiss-gold-dark)));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -389,12 +397,12 @@
   gap: 12px;
   padding: 18px 40px;
   border-radius: 32px;
-  background: linear-gradient(135deg, var(--odiss-gold) 0%, var(--odiss-gold-dark) 100%);
-  color: var(--odiss-white);
+  background: var(--detail-btn-bg, linear-gradient(135deg, var(--odiss-gold) 0%, var(--odiss-gold-dark) 100%));
+  color: var(--detail-btn-text, var(--odiss-white));
   font-size: 15.5px;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 10px 28px -6px rgba(243, 186, 63, 0.45);
+  box-shadow: var(--detail-btn-shadow, 0 10px 28px -6px rgba(243, 186, 63, 0.45));
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
   cursor: pointer;
@@ -419,7 +427,7 @@
 
 .product-detail-primary-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 36px -6px rgba(243, 186, 63, 0.6);
+  box-shadow: var(--detail-btn-shadow-hover, 0 14px 36px -6px rgba(243, 186, 63, 0.6));
 }
 
 .product-detail-primary-btn:hover::after {
@@ -444,8 +452,8 @@
 }
 
 .product-detail-secondary-btn:hover {
-  border-color: var(--odiss-dark-soft);
-  color: var(--odiss-dark);
+  border-color: var(--detail-accent, var(--odiss-dark-soft));
+  color: var(--detail-accent, var(--odiss-dark));
   background-color: var(--odiss-white);
   box-shadow: 0 8px 22px rgba(36, 36, 36, 0.08);
   transform: translateY(-2px);
@@ -503,13 +511,14 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(243, 186, 63, 0.15);
-  color: var(--odiss-gold-dark);
+  background: var(--detail-benefit-icon-bg, rgba(243, 186, 63, 0.15));
+  color: var(--detail-benefit-icon-color, var(--odiss-gold-dark));
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
+  transition: all 0.3s ease;
 }
 
 .product-detail-benefit-text {
@@ -546,14 +555,14 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, var(--odiss-gold) 0%, var(--odiss-gold-dark) 100%);
+  background: var(--detail-ingredient-bar, linear-gradient(180deg, var(--odiss-gold) 0%, var(--odiss-gold-dark) 100%));
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-detail-ingredient-card:hover {
-  background: linear-gradient(135deg, var(--odiss-white) 0%, var(--odiss-cream-light) 100%);
+  background: var(--detail-ingredient-hover-bg, linear-gradient(135deg, var(--odiss-white) 0%, var(--odiss-cream-light) 100%));
   box-shadow: 0 16px 36px rgba(36, 36, 36, 0.07);
   transform: translateY(-4px);
 }
@@ -738,11 +747,12 @@
   display: inline-block;
   padding: 6px 16px;
   border-radius: 20px;
-  background-color: rgba(243, 186, 63, 0.12);
-  color: var(--odiss-gold-dark);
-  border: 1px solid rgba(217, 155, 47, 0.22);
+  background-color: var(--detail-oem-pill-bg, rgba(243, 186, 63, 0.12));
+  color: var(--detail-oem-pill-color, var(--odiss-gold-dark));
+  border: 1px solid var(--detail-oem-pill-border, rgba(217, 155, 47, 0.22));
   font-size: 12.5px;
   font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 /* =========================================================
