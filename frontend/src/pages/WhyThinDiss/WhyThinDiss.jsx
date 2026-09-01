@@ -75,25 +75,25 @@ const innovationCards = [
 ========================================================= */
 const processSteps = [
   {
-    number: "01",
+    
     title: "Place",
     description: "Place the strip comfortably on your tongue and let the delivery process begin. Unlike traditional pills or capsules that require water and can be difficult to swallow, our oral strips are designed for ultimate convenience. Simply take one out of its compact packaging and rest it on your tongue anytime, anywhere without any hassle.",
     video: "/video1.mp4",
   },
   {
-    number: "02",
+    
     title: "Dissolve",
     description: "The thin format begins dissolving quickly, creating a simple and convenient experience. Within seconds, our proprietary formulation breaks down seamlessly upon contact with your saliva. There is no gritty residue or unpleasant aftertaste, just a smooth, instant transition that prepares the active ingredients for action.",
     video: "/video2.mp4",
   },
   {
-    number: "03",
+   
     title: "Absorb",
     description: "The active ingredients are delivered directly into your system through advanced oral delivery. By bypassing the harsh acidic environment of the stomach and digestive tract, this sublingual absorption method ensures that a significantly higher percentage of the nutrients enters your bloodstream instantly, maximizing bioavailability.",
     video: "/video3.mp4",
   },
   {
-    number: "04",
+    
     title: "Feel",
     description: "Experience a simple, modern delivery format designed around everyday convenience. Because of the rapid absorption rate, you will feel the desired effects much faster compared to conventional methods. ThinDiss™ provides a discreet, highly effective, and travel-friendly way to seamlessly manage your daily wellness routine.",
     video: "/video4.mp4",
@@ -101,10 +101,10 @@ const processSteps = [
 ];
 
 const processBgColors = [
-  "#FFF3E0", // Light Orange
-  "#FFEBEE", // Light Pink
-  "#F3E5F5", // Light Purple
-  "#E0F2F1", // Light Teal
+  "#F5CBA7", // Warm Peach
+  "#AED6F1", // Soft Sky Blue
+  "#D2B4DE", // Soft Purple
+  "#A9DFBF", // Mint Green
 ];
 
 
@@ -198,10 +198,10 @@ const WhyThinDiss = () => {
     },
   ];
   const adoptBgColors = [
-  "#FFF7E8", // A Growing Market
-  "#EEF8FF", // Smarter Delivery Technology
-  "#F3F8EE", // Built for Brand Expansion
-];
+    "#FFF7E8", // A Growing Market
+    "#EEF8FF", // Smarter Delivery Technology
+    "#F3F8EE", // Built for Brand Expansion
+  ];
 
   const toggleAdopt = (index) => {
     setOpenAdoptIndex(openAdoptIndex === index ? -1 : index);
@@ -223,10 +223,6 @@ const WhyThinDiss = () => {
 
         <div className="hero-immersive-container">
           <div className="hero-content-right reveal-up">
-            <div className="section-label">
-              <span />
-              <span>WHY THINDISS</span>
-            </div>
 
             <h1>
               A smarter way <br />
@@ -257,9 +253,6 @@ const WhyThinDiss = () => {
       <section className="innovation-section">
         <div className="innovation-header reveal-up">
           <div className="section-label centered">
-            <span />
-            <span>ENGINEERED FOR EXCELLENCE</span>
-            <span />
           </div>
           <h2>Innovation in Every Strip</h2>
         </div>
@@ -372,14 +365,14 @@ const WhyThinDiss = () => {
           WHY ADOPT THIS TECHNOLOGY (ACCORDION & DYNAMIC VISUAL)
       ===================================================== */}
       <section
-  className="why-adopt-section"
-  style={{
-    backgroundColor:
-      openAdoptIndex === -1
-        ? "#FFFFFF"
-        : adoptBgColors[openAdoptIndex],
-  }}
->
+        className="why-adopt-section"
+        style={{
+          backgroundColor:
+            openAdoptIndex === -1
+              ? "#FFFFFF"
+              : adoptBgColors[openAdoptIndex],
+        }}
+      >
         <div className="why-adopt-container">
           <div className="why-adopt-header reveal-up">
             <h2>Why should you adopt this technology?</h2>
