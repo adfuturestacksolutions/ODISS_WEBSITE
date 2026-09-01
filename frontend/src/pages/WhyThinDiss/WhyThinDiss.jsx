@@ -75,25 +75,25 @@ const innovationCards = [
 ========================================================= */
 const processSteps = [
   {
-    
+
     title: "Place",
     description: "Place the strip comfortably on your tongue and let the delivery process begin. Unlike traditional pills or capsules that require water and can be difficult to swallow, our oral strips are designed for ultimate convenience. Simply take one out of its compact packaging and rest it on your tongue anytime, anywhere without any hassle.",
     video: "/video1.mp4",
   },
   {
-    
+
     title: "Dissolve",
     description: "The thin format begins dissolving quickly, creating a simple and convenient experience. Within seconds, our proprietary formulation breaks down seamlessly upon contact with your saliva. There is no gritty residue or unpleasant aftertaste, just a smooth, instant transition that prepares the active ingredients for action.",
     video: "/video2.mp4",
   },
   {
-   
+
     title: "Absorb",
     description: "The active ingredients are delivered directly into your system through advanced oral delivery. By bypassing the harsh acidic environment of the stomach and digestive tract, this sublingual absorption method ensures that a significantly higher percentage of the nutrients enters your bloodstream instantly, maximizing bioavailability.",
     video: "/video3.mp4",
   },
   {
-    
+
     title: "Feel",
     description: "Experience a simple, modern delivery format designed around everyday convenience. Because of the rapid absorption rate, you will feel the desired effects much faster compared to conventional methods. ThinDiss™ provides a discreet, highly effective, and travel-friendly way to seamlessly manage your daily wellness routine.",
     video: "/video4.mp4",
@@ -186,14 +186,14 @@ const WhyThinDiss = () => {
       title: "Smarter Delivery Technology",
       content:
         "ThinDiss™ transforms active ingredients into a convenient oral dissolving format. The thin-film platform is designed to dissolve in the mouth, eliminating the need for water and traditional swallowing. This creates a simple, user-friendly delivery experience while supporting efficient formulation and consistent dosing.",
-      image: "/smart.png",
+      image: "/smartimg.png",
       imageAlt: "Smarter Delivery Technology",
     },
     {
       title: "Built for Brand Expansion",
       content:
         "One technology. Multiple possibilities. ThinDiss™ can be developed across a wide range of wellness and nutraceutical applications, with flexibility in formulations, flavours, dosages and packaging. This gives brands the freedom to create differentiated products for evolving consumer needs.",
-      image: "/brand.png",
+      image: "/build.png",
       imageAlt: "Built for Brand Expansion",
     },
   ];
