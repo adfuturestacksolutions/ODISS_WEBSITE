@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { getProductImageUrl } from "../../utils/imageUtils";
+import { computeProductDetailTheme } from "../../utils/colorUtils";
 
 /**
  * ProductDetailModal - International Standard Product Specification Modal
@@ -8,6 +9,10 @@ import { getProductImageUrl } from "../../utils/imageUtils";
  */
 const ProductDetailModal = ({ product, useTransparentImage = false, onClose }) => {
   if (!product) return null;
+
+  const modalTheme = useMemo(() => {
+    return computeProductDetailTheme(product?.colors);
+  }, [product?.colors]);
 
   const imageUrl = getProductImageUrl(product, useTransparentImage);
   const fallbackUrl = product.images?.[0]?.url;
@@ -26,6 +31,7 @@ const ProductDetailModal = ({ product, useTransparentImage = false, onClose }) =
     <div className="product-modal-backdrop" onClick={onClose}>
       <div
         className="product-modal-container"
+        style={modalTheme}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}

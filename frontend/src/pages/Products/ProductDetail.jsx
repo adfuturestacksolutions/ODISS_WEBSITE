@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { getProductBySlug, getProductsByCategory, getAllProducts } from "../../services/productService";
 import { getProductImageUrl } from "../../utils/imageUtils";
+import { computeProductDetailTheme } from "../../utils/colorUtils";
 import ProductCard from "../../components/products/ProductCard";
 import "../../styles/product-detail.css";
 
 /**
  * ProductDetail - Minimal & Premium Editorial Product Details Page
- * Redesigned with warm luxury palette, shadow-based depth, fluid motion principles,
+ * Redesigned with dynamic packaging color theming, shadow-based depth, fluid motion principles,
  * and high-potency sublingual technology showcase.
  */
 const ProductDetail = () => {
@@ -16,6 +17,11 @@ const ProductDetail = () => {
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
   const product = getProductBySlug(slug);
+
+  // Compute dynamic custom properties for the product details page
+  const pageThemeStyle = useMemo(() => {
+    return computeProductDetailTheme(product?.colors);
+  }, [product?.colors]);
 
   // Scroll to top on slug change
   useEffect(() => {
@@ -75,7 +81,7 @@ const ProductDetail = () => {
         ];
 
   return (
-    <div className="product-detail-page">
+    <div className="product-detail-page" style={pageThemeStyle}>
       <div className="product-detail-container">
         {/* 1. Navigation & Breadcrumb Bar */}
         <div className="product-detail-nav-bar">

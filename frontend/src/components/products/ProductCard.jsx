@@ -1,77 +1,13 @@
 import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { getProductImageUrl } from "../../utils/imageUtils";
-
-/**
- * Utility: Parse 3-digit or 6-digit hex color to {r, g, b}
- */
-const hexToRgb = (hex) => {
-  if (!hex || typeof hex !== "string") return null;
-  let cleanHex = hex.trim().replace(/^#/, "");
-
-  if (cleanHex.length === 3) {
-    cleanHex = cleanHex
-      .split("")
-      .map((c) => c + c)
-      .join("");
-  }
-
-  if (cleanHex.length !== 6) return null;
-
-  const num = parseInt(cleanHex, 16);
-  if (isNaN(num)) return null;
-
-  return {
-    r: (num >> 16) & 255,
-    g: (num >> 8) & 255,
-    b: num & 255,
-  };
-};
-
-/**
- * Utility: Darken a hex color by a percentage (0-100)
- */
-const darkenColor = (hex, percent = 15) => {
-  const rgb = hexToRgb(hex);
-  if (!rgb) return hex;
-  const factor = Math.max(0, Math.min(1, (100 - percent) / 100));
-  const r = Math.round(rgb.r * factor);
-  const g = Math.round(rgb.g * factor);
-  const b = Math.round(rgb.b * factor);
-  return `rgb(${r}, ${g}, ${b})`;
-};
-
-/**
- * Utility: Lighten a hex color by a percentage (0-100)
- */
-const lightenColor = (hex, percent = 10) => {
-  const rgb = hexToRgb(hex);
-  if (!rgb) return hex;
-  const factor = Math.max(0, Math.min(1, percent / 100));
-  const r = Math.round(rgb.r + (255 - rgb.r) * factor);
-  const g = Math.round(rgb.g + (255 - rgb.g) * factor);
-  const b = Math.round(rgb.b + (255 - rgb.b) * factor);
-  return `rgb(${r}, ${g}, ${b})`;
-};
-
-/**
- * Utility: Convert hex to rgba string with specified opacity
- */
-const toRgba = (hex, alpha = 1, fallback = "transparent") => {
-  const rgb = hexToRgb(hex);
-  if (!rgb) return fallback;
-  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
-};
-
-/**
- * Utility: Determine whether text should be dark or white for optimal contrast (YIQ formula)
- */
-const getContrastTextColor = (hex) => {
-  const rgb = hexToRgb(hex);
-  if (!rgb) return "#ffffff";
-  const yiq = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
-  return yiq >= 170 ? "#1a1a1a" : "#ffffff";
-};
+import {
+  hexToRgb,
+  darkenColor,
+  lightenColor,
+  toRgba,
+  getContrastTextColor,
+} from "../../utils/colorUtils";
 
 /**
  * ProductCard - Premium, Minimal, Borderless E-commerce Card
@@ -249,9 +185,6 @@ const ProductCard = ({
       {/* Card Details & Typography */}
       <div className="product-card-body">
         <div className="product-card-info">
-          {product?.productType && (
-            <span className="product-card-type">{product.productType}</span>
-          )}
           <h3 className="product-card-title">{product?.name}</h3>
         </div>
 

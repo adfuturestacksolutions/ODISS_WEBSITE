@@ -269,71 +269,6 @@ const products = [
     publishedAt: "2026-08-30T06:00:00.000Z"
   },
   {
-    _id: "6a8422057ab5284c0d403ac3",
-    slug: "odista-20mg",
-    name: "ODISTA 20MG",
-    productType: "Tadalafil Oral Strips",
-    categorySlug: "vitals-range",
-    category: "6a8418197ab5284c0db7cb75",
-    shortDescription: "Odista 20mg oral strips containing 20mg Tadalafil with a convenient peppermint flavour.",
-    description: "Odista 20mg is an oral dissolving strip formulation containing 20mg Tadalafil, presented in a convenient fast-dissolving strip format with peppermint flavour.",
-    benefits: [
-      "Convenient oral strip format",
-      "Fast-dissolving delivery format",
-      "Easy to carry and use"
-    ],
-    dosage: {
-      value: 20,
-      unit: "mg"
-    },
-    flavors: [
-      "Peppermint"
-    ],
-    servingSize: "1 Strip",
-    servingsPerPack: "30 Strips",
-    packSize: "Box",
-    colors: {
-      main: "#1B0B2B",
-      category: "#003B5C",
-      accent: "#E97903",
-      accent2: "#8B0B52"
-    },
-    images: [
-      {
-        url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1788077817/a60e0345-89e8-4f4a-99d4-1a23a0ac4e75.png",
-        publicId: "",
-        alt: "Odista 20mg Oral Strips",
-        type: "main"
-      }
-    ],
-    ingredients: [
-      {
-        name: "Tadalafil",
-        description: "20mg"
-      }
-    ],
-    isFeatured: false,
-    status: "published",
-    manufacturing: {
-      privateLabel: true,
-      customFormulation: true,
-      minimumOrderQuantity: "",
-      leadTime: "",
-      customizationOptions: []
-    },
-    seo: {
-      metaTitle: "Odista 20mg Oral Strips | ODIS",
-      metaDescription: "Odista 20mg oral strips containing 20mg Tadalafil with a convenient peppermint flavour.",
-      canonicalUrl: "/products/odista-20mg",
-      ogTitle: "Odista 20mg | Oral Strips",
-      ogDescription: "Odista 20mg oral strips containing 20mg Tadalafil with a convenient peppermint flavour.",
-      ogImage: ""
-    },
-    createdAt: "2026-08-30T06:00:00.000Z",
-    updatedAt: "2026-08-30T06:00:00.000Z",
-    publishedAt: "2026-08-30T06:00:00.000Z"
-  },
-  {
     _id: "6a8422067ab5284c0d1368cc",
     slug: "odista-plus-10-20",
     name: "ODISTA PLUS 10/20",
@@ -2745,62 +2680,6 @@ const products = [
       canonicalUrl: "/products/jr-appetma",
       ogTitle: "Jr. APPETMA | Oral Strips",
       ogDescription: "Formulated to support healthy appetite in children.",
-      ogImage: ""
-    },
-    createdAt: "2026-08-30T06:00:00.000Z",
-    updatedAt: "2026-08-30T06:00:00.000Z",
-    publishedAt: "2026-08-30T06:00:00.000Z"
-  },
-  {
-    _id: "6a8422467ab5284c0d74ec73",
-    slug: "jr-liv-d-600iu",
-    name: "JR. LIV-D 600IU",
-    productType: "Kids' Vitamin D Strips",
-    categorySlug: "kids-range",
-    category: "6a8418197ab5284c0db7cb74",
-    shortDescription: "Formulated to support bone and immune health in children with Vitamin D.",
-    description: "Formulated to support bone and immune health in children with Vitamin D.",
-    benefits: [
-      "Supports bone and immune health in children",
-      "Convenient oral strip format",
-      "Fast-dissolving delivery format",
-      "Easy to carry and use"
-    ],
-    dosage: null,
-    flavors: [
-      "Peppermint"
-    ],
-    servingSize: "1 Strip",
-    servingsPerPack: "20 Strips",
-    packSize: "Box",
-    colors: {
-      main: "#031020",
-      accent: "#E7A93B"
-    },
-    images: [
-      {
-        url: "https://res.cloudinary.com/t1hpbvi6/image/upload/v1788087736/2eb75c41-384b-460b-af1f-b8e8456db876.png",
-        publicId: "",
-        alt: "Jr. LIV-D 600IU Oral Strips",
-        type: "main"
-      }
-    ],
-    ingredients: [],
-    isFeatured: false,
-    status: "published",
-    manufacturing: {
-      privateLabel: true,
-      customFormulation: true,
-      minimumOrderQuantity: "",
-      leadTime: "",
-      customizationOptions: []
-    },
-    seo: {
-      metaTitle: "Jr. LIV-D 600IU Oral Strips | ODIS",
-      metaDescription: "Formulated to support bone and immune health in children with Vitamin D.",
-      canonicalUrl: "/products/jr-liv-d-600iu",
-      ogTitle: "Jr. LIV-D 600IU | Oral Strips",
-      ogDescription: "Formulated to support bone and immune health in children with Vitamin D.",
       ogImage: ""
     },
     createdAt: "2026-08-30T06:00:00.000Z",
