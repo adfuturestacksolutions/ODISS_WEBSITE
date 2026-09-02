@@ -34,6 +34,7 @@ const About = () => {
   const containerRef = useIntersectionObserver();
   const [activeCard, setActiveCard] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
+  const [hoveredSide, setHoveredSide] = useState('none');
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -114,33 +115,45 @@ const About = () => {
               <span className="text-gold">Effortless.</span>
             </h1>
             <p className="dissolve-in stagger-2 text-black">
-              ODISS is shaping a smarter approach to oral dissolvable delivery through innovative dissolving strip technology — bringing together science, convenience and precision in a format designed for modern healthcare.
+              <span style={{ display: 'inline-flex', alignItems: 'center', margin: '0 6px', verticalAlign: 'middle' }}><img src="/odiss_logo.png" alt="ODISS" style={{ height: '2.8em', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} /><sup style={{ fontSize: '0.6em', fontWeight: 800, color: '#0f172a', transform: 'translateY(-1.2em)' }}>®</sup></span> is shaping a smarter approach to oral dissolvable delivery through innovative dissolving strip technology — bringing together science, convenience and precision in a format designed for modern healthcare.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 2. MISSION & VISION (Cinematic Video Layout) */}
-      <section className="about-section vision-mission-section bg-cinematic-split">
-        <div className="about-container">
-          <div className="vm-unique-layout cinematic-layout">
-            
-            {/* VISION - LEFT (Warm Gold / Amber) */}
-            <div className="vm-text-block vm-vision dissolve-in stagger-1">
-              <span className="section-label label-vision">Vision</span>
-              <h2>A Future Where Better Delivery Feels Simple.</h2>
-              <p>
-                To help shape the next generation of oral dissolvable delivery by making innovative healthcare formats more accessible, convenient and relevant to everyday life for our international clients and partners.
-              </p>
+      {/* 2. MISSION & VISION (Single Sheet Glassmorphism) */}
+      <section className={`about-section vision-mission-section single-sheet-section bg-cinematic-split hover-state-${hoveredSide}`}>
+        <div className="about-container" style={{ display: 'flex', justifyContent: 'center' }}>
+          
+          <div 
+            className={`single-sheet-glass ${hoveredSide !== 'none' ? 'is-hovered' : ''}`}
+            onMouseLeave={() => setHoveredSide('none')}
+          >
+            {/* Split Background Effects */}
+            <div className="sheet-bg-split left-glow"></div>
+            <div className="sheet-bg-split right-glow"></div>
+
+            {/* Left Side: VISION */}
+            <div 
+              className="sheet-side side-vision"
+              onMouseEnter={() => setHoveredSide('left')}
+            >
+              <div className="side-content dissolve-in stagger-1">
+                <span className="section-label label-vision">Vision</span>
+                <h2>A Future Where Better Delivery Feels Simple.</h2>
+                <p>
+                  To help shape the next generation of oral dissolvable delivery by making innovative healthcare formats more accessible, convenient and relevant to everyday life for our international clients and partners.
+                </p>
+              </div>
             </div>
             
-            {/* CINEMATIC ANIMATION - CENTER */}
-            <div className="vm-video-center peel-up stagger-2">
+            {/* Center: CINEMATIC ANIMATION */}
+            <div className={`sheet-center peel-up stagger-2 ${hoveredSide === 'left' ? 'shift-right' : hoveredSide === 'right' ? 'shift-left' : ''}`}>
               <div className="cinematic-glow"></div>
               
               <div className="cinematic-animation-container">
                 {/* Vision Layer: Golden Amber Network */}
-                <div className="anim-vision-layer">
+                <div className={`anim-vision-layer ${hoveredSide === 'left' ? 'layer-active' : ''}`}>
                   <div className="gold-orb orb-1"></div>
                   <div className="gold-orb orb-2"></div>
                   <div className="gold-orb orb-3"></div>
@@ -149,7 +162,7 @@ const About = () => {
                 </div>
 
                 {/* Mission Layer: Scientific Precision */}
-                <div className="anim-mission-layer">
+                <div className={`anim-mission-layer ${hoveredSide === 'right' ? 'layer-active' : ''}`}>
                   <div className="sage-particle p-1"></div>
                   <div className="sage-particle p-2"></div>
                   <div className="sage-particle p-3"></div>
@@ -167,38 +180,58 @@ const About = () => {
               </div>
             </div>
 
-            {/* MISSION - RIGHT (Soft Sage) */}
-            <div className="vm-text-block vm-mission dissolve-in stagger-3">
-              <span className="section-label label-mission">Mission</span>
-              <h2>Purpose-Driven Precision.</h2>
-              <p>
-                To develop thoughtful oral dissolving strip solutions by bringing together formulation science, technology and manufacturing excellence — creating products that make delivery simpler without compromising on purpose.
-              </p>
+            {/* Right Side: MISSION */}
+            <div 
+              className="sheet-side side-mission"
+              onMouseEnter={() => setHoveredSide('right')}
+            >
+              <div className="side-content dissolve-in stagger-3">
+                <span className="section-label label-mission">Mission</span>
+                <h2>Purpose-Driven Precision.</h2>
+                <p>
+                  To develop thoughtful oral dissolving strip solutions by bringing together formulation science, technology and manufacturing excellence — creating products that make delivery simpler without compromising on purpose.
+                </p>
+              </div>
             </div>
-            
+
           </div>
         </div>
       </section>
 
       {/* 3. QUALITY & GLOBAL VISION */}
+      {/* 3. QUALITY & GLOBAL VISION */}
+      {/* 3. QUALITY & GLOBAL VISION */}
       <section className="about-section bg-soft-blue" style={{ padding: '40px 0' }}>
         <div className="about-container split-grid reverse-mobile" style={{ alignItems: 'center' }}>
           
-          <div className="split-visual strip-slide-right stagger-1" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mixBlendMode: 'multiply' }}>
-            <div style={{ position: 'relative', width: '100%', maxWidth: '550px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'transparent' }}>
+          <div className="split-visual strip-slide-right stagger-1" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            {/* Premium Circular "Lens" Crop: This physically cuts the video into a perfect circle, eliminating the black background entirely while keeping 100% original video colors */}
+            <div style={{ 
+              position: 'relative', 
+              width: '100%', 
+              maxWidth: '380px', 
+              aspectRatio: '1/1', 
+              borderRadius: '50%', 
+              overflow: 'hidden', 
+              boxShadow: '0 20px 40px rgba(0,0,0,0.08), 0 0 0 8px rgba(255,255,255,0.6)', 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              background: '#000'
+            }}>
               <video 
-                src="/globe vedio.mp4" 
+                src="/gl.mp4" 
                 autoPlay 
                 loop 
                 muted 
                 playsInline 
                 style={{ 
-                  objectFit: 'contain', 
+                  objectFit: 'cover', 
                   width: '100%', 
-                  maxHeight: '400px',
+                  height: '100%',
                   border: 'none', 
                   outline: 'none',
-                  filter: 'brightness(1.16) contrast(1.05) saturate(1.2)' // Mathematically pushes the sandal bg (#f5f5dc) to pure white so multiply completely hides it, without burning the globe.
+                  transform: 'scale(1.35)' /* Zoom in so the globe perfectly fills the circle, pushing the black background and watermark completely out of view! */
                 }}
               />
             </div>
@@ -207,7 +240,7 @@ const About = () => {
           <div className="split-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <h2 className="dissolve-in stagger-1" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', marginBottom: '16px', lineHeight: '1.2', color: '#0f172a' }}>Innovation Without Borders.</h2>
             <p className="dissolve-in stagger-2 mb-20" style={{ fontSize: '16px', lineHeight: '1.6', color: '#475569' }}>
-              Healthcare is evolving across borders. ODISS is being built with a global perspective — combining modern oral dissolvable delivery thinking with a commitment to quality, adaptability and long-term innovation.
+              Healthcare is evolving across borders. <span style={{ display: 'inline-flex', alignItems: 'center', margin: '0 6px', verticalAlign: 'middle' }}><img src="/odiss_logo.png" alt="ODISS" style={{ height: '2.8em', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} /><sup style={{ fontSize: '0.6em', fontWeight: 800, color: '#0f172a', transform: 'translateY(-1.2em)' }}>®</sup></span> is being built with a global perspective — combining modern oral dissolvable delivery thinking with a commitment to quality, adaptability and long-term innovation.
             </p>
             
             {/* Highly Compact Layout to Prevent Overflow */}
@@ -300,7 +333,7 @@ const About = () => {
         <div className="about-container text-center dissolve-in">
           <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', marginBottom: '16px', color: '#0f172a' }}>From Insight to Impact.</h2>
           <p style={{ maxWidth: '750px', margin: '0 auto 30px', fontSize: '16px', color: '#475569', lineHeight: '1.6' }}>
-            Every ODISS solution begins with a clear understanding of the need, then moves through disciplined formulation, rigorous refinement and purposeful development to create oral dissolving formats built for real-world use.
+            Every <span style={{ display: 'inline-flex', alignItems: 'center', margin: '0 6px', verticalAlign: 'middle' }}><img src="/odiss_logo.png" alt="ODISS" style={{ height: '2.8em', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} /><sup style={{ fontSize: '0.6em', fontWeight: 800, color: '#0f172a', transform: 'translateY(-1.2em)' }}>®</sup></span> solution begins with a clear understanding of the need, then moves through disciplined formulation, rigorous refinement and purposeful development to create oral dissolving formats built for real-world use.
           </p>
         </div>
 
@@ -489,7 +522,7 @@ const About = () => {
       <section className="about-section text-center cta-section bg-soft-slate">
         <div className="about-container">
           <h2 className="peel-up">The Future of Oral Dissolvable Delivery<br/>Is Taking Shape.</h2>
-          <p className="peel-up stagger-1 mb-40">Explore what ODISS can make possible.</p>
+          <p className="peel-up stagger-1 mb-40">Explore what <span style={{ display: 'inline-flex', alignItems: 'center', margin: '0 6px', verticalAlign: 'middle' }}><img src="/odiss_logo.png" alt="ODISS" style={{ height: '2.8em', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} /><sup style={{ fontSize: '0.6em', fontWeight: 800, color: '#0f172a', transform: 'translateY(-1.2em)' }}>®</sup></span> can make possible.</p>
           <div className="cta-buttons peel-up stagger-2">
             <a href="/products" className="btn-primary">
               EXPLORE PRODUCTS <span>→</span>

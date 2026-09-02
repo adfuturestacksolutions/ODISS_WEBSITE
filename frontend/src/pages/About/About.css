@@ -319,46 +319,114 @@
 }
 
 /* =========================================================
-   VISION & MISSION (CINEMATIC LAYOUT)
-========================================================= */
-.vision-mission-section {
+   VISION & MISSION (SINGLE SHEET GLASSMORPHISM)
+======================================================== */
+.single-sheet-section {
   position: relative;
   overflow: hidden;
-}
-
-.vision-mission-section.bg-cinematic-split {
   background: linear-gradient(135deg, #fdfbf7 0%, #f9f8f4 100%);
+  padding: 100px 0;
+  transition: background 0.8s ease;
 }
 
-.cinematic-layout {
+.single-sheet-section.hover-state-left {
+  background: #fdfaf3;
+}
+
+.single-sheet-section.hover-state-right {
+  background: #f4f9f6;
+}
+
+.single-sheet-glass {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(20px, 3vw, 50px);
+  width: 100%;
+  max-width: 1200px;
+  min-height: 600px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.05),
+    inset 0 0 40px rgba(255, 255, 255, 0.9);
   position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 40px;
+}
+
+/* Background glows inside the sheet */
+.sheet-bg-split {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.sheet-bg-split.left-glow {
+  left: 0;
+  background: radial-gradient(circle at left center, rgba(217, 155, 47, 0.08) 0%, transparent 70%);
+}
+
+.sheet-bg-split.right-glow {
+  right: 0;
+  background: radial-gradient(circle at right center, rgba(121, 149, 133, 0.12) 0%, transparent 70%);
+}
+
+.is-hovered .sheet-bg-split {
+  opacity: 1;
 }
 
 /* Base Text Block */
-.vm-text-block {
-  flex: 1 1 0;
-  max-width: 420px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  padding: clamp(32px, 3.8vw, 52px) clamp(26px, 3.2vw, 42px);
-  border-radius: 24px;
+.sheet-side {
+  flex: 1;
+  max-width: 380px;
   position: relative;
   z-index: 2;
+  padding: 40px;
+  opacity: 0.7;
+  transform: scale(0.95);
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: default;
+  border-radius: 24px;
+}
+
+.single-sheet-glass:not(.is-hovered) .sheet-side {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hover-state-left .side-vision {
+  opacity: 1;
+  transform: scale(1.05);
+}
+.hover-state-left .side-mission {
+  opacity: 0.3;
+  transform: scale(0.9);
+}
+
+.hover-state-right .side-mission {
+  opacity: 1;
+  transform: scale(1.05);
+}
+.hover-state-right .side-vision {
+  opacity: 0.3;
+  transform: scale(0.9);
+}
+
+.side-content {
   text-align: left;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.vm-text-block:hover {
-  transform: translateY(-5px);
-}
-
-.vm-text-block h2 {
+.sheet-side h2 {
   font-family: var(--font-serif);
   font-size: clamp(28px, 2.6vw, 36px);
   font-weight: 700;
@@ -368,7 +436,7 @@
   margin: 0 0 18px;
 }
 
-.vm-text-block p {
+.sheet-side p {
   font-family: var(--font-main);
   font-size: clamp(15px, 1.1vw, 16.5px);
   line-height: 1.75;
@@ -377,19 +445,9 @@
   margin: 0;
 }
 
-/* Vision Block Styling */
-.vm-vision {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(217, 155, 47, 0.08) 100%);
-  border: 1px solid rgba(217, 155, 47, 0.15);
-  box-shadow: 0 20px 45px rgba(217, 155, 47, 0.08);
-}
-.vm-vision:hover {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(217, 155, 47, 0.12) 100%);
-  border: 1px solid rgba(217, 155, 47, 0.25);
-  box-shadow: 0 30px 60px rgba(217, 155, 47, 0.12);
-}
+/* Labels */
 .label-vision {
-  color: #d99b2f !important; /* ODISS Gold */
+  color: #d99b2f !important;
   font-family: var(--font-main);
   font-size: 13px;
   font-weight: 800;
@@ -399,19 +457,8 @@
   display: inline-block;
 }
 
-/* Mission Block Styling */
-.vm-mission {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(121, 149, 133, 0.12) 100%);
-  border: 1px solid rgba(121, 149, 133, 0.15);
-  box-shadow: 0 20px 45px rgba(121, 149, 133, 0.12);
-}
-.vm-mission:hover {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(121, 149, 133, 0.18) 100%);
-  border: 1px solid rgba(121, 149, 133, 0.25);
-  box-shadow: 0 30px 60px rgba(121, 149, 133, 0.18);
-}
 .label-mission {
-  color: #799585 !important; /* Soft Sage */
+  color: #799585 !important;
   font-family: var(--font-main);
   font-size: 13px;
   font-weight: 800;
@@ -422,11 +469,19 @@
 }
 
 /* Center Animation Styling */
-.vm-video-center {
+.sheet-center {
   flex: 1.2 1 0;
   max-width: 550px;
   position: relative;
-  z-index: 1;
+  z-index: 5;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sheet-center.shift-right {
+  transform: translateX(30px) scale(0.95);
+}
+.sheet-center.shift-left {
+  transform: translateX(-30px) scale(0.95);
 }
 
 .cinematic-animation-container {
@@ -439,7 +494,17 @@
   position: relative;
   overflow: hidden;
   z-index: 2;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease, border-color 0.6s ease;
+}
+
+.hover-state-left .cinematic-animation-container {
+  box-shadow: 0 25px 60px rgba(217, 155, 47, 0.2);
+  border-color: #fdfaf3;
+}
+
+.hover-state-right .cinematic-animation-container {
+  box-shadow: 0 25px 60px rgba(121, 149, 133, 0.2);
+  border-color: #f4f9f6;
 }
 
 .cinematic-animation-container:hover {
@@ -454,6 +519,20 @@
   width: 55%;
   height: 100%;
   pointer-events: none;
+  transition: opacity 0.6s ease;
+  opacity: 0.3;
+}
+
+.single-sheet-glass:not(.is-hovered) .anim-vision-layer {
+  opacity: 1;
+}
+
+.anim-vision-layer.layer-active {
+  opacity: 1 !important;
+}
+
+.hover-state-right .anim-vision-layer {
+  opacity: 0;
 }
 
 .gold-orb {
@@ -488,6 +567,20 @@
   width: 55%;
   height: 100%;
   pointer-events: none;
+  transition: opacity 0.6s ease;
+  opacity: 0.3;
+}
+
+.single-sheet-glass:not(.is-hovered) .anim-mission-layer {
+  opacity: 1;
+}
+
+.anim-mission-layer.layer-active {
+  opacity: 1 !important;
+}
+
+.hover-state-left .anim-mission-layer {
+  opacity: 0;
 }
 
 .sage-particle {
@@ -676,7 +769,7 @@
 }
 
 .diff-center-video {
-  width: clamp(220px, 35vh, 320px);
+  width: clamp(260px, 42vh, 400px);
   z-index: 10;
   border-radius: 24px;
   position: relative;
