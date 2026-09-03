@@ -33,6 +33,7 @@ const useIntersectionObserver = () => {
 const About = () => {
   const containerRef = useIntersectionObserver();
   const [activeCard, setActiveCard] = useState(1);
+  const [activeDiffCard, setActiveDiffCard] = useState(0); // 0 = Default, 1-4 = Specific cards
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredSide, setHoveredSide] = useState('none');
 
@@ -283,46 +284,75 @@ const About = () => {
 
 
       {/* 4. THE ODISS DIFFERENCE (Thin By Design) */}
-      <section className="about-section text-center about-difference bg-soft-peach">
-        <div className="about-container">
-          <h2 className="dissolve-in stagger-1">Thin by <span className="shimmer-purple">Design.</span><br/>Thoughtful by <span className="shimmer-ruby">Nature.</span></h2>
-          
-          <div className="diff-visual-wrapper dissolve-in stagger-2">
-            <div className="center-video-container">
-              {/* Central Video */}
-              <video 
-                src="/Create_a_premium_professional.mp4" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline 
-                className="diff-center-video animated-strip-image"
-                style={{ objectFit: 'cover', aspectRatio: '1/1', filter: 'hue-rotate(280deg) saturate(1.5)' }}
-              />
-            </div>
+      <section className="about-section text-center about-difference bg-cinematic-split">
+        <div className="about-container" style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className="diff-sheet" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(20px)', width: '100%', maxWidth: '1100px', padding: '50px 30px', borderRadius: '30px', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', border: '1px solid rgba(255,255,255,0.4)' }}>
+            <h2 className="dissolve-in stagger-1">Thin by <span className="text-aqua">Design</span>,<br/>Thoughtful by <span className="text-lavender">Nature</span>.</h2>
+            <p className="dissolve-in stagger-2" style={{ marginTop: '15px', color: '#64748b', fontSize: '1.1rem' }}>
+              Every layer. Every detail. Engineered for a better everyday experience.
+            </p>
             
-            <div className="diff-pulse diff-pulse-1"></div>
-            <div className="diff-feature diff-f1 peel-up stagger-2">
-              <h4 className="text-blue">WATER-FREE</h4>
-              <p>Designed for convenient oral use without depending on water.</p>
-            </div>
+            <div className="diff-visual-wrapper dissolve-in stagger-3" style={{ transform: 'scale(0.85)', transformOrigin: 'top center' }}>
+              <div className="center-video-container" style={{ position: 'relative', width: 'clamp(260px, 42vh, 400px)', aspectRatio: '1/1', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                {/* Default Video */}
+                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 0 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(280deg) saturate(1.5)', opacity: activeDiffCard === 0 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+                
+                {/* Card 1 Video */}
+                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 1 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(180deg) saturate(1.5)', opacity: activeDiffCard === 1 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+                
+                {/* Card 2 Video */}
+                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 2 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(90deg) saturate(1.5)', opacity: activeDiffCard === 2 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
 
-            <div className="diff-pulse diff-pulse-2"></div>
-            <div className="diff-feature diff-f2 peel-up stagger-3">
-              <h4 className="text-peach">FAST DISSOLUTION</h4>
-              <p>A thin-film format designed to dissolve quickly in the mouth.</p>
-            </div>
+                {/* Card 3 Video */}
+                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 3 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(0deg) saturate(1.5)', opacity: activeDiffCard === 3 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
 
-            <div className="diff-pulse diff-pulse-3"></div>
-            <div className="diff-feature diff-f3 peel-up stagger-4">
-              <h4 className="text-gold">PORTABLE</h4>
-              <p>Slim, lightweight and easy to carry wherever you go.</p>
-            </div>
+                {/* Card 4 Video */}
+                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 4 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(45deg) saturate(1.5)', opacity: activeDiffCard === 4 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+              </div>
+              
+              <div className="diff-pulse diff-pulse-1"></div>
+              <div 
+                className={`diff-feature diff-f1 peel-up stagger-4 ${activeDiffCard === 1 ? 'active' : ''}`}
+                onClick={() => setActiveDiffCard(1)}
+                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 1 ? '1px solid #14b8a6' : '1px solid rgba(243, 182, 63, 0.2)' }}
+              >
+                <img src="/icons/premium/water_free.jpg" alt="Water-Free Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
+                <h4 className="text-blue">WATER-FREE</h4>
+                <p>Designed for convenient oral use without the need for water.</p>
+              </div>
 
-            <div className="diff-pulse diff-pulse-4"></div>
-            <div className="diff-feature diff-f4 peel-up stagger-5">
-              <h4 className="text-green">SIMPLE EXPERIENCE</h4>
-              <p>A delivery format built around everyday convenience.</p>
+              <div className="diff-pulse diff-pulse-2"></div>
+              <div 
+                className={`diff-feature diff-f2 peel-up stagger-5 ${activeDiffCard === 2 ? 'active' : ''}`}
+                onClick={() => setActiveDiffCard(2)}
+                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 2 ? '1px solid #14b8a6' : '1px solid rgba(243, 182, 63, 0.2)' }}
+              >
+                <img src="/icons/premium/thin_portable.jpg" alt="Thin & Portable Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
+                <h4 className="text-peach">THIN & PORTABLE</h4>
+                <p>A slim, lightweight format designed to fit naturally into everyday routines.</p>
+              </div>
+
+              <div className="diff-pulse diff-pulse-3"></div>
+              <div 
+                className={`diff-feature diff-f3 peel-up stagger-6 ${activeDiffCard === 3 ? 'active' : ''}`}
+                onClick={() => setActiveDiffCard(3)}
+                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 3 ? '1px solid #8b5cf6' : '1px solid rgba(243, 182, 63, 0.2)' }}
+              >
+                <img src="/icons/premium/dissolvable.jpg" alt="Dissolvable By Design Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
+                <h4 className="text-gold">DISSOLVABLE BY DESIGN</h4>
+                <p>A thin-film format designed to dissolve in the mouth.</p>
+              </div>
+
+              <div className="diff-pulse diff-pulse-4"></div>
+              <div 
+                className={`diff-feature diff-f4 peel-up stagger-7 ${activeDiffCard === 4 ? 'active' : ''}`}
+                onClick={() => setActiveDiffCard(4)}
+                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 4 ? '1px solid #10b981' : '1px solid rgba(243, 182, 63, 0.2)' }}
+              >
+                <img src="/icons/premium/thoughtful.jpg" alt="Thoughtful By Design Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
+                <h4 className="text-green">THOUGHTFUL BY DESIGN</h4>
+                <p>From formulation to format, every detail is considered with purpose.</p>
+              </div>
             </div>
           </div>
         </div>
