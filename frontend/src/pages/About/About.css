@@ -28,7 +28,6 @@
   position: relative;
   min-height: 100vh;
   width: 100%;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -185,12 +184,13 @@
 
 .hero-background-video {
   position: absolute;
-  top: -15%;
-  left: -15%;
-  width: 130%;
-  height: 130%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: top left;
+  object-position: center;
+  transform: scale(1.35); /* Increased zoom to fully crop out the watermark */
   z-index: 0;
 }
 
@@ -914,21 +914,29 @@
 .diff-f1 {
   top: -30px;
   left: clamp(-30px, -3vw, 0px);
+  background: #bfdbfe; /* Very Light Blue */
+  border-color: #93c5fd;
 }
 
 .diff-f2 {
   top: -30px;
   right: clamp(-30px, -3vw, 0px);
+  background: #fecdd3; /* Very Light Peach/Rose */
+  border-color: #fda4af;
 }
 
 .diff-f3 {
   bottom: -30px;
   left: clamp(-30px, -3vw, 0px);
+  background: #fde68a; /* Very Light Gold/Amber */
+  border-color: #fcd34d;
 }
 
 .diff-f4 {
   bottom: -30px;
   right: clamp(-30px, -3vw, 0px);
+  background: #bbf7d0; /* Very Light Green */
+  border-color: #86efac;
 }
 
 /* Connecting Pulses */

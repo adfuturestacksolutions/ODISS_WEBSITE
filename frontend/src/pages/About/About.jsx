@@ -180,32 +180,12 @@ const About = () => {
             <div className={`sheet-center peel-up stagger-2 ${hoveredSide === 'left' ? 'shift-right' : hoveredSide === 'right' ? 'shift-left' : ''}`}>
               <div className="cinematic-glow"></div>
               
-              <div className="cinematic-animation-container">
-                {/* Vision Layer: Golden Amber Network */}
-                <div className={`anim-vision-layer ${hoveredSide === 'left' ? 'layer-active' : ''}`}>
-                  <div className="gold-orb orb-1"></div>
-                  <div className="gold-orb orb-2"></div>
-                  <div className="gold-orb orb-3"></div>
-                  <div className="gold-line line-1"></div>
-                  <div className="gold-line line-2"></div>
-                </div>
-
-                {/* Mission Layer: Scientific Precision */}
-                <div className={`anim-mission-layer ${hoveredSide === 'right' ? 'layer-active' : ''}`}>
-                  <div className="sage-particle p-1"></div>
-                  <div className="sage-particle p-2"></div>
-                  <div className="sage-particle p-3"></div>
-                  <div className="sage-particle p-4"></div>
-                  <div className="sage-droplet drop-1"></div>
-                  <div className="sage-droplet drop-2"></div>
-                </div>
-
-                {/* Center Layer: Oral Dissolving Film */}
-                <div className="anim-center-layer">
-                  <div className="odf-film">
-                    <div className="odf-sheen"></div>
-                  </div>
-                </div>
+              <div className="cinematic-animation-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', borderRadius: '24px' }}>
+                <img 
+                  src="/vision_mission_center.png" 
+                  alt="Vision and Mission" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.1)' }} 
+                />
               </div>
             </div>
 
@@ -321,19 +301,19 @@ const About = () => {
             <div className="diff-visual-wrapper dissolve-in stagger-3" style={{ transform: 'scale(0.85)', transformOrigin: 'top center' }}>
               <div className="center-video-container" style={{ position: 'relative', width: 'clamp(260px, 42vh, 400px)', aspectRatio: '1/1', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', borderRadius: '24px' }}>
                 {/* Default Video */}
-                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 0 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 0 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 0 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 0 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(2.0)' }} />
                 
                 {/* Card 1 Video */}
-                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 1 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 1 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 1 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 1 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(2.0)' }} />
                 
                 {/* Card 2 Video */}
-                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 2 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 2 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 2 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 2 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(2.0)' }} />
 
                 {/* Card 3 Video */}
-                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 3 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 3 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 3 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 3 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(2.0)' }} />
 
                 {/* Card 4 Video */}
-                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 4 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 4 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 4 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 4 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(2.0)' }} />
               </div>
               
               <div className="diff-pulse diff-pulse-1"></div>
@@ -342,8 +322,8 @@ const About = () => {
                 onClick={() => setActiveDiffCard(1)}
               >
                 <img src="/icons/premium/water_free.jpg" alt="Water-Free Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
-                <h4 className="text-blue">WATER-FREE</h4>
-                <p>Designed for convenient oral use without the need for water.</p>
+                <h4 style={{ color: '#0f172a' }}>WATER-FREE</h4>
+                <p style={{ color: '#334155' }}>Designed for convenient oral use without the need for water.</p>
               </div>
 
               <div className="diff-pulse diff-pulse-2"></div>
@@ -352,8 +332,8 @@ const About = () => {
                 onClick={() => setActiveDiffCard(2)}
               >
                 <img src="/icons/premium/thin_portable.jpg" alt="Thin & Portable Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
-                <h4 className="text-peach">THIN & PORTABLE</h4>
-                <p>A slim, lightweight format designed to fit naturally into everyday routines.</p>
+                <h4 style={{ color: '#0f172a' }}>THIN & PORTABLE</h4>
+                <p style={{ color: '#334155' }}>A slim, lightweight format designed to fit naturally into everyday routines.</p>
               </div>
 
               <div className="diff-pulse diff-pulse-3"></div>
@@ -362,8 +342,8 @@ const About = () => {
                 onClick={() => setActiveDiffCard(3)}
               >
                 <img src="/icons/premium/fast_seamless.jpg" alt="Fast Seamless Use Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
-                <h4 className="text-gold">FAST, SEAMLESS USE</h4>
-                <p>A simple format designed to fit naturally into everyday moments, with no preparation or complicated steps.</p>
+                <h4 style={{ color: '#0f172a' }}>FAST, SEAMLESS USE</h4>
+                <p style={{ color: '#334155' }}>A simple format designed to fit naturally into everyday moments, with no preparation or complicated steps.</p>
               </div>
 
               <div className="diff-pulse diff-pulse-4"></div>
@@ -372,8 +352,8 @@ const About = () => {
                 onClick={() => setActiveDiffCard(4)}
               >
                 <img src="/icons/premium/everyday_wellness.jpg" alt="Everyday Wellness Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
-                <h4 className="text-green">EVERYDAY WELLNESS</h4>
-                <p>Thoughtfully developed to make consistent wellness simpler, more convenient and more natural.</p>
+                <h4 style={{ color: '#0f172a' }}>EVERYDAY WELLNESS</h4>
+                <p style={{ color: '#334155' }}>Thoughtfully developed to make consistent wellness simpler, more convenient and more natural.</p>
               </div>
             </div>
           </div>
@@ -519,9 +499,9 @@ const About = () => {
             >
               <div className="cf-media">
                 <img 
-                  src="/about_hero_dynamic.jpg" 
+                  src="/final_uncompromising.jpg" 
                   alt="Uncompromising Quality" 
-                  style={{ filter: 'hue-rotate(-30deg) saturate(1.2)' }} 
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }} 
                 />
               </div>
               <div className="cf-content">
@@ -536,9 +516,9 @@ const About = () => {
             >
               <div className="cf-media">
                 <img 
-                  src="/new_pillar_patient_1787833063887.jpg" 
+                  src="/final_patient_centricity.jpg" 
                   alt="Patient-Centricity" 
-                  style={{ objectPosition: 'center center' }}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
               </div>
               <div className="cf-content">
@@ -553,9 +533,9 @@ const About = () => {
             >
               <div className="cf-media">
                 <img 
-                  src="/strip_blue.jpg" 
+                  src="/final_smarter_delivery.jpg" 
                   alt="Smarter Delivery" 
-                  style={{ filter: 'hue-rotate(20deg) saturate(1.1)' }}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
               </div>
               <div className="cf-content">
@@ -570,9 +550,9 @@ const About = () => {
             >
               <div className="cf-media">
                 <img 
-                  src="/strip_amber.jpg" 
+                  src="/final_consistent.jpg" 
                   alt="Consistent Performance" 
-                  style={{ filter: 'saturate(1.2)' }}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 />
               </div>
               <div className="cf-content">
