@@ -36,7 +36,35 @@ const About = () => {
   const [activeDiffCard, setActiveDiffCard] = useState(0); // 0 = Default, 1-4 = Specific cards
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredSide, setHoveredSide] = useState('none');
+  const [activeApproachNode, setActiveApproachNode] = useState(1);
+  const approachSectionRef = useRef(null);
 
+  // Auto-advance timeline
+  useEffect(() => {
+    let interval;
+    if (activeApproachNode < 4) {
+      interval = setTimeout(() => {
+        setActiveApproachNode((prev) => prev + 1);
+      }, 4000); // 4 seconds delay for each step
+    }
+    return () => clearTimeout(interval);
+  }, [activeApproachNode]);
+
+  // Reset timeline on scroll into view
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveApproachNode(1);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (approachSectionRef.current) {
+      observer.observe(approachSectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
@@ -105,18 +133,18 @@ const About = () => {
           playsInline 
           className="hero-background-video" 
         >
-          <source src="/Create_a_premium_cinematic_BAC.mp4" type="video/mp4" />
+          <source src="/Create_product_commercial_video_202609021443.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        
-        <div className="hero-content-left">
+        <div className="hero-video-overlay"></div>
+        <div className="hero-content-center">
           <div className="hero-content">
-            <h1 className="dissolve-in stagger-1 text-black">
+            <h1 className="dissolve-in stagger-1 text-white">
               Making Oral Dissolvable Delivery<br />
-              <span className="text-gold">Effortless.</span>
+              <span className="text-premium-gradient">Effortless.</span>
             </h1>
-            <p className="dissolve-in stagger-2 text-black">
-              <span style={{ display: 'inline-flex', alignItems: 'center', margin: '0 6px', verticalAlign: 'middle' }}><img src="/odiss_logo.png" alt="ODISS" style={{ height: '2.8em', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} /><sup style={{ fontSize: '0.6em', fontWeight: 800, color: '#0f172a', transform: 'translateY(-1.2em)' }}>®</sup></span> is shaping a smarter approach to oral dissolvable delivery through innovative dissolving strip technology — bringing together science, convenience and precision in a format designed for modern healthcare.
+            <p className="dissolve-in stagger-2 text-white">
+              <span style={{ display: 'inline-flex', alignItems: 'center', margin: '0 6px', verticalAlign: 'middle' }}><img src="/odiss_logo.png" alt="ODISS" style={{ height: '2.8em', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0px 0px 8px rgba(255,255,255,0.9))' }} /><sup style={{ fontSize: '0.6em', fontWeight: 800, color: '#000', transform: 'translateY(-1.2em)' }}>®</sup></span> is shaping a smarter approach to oral dissolvable delivery through innovative dissolving strip technology — bringing together science, convenience and precision in a format designed for modern healthcare.
             </p>
           </div>
         </div>
@@ -286,72 +314,66 @@ const About = () => {
       {/* 4. THE ODISS DIFFERENCE (Thin By Design) */}
       <section className="about-section text-center about-difference bg-cinematic-split">
         <div className="about-container" style={{ display: 'flex', justifyContent: 'center' }}>
-          <div className="diff-sheet" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(20px)', width: '100%', maxWidth: '1100px', padding: '50px 30px', borderRadius: '30px', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', border: '1px solid rgba(255,255,255,0.4)' }}>
+          <div className="diff-sheet" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(241, 245, 249, 0.6)', backdropFilter: 'blur(20px)', width: '100%', maxWidth: '1100px', padding: '50px 30px', borderRadius: '30px', boxShadow: '0 20px 50px rgba(0,0,0,0.05)', border: '1px solid rgba(255,255,255,0.8)' }}>
             <h2 className="dissolve-in stagger-1">Thin by <span className="text-aqua">Design</span>,<br/>Thoughtful by <span className="text-lavender">Nature</span>.</h2>
-            <p className="dissolve-in stagger-2" style={{ marginTop: '15px', color: '#64748b', fontSize: '1.1rem' }}>
-              Every layer. Every detail. Engineered for a better everyday experience.
-            </p>
+
             
             <div className="diff-visual-wrapper dissolve-in stagger-3" style={{ transform: 'scale(0.85)', transformOrigin: 'top center' }}>
-              <div className="center-video-container" style={{ position: 'relative', width: 'clamp(260px, 42vh, 400px)', aspectRatio: '1/1', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="center-video-container" style={{ position: 'relative', width: 'clamp(260px, 42vh, 400px)', aspectRatio: '1/1', display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', borderRadius: '24px' }}>
                 {/* Default Video */}
-                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 0 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(280deg) saturate(1.5)', opacity: activeDiffCard === 0 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 0 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 0 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
                 
                 {/* Card 1 Video */}
-                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 1 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(180deg) saturate(1.5)', opacity: activeDiffCard === 1 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 1 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 1 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
                 
                 {/* Card 2 Video */}
-                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 2 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(90deg) saturate(1.5)', opacity: activeDiffCard === 2 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 2 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 2 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
 
                 {/* Card 3 Video */}
-                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 3 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(0deg) saturate(1.5)', opacity: activeDiffCard === 3 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 3 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 3 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
 
                 {/* Card 4 Video */}
-                <video src="/Create_a_premium_professional.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 4 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', filter: 'hue-rotate(45deg) saturate(1.5)', opacity: activeDiffCard === 4 ? 1 : 0, transition: 'opacity 600ms ease-in-out' }} />
+                <video src="/Animate_thin_film_technology_video_202609030638.mp4" autoPlay loop muted playsInline className={`diff-center-video crossfade-video ${activeDiffCard === 4 ? 'active' : ''}`} style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '24px', opacity: activeDiffCard === 4 ? 1 : 0, transition: 'opacity 600ms ease-in-out', transform: 'scale(1.65)' }} />
               </div>
               
               <div className="diff-pulse diff-pulse-1"></div>
               <div 
-                className={`diff-feature diff-f1 peel-up stagger-4 ${activeDiffCard === 1 ? 'active' : ''}`}
+                className={`diff-feature diff-f1 ${activeDiffCard === 1 ? 'active' : ''}`}
                 onClick={() => setActiveDiffCard(1)}
-                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 1 ? '1px solid #14b8a6' : '1px solid rgba(243, 182, 63, 0.2)' }}
               >
-                <img src="/icons/premium/water_free.jpg" alt="Water-Free Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
+                <img src="/icons/premium/water_free.jpg" alt="Water-Free Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
                 <h4 className="text-blue">WATER-FREE</h4>
                 <p>Designed for convenient oral use without the need for water.</p>
               </div>
 
               <div className="diff-pulse diff-pulse-2"></div>
               <div 
-                className={`diff-feature diff-f2 peel-up stagger-5 ${activeDiffCard === 2 ? 'active' : ''}`}
+                className={`diff-feature diff-f2 ${activeDiffCard === 2 ? 'active' : ''}`}
                 onClick={() => setActiveDiffCard(2)}
-                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 2 ? '1px solid #14b8a6' : '1px solid rgba(243, 182, 63, 0.2)' }}
               >
-                <img src="/icons/premium/thin_portable.jpg" alt="Thin & Portable Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
+                <img src="/icons/premium/thin_portable.jpg" alt="Thin & Portable Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
                 <h4 className="text-peach">THIN & PORTABLE</h4>
                 <p>A slim, lightweight format designed to fit naturally into everyday routines.</p>
               </div>
 
               <div className="diff-pulse diff-pulse-3"></div>
               <div 
-                className={`diff-feature diff-f3 peel-up stagger-6 ${activeDiffCard === 3 ? 'active' : ''}`}
+                className={`diff-feature diff-f3 ${activeDiffCard === 3 ? 'active' : ''}`}
                 onClick={() => setActiveDiffCard(3)}
-                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 3 ? '1px solid #8b5cf6' : '1px solid rgba(243, 182, 63, 0.2)' }}
               >
-                <img src="/icons/premium/dissolvable.jpg" alt="Dissolvable By Design Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
-                <h4 className="text-gold">DISSOLVABLE BY DESIGN</h4>
-                <p>A thin-film format designed to dissolve in the mouth.</p>
+                <img src="/icons/premium/fast_seamless.jpg" alt="Fast Seamless Use Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
+                <h4 className="text-gold">FAST, SEAMLESS USE</h4>
+                <p>A simple format designed to fit naturally into everyday moments, with no preparation or complicated steps.</p>
               </div>
 
               <div className="diff-pulse diff-pulse-4"></div>
               <div 
-                className={`diff-feature diff-f4 peel-up stagger-7 ${activeDiffCard === 4 ? 'active' : ''}`}
+                className={`diff-feature diff-f4 ${activeDiffCard === 4 ? 'active' : ''}`}
                 onClick={() => setActiveDiffCard(4)}
-                style={{ cursor: 'pointer', transition: 'all 0.3s ease', border: activeDiffCard === 4 ? '1px solid #10b981' : '1px solid rgba(243, 182, 63, 0.2)' }}
               >
-                <img src="/icons/premium/thoughtful.jpg" alt="Thoughtful By Design Icon" style={{ width: '48px', height: '48px', objectFit: 'cover', borderRadius: '8px', marginBottom: '12px', display: 'block', border: '1px solid #e2e8f0', mixBlendMode: 'multiply' }} />
-                <h4 className="text-green">THOUGHTFUL BY DESIGN</h4>
-                <p>From formulation to format, every detail is considered with purpose.</p>
+                <img src="/icons/premium/everyday_wellness.jpg" alt="Everyday Wellness Icon" style={{ width: '64px', height: '64px', objectFit: 'cover', borderRadius: '50%', marginBottom: '15px', display: 'block', border: '2px solid #fff', boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }} />
+                <h4 className="text-green">EVERYDAY WELLNESS</h4>
+                <p>Thoughtfully developed to make consistent wellness simpler, more convenient and more natural.</p>
               </div>
             </div>
           </div>
@@ -359,28 +381,35 @@ const About = () => {
       </section>
 
       {/* 4.5 OUR APPROACH (Horizontal Timeline) */}
-      <section className="about-section approach-section bg-soft-blue">
-        <div className="about-container text-center dissolve-in">
-          <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', marginBottom: '16px', color: '#0f172a' }}>From Insight to Impact.</h2>
+      <section className="about-section approach-section bg-soft-blue" ref={approachSectionRef}>
+        <div className="about-container text-center dissolve-in" style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '1200px', padding: '50px 30px' }}>
+            <h2 style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', marginBottom: '16px', color: '#0f172a' }}>From Insight to Impact.</h2>
           <p style={{ maxWidth: '750px', margin: '0 auto 30px', fontSize: '16px', color: '#475569', lineHeight: '1.6' }}>
             Every <span style={{ display: 'inline-flex', alignItems: 'center', margin: '0 6px', verticalAlign: 'middle' }}><img src="/odiss_logo.png" alt="ODISS" style={{ height: '2.8em', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} /><sup style={{ fontSize: '0.6em', fontWeight: 800, color: '#0f172a', transform: 'translateY(-1.2em)' }}>®</sup></span> solution begins with a clear understanding of the need, then moves through disciplined formulation, rigorous refinement and purposeful development to create oral dissolving formats built for real-world use.
           </p>
-        </div>
 
         <div className="approach-timeline-container dissolve-in stagger-2">
           {/* Continuous elegant line */}
-          <div className="approach-line"></div>
+          <div className="approach-line">
+            <div 
+              className="approach-line-progress" 
+              style={{ width: `${(activeApproachNode - 1) * 33.33}%` }}
+            ></div>
+          </div>
 
           <div className="approach-nodes">
             
             {/* 01 DISCOVER */}
-            <div className="approach-node">
+            <div 
+              className={`approach-node ${activeApproachNode === 1 ? 'active' : activeApproachNode > 1 ? 'unlocked' : 'locked'}`}
+              onClick={() => { if (activeApproachNode === 1) setActiveApproachNode(2); }}
+            >
               <div className="peel-up stagger-2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
                 <div className="node-marker gold-marker">
                   <div className="node-visual-wrapper">
                     <img src="/pillar_patient_1787832190133.jpg" alt="Discover" className="node-visual" />
                   </div>
-                  <span className="node-number">01</span>
                 </div>
                 <div className="node-content">
                   <h4>Discover</h4>
@@ -390,13 +419,15 @@ const About = () => {
             </div>
 
             {/* 02 FORMULATE */}
-            <div className="approach-node">
+            <div 
+              className={`approach-node ${activeApproachNode === 2 ? 'active' : activeApproachNode > 2 ? 'unlocked' : 'locked'}`}
+              onClick={() => { if (activeApproachNode === 2) setActiveApproachNode(3); }}
+            >
               <div className="peel-up stagger-3" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
                 <div className="node-marker amber-marker">
                   <div className="node-visual-wrapper">
                     <img src="/strip_dissolve.jpg" alt="Formulate" className="node-visual" />
                   </div>
-                  <span className="node-number">02</span>
                 </div>
                 <div className="node-content">
                   <h4>Formulate</h4>
@@ -406,13 +437,15 @@ const About = () => {
             </div>
 
             {/* 03 VALIDATE */}
-            <div className="approach-node">
+            <div 
+              className={`approach-node ${activeApproachNode === 3 ? 'active' : activeApproachNode > 3 ? 'unlocked' : 'locked'}`}
+              onClick={() => { if (activeApproachNode === 3) setActiveApproachNode(4); }}
+            >
               <div className="peel-up stagger-4" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
                 <div className="node-marker coral-marker">
                   <div className="node-visual-wrapper">
                     <img src="/pillar_quality_1787832172716.jpg" alt="Validate" className="node-visual" />
                   </div>
-                  <span className="node-number">03</span>
                 </div>
                 <div className="node-content">
                   <h4>Validate</h4>
@@ -422,22 +455,26 @@ const About = () => {
             </div>
 
             {/* 04 ADVANCE */}
-            <div className="approach-node">
+            <div 
+              className={`approach-node ${activeApproachNode === 4 ? 'active' : activeApproachNode > 4 ? 'unlocked' : 'locked'}`}
+              onClick={() => { if (activeApproachNode === 4) setActiveApproachNode(1); /* Loop back or just stay */ }}
+            >
               <div className="peel-up stagger-5" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
                 <div className="node-marker sage-marker">
                   <div className="node-visual-wrapper">
                     <img src="/global_reach_mild.jpg" alt="Advance" className="node-visual" />
                   </div>
-                  <span className="node-number">04</span>
                 </div>
                 <div className="node-content">
                   <h4>Advance</h4>
-                  <p>Refined solutions move forward with a focus on scalability, practical application and the evolving needs of modern healthcare.</p>
+                  <p>Refined solutions move forward with a focus on scalability, practical application and long-term value.</p>
                 </div>
               </div>
             </div>
 
           </div>
+        </div>
+        </div>
         </div>
       </section>
 
